@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Contact;
 use App\BasicInfo;
+use App\Showcase;
+use App\Category;
+use App\ShowCat;
 
 class CyberController extends Controller
 {
@@ -12,6 +15,18 @@ class CyberController extends Controller
     	$basic = BasicInfo::first();
     	return view('landing-page')
     			->with('basic', $basic);
+    }
+
+    public function searchInput(Request $request){
+        $findSearch = Showcase::where('showcase_name', 'like', '%'.$request->searchShowcase.'%')
+                        ->orwhere('title1', 'like', '%'.$request->searchShowcase.'%')
+                        ->orwhere('title2', 'like', '%'.$request->searchShowcase.'%')
+                        ->orwhere('title3', 'like', '%'.$request->searchShowcase.'%')
+                        ->orwhere('title4', 'like', '%'.$request->searchShowcase.'%')
+                        ->orwhere('title5', 'like', '%'.$request->searchShowcase.'%')
+                        ->orwhere('title6', 'like', '%'.$request->searchShowcase.'%')
+                        ->get();
+        return $findSearch;
     }
 
     public function totalImaging(){
@@ -45,7 +60,7 @@ class CyberController extends Controller
     	$contactSave->save();
         // return back()
         //         ->with('status', 'Success');
-    	// return redirect('/#contact');
+    	return redirect('/#contact');
 
     }
 

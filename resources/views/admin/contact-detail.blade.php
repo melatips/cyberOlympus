@@ -21,7 +21,7 @@
             </div>
             <div class="box-body no-padding">
               <ul class="nav nav-pills nav-stacked">
-                <li class="active"><a href="{{url('/admin/contact-us')}}"><i class="fa fa-inbox"></i> Inbox
+                <li class="active"><a href="{{url('/admin/')}}"><i class="fa fa-inbox"></i> Inbox
                   <span class="label label-primary pull-right">12</span></a></li>
                 <li><a href="#"><i class="fa fa-filter"></i> Junk <span class="label label-warning pull-right">65</span></a>
                 </li>
@@ -52,17 +52,17 @@
               </div>
               <!-- /.mailbox-read-info -->
               <div class="mailbox-controls with-border text-center">
-                <div class="btn-group">
+                <!-- <div class="btn-group">
                   <button type="button" class="btn btn-default btn-sm" data-toggle="tooltip" data-container="body" title="Delete">
                     <i class="fa fa-trash-o"></i></button>
                   <button type="button" class="btn btn-default btn-sm" data-toggle="tooltip" data-container="body" title="Reply">
                     <i class="fa fa-reply"></i></button>
                   <button type="button" class="btn btn-default btn-sm" data-toggle="tooltip" data-container="body" title="Forward">
                     <i class="fa fa-share"></i></button>
-                </div>
+                </div> -->
                 <!-- /.btn-group -->
-                <button type="button" class="btn btn-default btn-sm" data-toggle="tooltip" title="Print">
-                  <i class="fa fa-print"></i></button>
+                <!-- <button type="button" class="btn btn-default btn-sm" data-toggle="tooltip" title="Print">
+                  <i class="fa fa-print"></i></button> -->
               </div>
               <!-- /.mailbox-controls -->
               <div class="mailbox-read-message">
@@ -74,12 +74,12 @@
             
             <!-- /.box-footer -->
             <div class="box-footer">
-              <div class="pull-right">
+              <!-- <div class="pull-right">
                 <button type="button" class="btn btn-default"><i class="fa fa-reply"></i> Reply</button>
                 <button type="button" class="btn btn-default"><i class="fa fa-share"></i> Forward</button>
-              </div>
-              <button type="button" class="btn btn-default"><i class="fa fa-trash-o"></i> Delete</button>
-              <button type="button" class="btn btn-default"><i class="fa fa-print"></i> Print</button>
+              </div> -->
+              <a type="button" class="btn btn-default" href="{{url('/admin/contact-detail/'.$contactDetail->contact_id.'/delete')}}"><i class="fa fa-trash-o"></i> Delete</a>
+              <a type="button" class="btn btn-default"><i class="fa fa-print"></i> Print</a>
             </div>
             <!-- /.box-footer -->
           </div>

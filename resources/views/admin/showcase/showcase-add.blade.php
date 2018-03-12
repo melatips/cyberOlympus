@@ -27,7 +27,7 @@
 
           <div class="form-group">
             <label>Category</label>
-            <select class="form-control select2" name="showcase_cat" multiple="multiple" data-placeholder="Select category"
+            <select class="form-control select2" name="showcase_cat[]" multiple="multiple" data-placeholder="Select category"
                     style="width: 100%;">
               @foreach($catList as $category)
               <option value="{{$category->category_id}}">{{$category->category_name}}</option>
@@ -79,14 +79,27 @@
             </div>
           </div>
 
-          <!-- <div class="form-group">
-            <label>Title Section 5</label>
-            <input type="text" class="form-control" name="title5">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label>Title Section 5</label>
+              <input type="text" class="form-control" name="title5" placeholder="Insert title section 5">
+            </div>
+            <div class="form-group">
+              <label>Description Section 5</label>
+              <textarea class="" name="desc5" placeholder="Place some text here" style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
+            </div>
           </div>
-          <div class="form-group">
-            <label>Description Section 5</label>
-            <textarea class="" name="desc" placeholder="Place some text here" style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
-          </div> -->
+
+          <div class="col-md-6">
+            <div class="form-group">
+              <label>Title Section 6</label>
+              <input type="text" class="form-control" name="title6" placeholder="Insert title section 6">
+            </div>
+            <div class="form-group">
+              <label>Description Section 6</label>
+              <textarea class="" name="desc6" placeholder="Place some text here" style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
+            </div>
+          </div>
         </div>
           <!-- /.box-body -->
     </div>

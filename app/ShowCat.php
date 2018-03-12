@@ -10,10 +10,10 @@ class ShowCat extends Model
     protected $primaryKey = 'show_cat_id';
 
     public function getShow(){
-    	return $this->hasMany('App\Showcase', 'showcase_list_id', 'id_show_cat');
+    	return $this->belongsTo('App\Showcase', 'showcase_list_id');
     }
 
     public function getCat(){
-    	return $this->hasMany('App\ShowCat', 'category_id', 'id_show_cat');
+    	return $this->belongsTo('App\Category', 'category_id');
     }
 }

@@ -9,6 +9,28 @@
 @endsection
 
 @section('content')
+@if(session('status'))
+    <div class="alert alert-info alert-dismissable">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">
+            &times;
+        </button>
+        <strong>
+            {{ session('status') }}
+        </strong>
+    </div>
+    @endif
+    @foreach($errors->
+    all() as $error)
+    <div class="alert alert-warning alert-dismissable">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">
+            &times;
+        </button>
+        <strong>
+            Whops
+        </strong>
+        {{ $error }}
+    </div>
+    @endforeach
 	<div class="col-md-6">
         <!-- general form elements -->
         <div class="box box-primary">

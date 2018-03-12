@@ -17,6 +17,7 @@
 
 //MAIN
 Route::get('/', 'CyberController@landingpage');
+Route::get('/search', 'CyberController@searchInput');
 Route::get('/360', 'CyberController@totalImaging');
 Route::get('/feature/fully-responsive', 'CyberController@feature1');
 Route::get('/feature/content-management-system', 'CyberController@feature2');
@@ -70,16 +71,16 @@ Route::get('/showcase/detail/{id}', 'ShowcaseController@showcaseDetail');
 // Route::get('/showcase/tick-travel', 'ShowcaseController@tickTravel');
 
 //ADMIN
-Route::get('/admin', 'AdminController@dashboard');
-
-Route::get('/admin/contact-us', 'AdminController@contactUs');
+Route::get('/admin', 'AdminController@contactUs');
 	Route::get('admin/contact-us/{id}', 'AdminController@contactDetail');
+		Route::get('admin/contact-detail/{id}/delete', 'AdminController@contactDetailDelete');
 
 Route::get('admin/category', 'AdminController@category');
 	Route::get('admin/category/add', 'AdminController@categoryAdd');
 		Route::post('admin/category/saveCategory', 'AdminController@saveCategory');
 	Route::get('admin/category/edit/{id}', 'AdminController@categoryEdit');
 		Route::post('admin/category/update/{id}', 'AdminController@updateCategory');
+	Route::get('admin/category/delete/{id}', 'AdminController@deleteCategory');
 	Route::get('admin/category/{id}', 'AdminController@categoryDetail');
 
 Route::get('/admin/showcase', 'AdminController@showcase');
@@ -88,6 +89,7 @@ Route::get('/admin/showcase', 'AdminController@showcase');
 	Route::get('admin/showcase/detail/{id}', 'AdminController@showcaseDetail');
 	Route::get('admin/showcase/edit/{id}', 'AdminController@showcaseEdit');
 		Route::post('admin/showcase/update/{id}', 'AdminController@updateShowcase');
+	Route::get('admin/showcase/delete/{id}', 'AdminController@showcaseDelete');
 
 Route::get('/admin/landing-page', 'AdminController@landingPage');
 
@@ -97,3 +99,6 @@ Route::get('/admin/basic-info', 'AdminController@basicInfo');
 
 
 Route::get('/new', 'AdminController@new');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

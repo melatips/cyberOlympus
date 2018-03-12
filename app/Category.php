@@ -10,11 +10,11 @@ class Category extends Model
     protected $primaryKey 	= 'category_id';
 
     public function getShowcase(){
-    	return $this->belongsToMany('App\Category','show_cat','category_id','category_id');
+    	return $this->belongsToMany('App\Showcase','show_cat','category_id','showcase_list_id');
     	// belongsToMany('ModelCategory','tabel yang nampung n to n ','lokalKey','foreign key')
     }
 
-    // public function getShowcase(){
-    // 	return $this->belongsTo('App\ShowCat');
-    // }
+    public function getShow(){
+    	return $this->hasMany('App\ShowCat','category_id');
+    }
 }

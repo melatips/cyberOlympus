@@ -4,11 +4,11 @@
 @endsection
 
 @section('showcase-title')
-	<h2>{{$categoryName->category_name}}</h2>
+	<h2>{{$category->category_name}}</h2>
 @endsection
 
 @section('showcase')
-	@foreach($showcaseList as $showcaseList)
+	@foreach($category->getShowcase as $showcaseList)
 	<section class="showcase-list-id">
 		<img src="{{asset('images/showcase/bg/'.$showcaseList->file_name.'.jpg')}}" class="img-responsive">
 

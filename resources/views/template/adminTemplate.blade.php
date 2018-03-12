@@ -32,6 +32,9 @@
   <link rel="stylesheet" href="{{asset('AdminLTE-2.4.3/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css')}}">
   <link rel="stylesheet" href="{{asset('AdminLTE-2.4.3/dist/css/style.css')}}">
 
+  <!-- jQuery 3 -->
+<script src="{{asset('AdminLTE-2.4.3/bower_components/jquery/dist/jquery.min.js')}}"></script>
+
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
   <!--[if lt IE 9]>
@@ -129,7 +132,7 @@
                   <a href="#" class="btn btn-default btn-flat">Profile</a>
                 </div>
                 <div class="pull-right">
-                  <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                  <a href="{{route('logout')}}" class="btn btn-default btn-flat">Sign out</a>
                 </div>
               </li>
             </ul>
@@ -170,14 +173,9 @@
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">MAIN NAVIGATION</li>
+        
         <li class="">
           <a href="{{url('/admin/')}}">
-            <i class="fa fa-dashboard"></i> <span>Dashboard</span>
-          </a>
-        </li>
-
-        <li class="">
-          <a href="{{url('/admin/contact-us')}}">
             <i class="fa fa-files-o"></i>
             <span>Contact Us</span>
           </a>
@@ -437,8 +435,7 @@
 
 @yield('js')
 
-<!-- jQuery 3 -->
-<script src="{{asset('AdminLTE-2.4.3/bower_components/jquery/dist/jquery.min.js')}}"></script>
+
 <!-- jQuery UI 1.11.4 -->
 <script src="{{asset('AdminLTE-2.4.3/bower_components/jquery-ui/jquery-ui.min.js')}}"></script>
 <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->

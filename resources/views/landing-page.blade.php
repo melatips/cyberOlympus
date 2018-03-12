@@ -15,22 +15,25 @@
 					<li><a href="#showcase">SHOWCASE</a></li>
 					<li><a href="#contact">CONTACT US</a></li>
 					<li>
-						<input type="text" class="search-input">
-				        <i class="fa fa-search search-icon"></i>
-				        <i class="fa fa-chevron-down search-icon"></i>
+						<form action="{{url('/search')}}" method="get" enctype="multipart/form-data">
+							{{ csrf_field() }}
+						<input type="text" class="search-input" name="searchShowcase">
+				        <button type="submit"><i class="fa fa-search search-icon"></i></button>
+				        <!-- <i class="fa fa-chevron-down search-icon"></i> -->
+				        </form>
 				    </li>
 					<li><a href="javascript:void(0);" class="icon-toggle" onclick="myFunction()">&#9776;</a></li>
 				</ul>
 			</div>
 		</div>
 	</header>
-	<section id="loader-wrapper">
+	<!-- <section id="loader-wrapper">
 		<div id="loading-page" class="bg">
 			<div class="container">
 				<img src="{{asset('images/loading-HD2.gif')}}" class="img-responsive loading-icon">
 			</div>
 		</div>
-	</section>
+	</section> -->
 
 	<section id="landing-page" class="bg">
 		<div class="container">
@@ -860,4 +863,5 @@
 			        }
 			    }
 			};
-	</s
+	</script>
+@endsection

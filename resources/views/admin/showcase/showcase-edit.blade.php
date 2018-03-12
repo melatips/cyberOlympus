@@ -22,13 +22,18 @@
         <div class="box-body">
           <div class="form-group">
             <label>Showcase Name</label>
-            <input type="text" class="form-control" name="showcase_name"  value="{{$showcaseEdit->showcase_name}}">
+            <input type="text" class="form-control" name="showcase_name"  value="{{$showcaseEdit->showcase_name}}" required="">
           </div>
 
           <div class="form-group">
             <label>Category</label>
-            <select class="form-control select2" name="showcase_cat" multiple="multiple" data-placeholder="Select category" style="width: 100%;">
-              
+            <select class="form-control select2" name="showcase_cat[]" multiple="multiple" data-placeholder="@foreach($findCat as $cat) {{$cat->category_name}} @endforeach" style="width: 100%;" required="">
+              <!-- @foreach($findCat as $cat)
+              <option value="{{$cat->category_id}}">{{$cat->category_name}}</option>
+              @endforeach -->
+              @foreach($getCat as $category)
+              <option value="{{$category->category_id}}">{{$category->category_name}}</option>
+              @endforeach
             </select>
         	</div>
 
@@ -76,14 +81,27 @@
             </div>
           </div>
 
-          <!-- <div class="form-group">
-            <label>Title Section 5</label>
-            <input type="text" class="form-control" name="title5">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label>Title Section 5</label>
+              <input type="text" class="form-control" name="title5"  value="{{$showcaseEdit->title5}}">
+            </div>
+            <div class="form-group">
+              <label>Description Section 5</label>
+              <textarea class="" name="desc5" style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;">{{$showcaseEdit->desc5}}</textarea>
+            </div>
           </div>
-          <div class="form-group">
-            <label>Description Section 5</label>
-            <textarea class="" name="desc"  value="Place some text here" style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
-          </div> -->
+
+          <div class="col-md-6">
+            <div class="form-group">
+              <label>Title Section 6</label>
+              <input type="text" class="form-control" name="title6"  value="{{$showcaseEdit->title6}}">
+            </div>
+            <div class="form-group">
+              <label>Description Section 6</label>
+              <textarea class="" name="desc6" style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;">{{$showcaseEdit->desc6}}</textarea>
+            </div>
+          </div>
         </div>
           <!-- /.box-body -->
     </div>

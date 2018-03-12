@@ -34,12 +34,12 @@
     @endforeach
 
     <div class="box">
-      <div class="box-header">
+      <!-- <div class="box-header">
         <h3 class="box-title">{{$categoryDetail->category_description}}</h3>
-      </div>
+      </div> -->
       <!-- /.box-header -->
       <div class="box-body">
-      	<a href="" class="btn btn-primary"><i class="fa fa-plus"></i> Add Showcase</a>
+      	
         <table id="example2" class="table table-bordered table-hover">
           <thead>
           <tr>
@@ -49,16 +49,21 @@
           </tr>
           </thead>
           <tbody>
-          
+          @php
+            $no = 1;
+          @endphp
+          @foreach($categoryDetail->getShowcase as $val)
           <tr>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td>{{$no}}</td>
+            <td>{{$val->showcase_name}}</td>
             <td>
-            	<a href="" class="btn btn-primary">Detail</a>
-            	<a href="" class="btn btn-success">Edit</a>
+            	<a href="{{url('/admin/showcase/detail/'.$val->showcase_list_id)}}" class="btn btn-primary">Detail</a>
             </td>
           </tr>
+          @php
+            $no++;
+          @endphp
+          @endforeach
         </table>
       </div>
       <!-- /.box-body -->

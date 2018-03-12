@@ -57,10 +57,21 @@
             <tr>
               <td>{{$no}}</td>
               <td>{{$showcaseList->showcase_name}}</td>
-              <td></td>
               <td>
-              	<a href="{{url('/admin/showcase/detail/'.$showcaseList->showcase_list_id)}}" class="btn btn-primary">Detail</a>
-              	<a href="{{url('/admin/showcase/edit/'.$showcaseList->showcase_list_id)}}" class="btn btn-success">Edit</a>
+                @if(count($showcaseList->getCategory)!=0)
+                  @foreach($showcaseList->getCategory as $key => $value)
+                    @if (count($showcaseList->getCategory) == 1 || $key==count($showcaseList->getCategory)-1)
+                    {{$value->category_name}}
+                    @else
+                    {{$value->category_name}},
+                    @endif
+                  @endforeach
+                @endif
+              </td>
+              <td>
+              	<a href="{{url('/showcase/detail/'.$showcaseList->showcase_list_id)}}" class="btn btn-primary" data-toggle="tooltip" title="Detail"><i class="fa fa-eye"></i></a>
+              	<a href="{{url('/admin/showcase/edit/'.$showcaseList->showcase_list_id)}}" class="btn btn-success" data-toggle="tooltip" title="Edit"><i class="fa fa-pencil"></i></a>
+                <a href="{{url('/admin/showcase/delete/'.$showcaseList->showcase_list_id)}}" class="btn btn-danger" data-toggle="tooltip" title="Delete"><i class="fa fa-trash"></i></a>
               </td>
             </tr>
             @php
@@ -74,4 +85,12 @@
     </div>
     <!-- /.box -->
   </div>
+@endsection
+
+@section('js')
+<script>
+$(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip();   
+});
+</script>
 @endsection

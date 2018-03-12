@@ -15,6 +15,28 @@ class ShowcaseController extends Controller
         return $catList;
     }
 
+    //SHOWCASE LIST
+    public function showcaseList($idCategory){
+        $categoryName = Category::where('category_id', $idCategory)
+                        ->first();
+        // return $category =  Category::find($idCategory);
+        $category =  Category::with('getShowcase')->find($idCategory);
+
+        // return $category->getShowcase;
+        // return $showcaseList;
+        return view('showcase.list-showcase')
+                ->with('categoryName', $categoryName)
+                ->with('category', $category);
+    }
+
+    //SHOWCASE DETAIL
+    public function showcaseDetail($id){
+        $detail = Showcase::where('showcase_list_id', $id)
+                ->first();
+        return view('showcase.'.$detail->file_name)
+                ->with('detail', $detail);
+    }
+
     // $categoryName = Category::where('category_id', $idCategory)
     //                     ->first();
     //     $showcaseList = Showcase::join('showcase_category', 'showcase_list.category_id', 'showcase_category.category_id')
@@ -29,26 +51,18 @@ class ShowcaseController extends Controller
     //     return dd($category->getShowcase());
 
     //SHOWCASE LIST BARU
-    public function showcaseList($idCategory){
-        $categoryName = Category::where('category_id', $idCategory)
-                        ->first();
-        $category =  Category::find($idCategory)
-                    ->get();
-        return $category->getShowcase();
-        // return $showcaseList;
-        return view('showcase.list-showcase')  
-                ->with('showcaseList', $showcaseList)
-                ->with('categoryName', $categoryName)
-                ->with('category', $category);
-    }
-
-    //SHOWCASE DETAIL BARU
-    public function showcaseDetail($id){
-        $detail = Showcase::where('showcase_list_id', $id)
-                ->first();
-        return view('showcase.'.$detail->file_name)
-                ->with('detail', $detail);
-    }
+    // public function showcaseList($idCategory){
+    //     $categoryName = Category::where('category_id', $idCategory)
+    //                     ->first();
+    //     $category =  Category::find($idCategory)
+    //                 ->get();
+    //     return $category->getShowcase();
+    //     // return $showcaseList;
+    //     return view('showcase.list-showcase')  
+    //             ->with('showcaseList', $showcaseList)
+    //             ->with('categoryName', $categoryName)
+    //             ->with('category', $category);
+    // }
 
     // //SHOWCASE LIST
     // public function listLogo(){

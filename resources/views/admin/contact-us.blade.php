@@ -9,6 +9,28 @@
 @endsection
 
 @section('content')
+@if(session('status'))
+    <div class="alert alert-info alert-dismissable">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">
+            &times;
+        </button>
+        <strong>
+            {{ session('status') }}
+        </strong>
+    </div>
+    @endif
+    @foreach($errors->
+    all() as $error)
+    <div class="alert alert-warning alert-dismissable">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">
+            &times;
+        </button>
+        <strong>
+            Whops
+        </strong>
+        {{ $error }}
+    </div>
+    @endforeach
   <div class="col-md-3">
           <div class="box box-solid">
             <div class="box-header with-border">
@@ -21,7 +43,7 @@
             </div>
             <div class="box-body no-padding">
               <ul class="nav nav-pills nav-stacked">
-                <li class="active"><a href="#"><i class="fa fa-inbox"></i> Inbox
+                <li class="active"><a href="{{url('/admin/')}}"><i class="fa fa-inbox"></i> Inbox
                   <span class="label label-primary pull-right">12</span></a></li>
                 <li><a href="#"><i class="fa fa-filter"></i> Junk <span class="label label-warning pull-right">65</span></a>
                 </li>
@@ -54,13 +76,13 @@
                 </button>
                 <div class="btn-group">
                   <button type="button" class="btn btn-default btn-sm"><i class="fa fa-trash-o"></i></button>
-                  <button type="button" class="btn btn-default btn-sm"><i class="fa fa-reply"></i></button>
-                  <button type="button" class="btn btn-default btn-sm"><i class="fa fa-share"></i></button>
+                  <!-- <button type="button" class="btn btn-default btn-sm"><i class="fa fa-reply"></i></button>
+                  <button type="button" class="btn btn-default btn-sm"><i class="fa fa-share"></i></button> -->
                 </div>
                 <!-- /.btn-group -->
-                <button type="button" class="btn btn-default btn-sm"><i class="fa fa-refresh"></i></button>
+                <a type="button" class="btn btn-default btn-sm" href="{{url('admin/')}}"><i class="fa fa-refresh"></i></a>
                 <div class="pull-right">
-                  1-50/200
+                  1 - {{count($contact)}} / {{count($contact)}}
                   <div class="btn-group">
                     <button type="button" class="btn btn-default btn-sm"><i class="fa fa-chevron-left"></i></button>
                     <button type="button" class="btn btn-default btn-sm"><i class="fa fa-chevron-right"></i></button>
@@ -76,7 +98,6 @@
                 @foreach($contact as $contact)
                   <tr>
                     <td><input type="checkbox"></td>
-                    <td class="mailbox-star"><a href="#"><i class="fa fa-star text-yellow"></i></a></td>
                     <td class="mailbox-name"><a href="{{url('admin/contact-us/'.$contact->contact_id)}}">{{$contact->c_username}}</a></td>
                     <td class="mailbox-subject"><b>{{$contact->topic}}</b>
                     </td>
@@ -92,29 +113,7 @@
               <!-- /.mail-box-messages -->
             </div>
             <!-- /.box-body -->
-            <div class="box-footer no-padding">
-              <div class="mailbox-controls">
-                <!-- Check all button -->
-                <button type="button" class="btn btn-default btn-sm checkbox-toggle"><i class="fa fa-square-o"></i>
-                </button>
-                <div class="btn-group">
-                  <button type="button" class="btn btn-default btn-sm"><i class="fa fa-trash-o"></i></button>
-                  <button type="button" class="btn btn-default btn-sm"><i class="fa fa-reply"></i></button>
-                  <button type="button" class="btn btn-default btn-sm"><i class="fa fa-share"></i></button>
-                </div>
-                <!-- /.btn-group -->
-                <button type="button" class="btn btn-default btn-sm"><i class="fa fa-refresh"></i></button>
-                <div class="pull-right">
-                  1-50/200
-                  <div class="btn-group">
-                    <button type="button" class="btn btn-default btn-sm"><i class="fa fa-chevron-left"></i></button>
-                    <button type="button" class="btn btn-default btn-sm"><i class="fa fa-chevron-right"></i></button>
-                  </div>
-                  <!-- /.btn-group -->
-                </div>
-                <!-- /.pull-right -->
-              </div>
-            </div>
+            
           </div>
           <!-- /. box -->
         </div>

@@ -10,6 +10,28 @@
 
 @section('content')
 	<div class="col-xs-12">
+    @if(session('status'))
+    <div class="alert alert-info alert-dismissable">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">
+            &times;
+        </button>
+        <strong>
+            {{ session('status') }}
+        </strong>
+    </div>
+    @endif
+    @foreach($errors->
+    all() as $error)
+    <div class="alert alert-warning alert-dismissable">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">
+            &times;
+        </button>
+        <strong>
+            Whops
+        </strong>
+        {{ $error }}
+    </div>
+    @endforeach
           <div class="box">
             <div class="box-header">
               <h3 class="box-title">Showcase Category</h3>
@@ -35,10 +57,11 @@
                 <tr>
                   <td>{{$no}}</td>
                   <td>{{$categoryList->category_name}}</td>
-                  <td>re</td>
+                  <td>{{count($categoryList->getShowcase)}}</td>
                   <td>
-                  	<a href="{{url('admin/category/'.$categoryList->category_id)}}" class="btn btn-primary">Detail</a>
-                  	<a href="{{url('admin/category/edit/'.$categoryList->category_id)}}" class="btn btn-success">Edit</a>
+                  	<a href="{{url('admin/category/'.$categoryList->category_id)}}" class="btn btn-primary" data-toggle="tooltip" title="Detail"><i class="fa fa-eye"></i></a>
+                  	<a href="{{url('admin/category/edit/'.$categoryList->category_id)}}" class="btn btn-success" data-toggle="tooltip" title="Edit"><i class="fa fa-pencil"></i></a>
+                    <a href="{{url('admin/category/delete/'.$categoryList->category_id)}}" class="btn btn-danger" data-toggle="tooltip" title="Delete"><i class="fa fa-trash"></i></a>
                   </td>
                 </tr>
                 @php
@@ -59,4 +82,12 @@
           </div>
           <!-- /.box -->
   </div>
+@endsection
+
+@section('js')
+<script>
+$(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip();   
+});
+</script>
 @endsection
