@@ -306,9 +306,7 @@
 	<section id="showcase">
 		<div id="showcase-slide" class="carousel slide" data-interval="false">
 			<div class="carousel-inner">
-				<div class="col-md-12">
-					<a href="" class="view">View All Categories</a>
-				</div>
+				
 				<div class="item active ">
 				    <div class="showcase-inner " style="background: url({{asset('images/showcase/dashboard/chuar-bg.jpg')}}) no-repeat; background-size: cover; background-position: center; ">
 				    	<div class="bg-trans">
@@ -471,6 +469,10 @@
 							</div>
 						</div>
 				    </div>
+				</div>
+
+				<div class="col-md-12">
+					<a href="" class="btn btn-default" class="view">View All Categories</a>
 				</div>
 			</div>
 		</div>

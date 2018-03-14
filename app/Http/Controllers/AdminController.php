@@ -11,14 +11,11 @@ use App\ShowCat;
 
 class AdminController extends Controller
 {
-    public function login(){
-        return view('admin.login');
+    public function __construct()
+    {
+       $this->middleware('auth');
     }
-
-    // public function dashboard(){
-    // 	return view('admin.dashboard');
-    // }
-
+    
     public function contactUs(){
         $contact = Contact::orderby('created_at', 'desc')
                     ->get();
@@ -62,17 +59,23 @@ class AdminController extends Controller
                     $showcaseSave->showcase_name    = $request->showcase_name;
                     $showcaseSave->file_name        = str_replace(array(' ', '&', '.'), array('-', '', ''), $request->showcase_name);
                     // $showcaseSave->category_id      = $request->showcase_cat;
-                    $showcaseSave->title1           = $request->title1;
+                    $showcaseSave->title1_h3        = $request->title1_h3;
+                    $showcaseSave->title1_h2        = $request->title1_h2;
                     $showcaseSave->desc1            = $request->desc1;
-                    $showcaseSave->title2           = $request->title2;
+                    $showcaseSave->title2_h3        = $request->title2_h3;
+                    $showcaseSave->title2_h2        = $request->title2_h2;
                     $showcaseSave->desc2            = $request->desc2;
-                    $showcaseSave->title3           = $request->title3;
+                    $showcaseSave->title3_h3        = $request->title3_h3;
+                    $showcaseSave->title3_h2        = $request->title3_h2;
                     $showcaseSave->desc3            = $request->desc3;
-                    $showcaseSave->title4           = $request->title4;
+                    $showcaseSave->title4_h3        = $request->title4_h3;
+                    $showcaseSave->title4_h2        = $request->title4_h2;
                     $showcaseSave->desc4            = $request->desc4;
-                    $showcaseSave->title5           = $request->title5;
+                    $showcaseSave->title5_h3        = $request->title5_h3;
+                    $showcaseSave->title5_h2        = $request->title5_h2;
                     $showcaseSave->desc5            = $request->desc5;
-                    $showcaseSave->title6           = $request->title6;
+                    $showcaseSave->title6_h3        = $request->title6_h3;
+                    $showcaseSave->title6_h2        = $request->title6_h2;
                     $showcaseSave->desc6            = $request->desc6;
 
                     $showcaseSave->save();
@@ -116,20 +119,26 @@ class AdminController extends Controller
                 $showcaseUpdate = Showcase::where('showcase_list_id', $request->id)
                                 ->first();
                 // return $showcaseUpdate->all();
-                $showcaseUpdate->showcase_name    = $request->showcase_name;
-                $showcaseUpdate->file_name        = str_replace(array(' ', '&', '.'), array('-', '', ''), $request->showcase_name);
-                $showcaseUpdate->title1           = $request->title1;
-                $showcaseUpdate->desc1            = $request->desc1;
-                $showcaseUpdate->title2           = $request->title2;
-                $showcaseUpdate->desc2            = $request->desc2;
-                $showcaseUpdate->title3           = $request->title3;
-                $showcaseUpdate->desc3            = $request->desc3;
-                $showcaseUpdate->title4           = $request->title4;
-                $showcaseUpdate->desc4            = $request->desc4;
-                $showcaseUpdate->title5           = $request->title5;
-                $showcaseUpdate->desc5            = $request->desc5;
-                $showcaseUpdate->title6           = $request->title6;
-                $showcaseUpdate->desc6            = $request->desc6;
+                $showcaseUpdate->showcase_name  = $request->showcase_name;
+                $showcaseUpdate->file_name      = str_replace(array(' ', '&', '.'), array('-', '', ''), $request->showcase_name);
+                $showcaseUpdate->title1_h3      = $request->title1_h3;
+                $showcaseUpdate->title1_h2      = $request->title1_h2;
+                $showcaseUpdate->desc1          = $request->desc1;
+                $showcaseUpdate->title2_h3      = $request->title2_h3;
+                $showcaseUpdate->title2_h2      = $request->title2_h2;
+                $showcaseUpdate->desc2          = $request->desc2;
+                $showcaseUpdate->title3_h3      = $request->title3_h3;
+                $showcaseUpdate->title3_h2      = $request->title3_h2;
+                $showcaseUpdate->desc3          = $request->desc3;
+                $showcaseUpdate->title4_h3      = $request->title4_h3;
+                $showcaseUpdate->title4_h2      = $request->title4_h2;
+                $showcaseUpdate->desc4          = $request->desc4;
+                $showcaseUpdate->title5_h3      = $request->title5_h3;
+                $showcaseUpdate->title5_h2      = $request->title5_h2;
+                $showcaseUpdate->desc5          = $request->desc5;
+                $showcaseUpdate->title6_h3      = $request->title6_h3;
+                $showcaseUpdate->title6_h2      = $request->title6_h2;
+                $showcaseUpdate->desc6          = $request->desc6;
 
                 $showcaseUpdate->save();
 

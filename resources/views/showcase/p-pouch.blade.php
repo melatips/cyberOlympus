@@ -5,7 +5,13 @@
 
 @section('showcase-title')
 	<h2>{{$detail->showcase_name}}</h2>
-	<p>Logo</p>
+	<p>@foreach($detail->getCategory as $key => $value)
+	    @if (count($detail->getCategory) == 1 || $key==count($detail->getCategory)-1)
+	    {{$value->category_name}}
+	    @else
+	    {{$value->category_name}} & 
+	    @endif
+	  @endforeach</p>
 @endsection
 
 @section('showcase')
@@ -15,16 +21,16 @@
 
 	<section id="pouch-main">
 		<div class="col-md-6 col-md-offset-6">
-			<h3>Lorem Ipsum</h3>
-			<h2>Dolor Sit Amet</h2>
+			<h3>{{$detail->title1_h3}}</h3>
+			<h2>{{$detail->title1_h2}}</h2>
 			<p>{{$detail->desc1}}</p>
 		</div>
 	</section>
 
 	<section id="pouch-main-2">
 		<div class="col-md-6">
-			<h3>Lorem Ipsum</h3>
-			<h2>Dolor Sit Amet</h2>
+			<h3>{{$detail->title2_h3}}</h3>
+			<h2>{{$detail->title2_h2}}</h2>
 			<p>{{$detail->desc2}}</p>
 		</div>
 	</section>

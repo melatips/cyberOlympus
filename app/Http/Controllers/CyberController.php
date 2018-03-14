@@ -19,14 +19,16 @@ class CyberController extends Controller
 
     public function searchInput(Request $request){
         $findSearch = Showcase::where('showcase_name', 'like', '%'.$request->searchShowcase.'%')
-                        ->orwhere('title1', 'like', '%'.$request->searchShowcase.'%')
-                        ->orwhere('title2', 'like', '%'.$request->searchShowcase.'%')
-                        ->orwhere('title3', 'like', '%'.$request->searchShowcase.'%')
-                        ->orwhere('title4', 'like', '%'.$request->searchShowcase.'%')
-                        ->orwhere('title5', 'like', '%'.$request->searchShowcase.'%')
-                        ->orwhere('title6', 'like', '%'.$request->searchShowcase.'%')
+                        // ->orwhere('title1', 'like', '%'.$request->searchShowcase.'%')
+                        // ->orwhere('title2', 'like', '%'.$request->searchShowcase.'%')
+                        // ->orwhere('title3', 'like', '%'.$request->searchShowcase.'%')
+                        // ->orwhere('title4', 'like', '%'.$request->searchShowcase.'%')
+                        // ->orwhere('title5', 'like', '%'.$request->searchShowcase.'%')
+                        // ->orwhere('title6', 'like', '%'.$request->searchShowcase.'%')
                         ->get();
-        return $findSearch;
+        // return $findSearch;
+        return view('search-result')
+                ->with('findSearch', $findSearch);
     }
 
     public function totalImaging(){

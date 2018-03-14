@@ -11,9 +11,19 @@
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
+// Auth::routes();
+
+
+// Route::group(['middleware' => ['web']], function(){
+// 	//AWAL
+// Route::get('logout',function(){
+// Auth::logout();
+// return redirect('/login');
 // });
+
+// Route::get('/admin', function(){
+// 	Auth::login();
+// })->middleware('auth');
 
 //MAIN
 Route::get('/', 'CyberController@landingpage');
@@ -102,3 +112,4 @@ Route::get('/new', 'AdminController@new');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+// });

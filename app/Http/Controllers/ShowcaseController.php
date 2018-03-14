@@ -33,8 +33,12 @@ class ShowcaseController extends Controller
     public function showcaseDetail($id){
         $detail = Showcase::where('showcase_list_id', $id)
                 ->first();
+        // $categoryShowcase = $detail->getCategory;
+
+        // return $categoryShowcase;
         return view('showcase.'.$detail->file_name)
                 ->with('detail', $detail);
+                // ->with('categoryShowcase', $categoryShowcase);
     }
 
     // $categoryName = Category::where('category_id', $idCategory)

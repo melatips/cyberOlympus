@@ -5,7 +5,13 @@
 
 @section('showcase-title')
 	<h2>{{$detail->showcase_name}}</h2>
-	<p>Logo</p>
+	<p>@foreach($detail->getCategory as $key => $value)
+	    @if (count($detail->getCategory) == 1 || $key==count($detail->getCategory)-1)
+	    {{$value->category_name}}
+	    @else
+	    {{$value->category_name}} & 
+	    @endif
+	  @endforeach</p>
 @endsection
 
 @section('showcase')
@@ -15,8 +21,8 @@
 				<img src="{{asset('images/showcase/petraco/petraco-logo.png')}}" class="img-responsive logo-petraco">
 			</div>
 			<div class="col-md-6 col-sm-6 col-xs-12 butterfly">
-				<h3>(Danaus Plexippus)</h3>
-				<h2>BUTTERFLY</h2>
+				<h3>{{$detail->title1_h3}}</h3>
+				<h2>{{$detail->title1_h2}}</h2>
 				<p>{{$detail->desc1}}</p>
 			</div>
 		</div>
@@ -25,7 +31,7 @@
 	<section id="book">
 		<div class="container">
 			<div class="col-md-6 col-sm-6 col-xs-6 book">
-				<h2>{{$detail->title2}}</h2>
+				<h2>{{$detail->title2_h2}}</h2>
 				<p>{{$detail->desc2}}</p>
 			</div>
 		</div>
@@ -40,8 +46,8 @@
 				</div>
 
 				<div class="col-md-6 col-sm-12 col-xs-12 colour">
-					<h3>Meaning &</h3>
-					<h2>Colour</h2>
+					<h3>{{$detail->title3_h3}}</h3>
+					<h2>{{$detail->title3_h2}}</h2>
 					<p>{{$detail->desc3}}</p>
 				</div>
 			</div>

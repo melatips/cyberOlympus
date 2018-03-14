@@ -1,7 +1,10 @@
 @extends('template.AdminTemplate')
+<!-- @section('css')
+
+@endsection -->
 
 @section('aside-title')
-	Showcase
+	Showcase List
 @endsection
 
 @section('aside-subtitle')
@@ -34,12 +37,13 @@
     @endforeach
     <div class="box">
       <div class="box-header">
-        <h3 class="box-title">Showcase List</h3>
+        <a href="{{url('/admin/showcase/add')}}" class="btn btn-primary"><i class="fa fa-plus"></i> Add Showcase</a>
       </div>
       <!-- /.box-header -->
       <div class="box-body">
-        <a href="{{url('/admin/showcase/add')}}" class="btn btn-primary"><i class="fa fa-plus"></i> Add Showcase</a>
-        <table id="example2" class="table table-bordered table-hover">
+        
+        
+        <table id="showcase" class="table table-bordered table-hover">
           <thead>
             <tr>
               <th>No.</th>
@@ -88,6 +92,12 @@
 @endsection
 
 @section('js')
+<script type="text/javascript">
+$(document).ready( function () {
+    $('#showcase').DataTable();
+} );
+</script>
+
 <script>
 $(document).ready(function(){
     $('[data-toggle="tooltip"]').tooltip();   

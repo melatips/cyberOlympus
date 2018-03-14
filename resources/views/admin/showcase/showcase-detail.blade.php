@@ -10,6 +10,28 @@
 
 @section('content')
 	<div class="col-md-12">
+    @if(session('status'))
+    <div class="alert alert-success alert-dismissable">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">
+            &times;
+        </button>
+        <strong>
+            {{ session('status') }}
+        </strong>
+    </div>
+    @endif
+    @foreach($errors->
+    all() as $error)
+    <div class="alert alert-warning alert-dismissable">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">
+            &times;
+        </button>
+        <strong>
+            Whops
+        </strong>
+        {{ $error }}
+    </div>
+    @endforeach
     <!-- general form elements -->
     <div class="box box-primary">
       <div class="box-header with-border">
@@ -35,11 +57,15 @@
 			  </div>
 			</div>
 
-		  @if($showcaseDet->title1 != "" and $showcaseDet->desc1 != "")
+		  @if($showcaseDet->title1_h3 != "" || $showcaseDet->title1_h2 != "" || $showcaseDet->desc1 != "")
           <div class="col-md-6">
             <div class="form-group">
-              <label>Title Section 1</label>
-              <input type="text" class="form-control" name="title1" placeholder="{{$showcaseDet->title1}}" disabled>
+              <label>Title Section 1 (h3)</label>
+              <input type="text" class="form-control" name="title1_h3" placeholder="{{$showcaseDet->title1_h3}}" disabled>
+            </div>
+            <div class="form-group">
+              <label>Title Section 1 (h2)</label>
+              <input type="text" class="form-control" name="title1_h2" placeholder="{{$showcaseDet->title1_h2}}" disabled>
             </div>
             <div class="form-group">
               <label>Description Section 1</label>
@@ -48,11 +74,15 @@
           </div>
           @endif
 
-          @if($showcaseDet->title2 != "" and $showcaseDet->desc2 != "")
+          @if($showcaseDet->title2_h3 != "" || $showcaseDet->title2_h2 != "" || $showcaseDet->desc2 != "")
           <div class="col-md-6">
             <div class="form-group">
-              <label>Title Section 2</label>
-              <input type="text" class="form-control" name="title2" placeholder="{{$showcaseDet->title2}}" disabled>
+              <label>Title Section 2 (h3)</label>
+              <input type="text" class="form-control" name="title2_h3" placeholder="{{$showcaseDet->title2_h3}}" disabled>
+            </div>
+            <div class="form-group">
+              <label>Title Section 2 (h2)</label>
+              <input type="text" class="form-control" name="title2_h2" placeholder="{{$showcaseDet->title2_h2}}" disabled>
             </div>
             <div class="form-group">
               <label>Description Section 2</label>
@@ -61,11 +91,15 @@
           </div>
           @endif
 
-          @if($showcaseDet->title3 != "" and $showcaseDet->desc3 != "")
+          @if($showcaseDet->title3_h3 != "" || $showcaseDet->title3_h2 != "" || $showcaseDet->desc3 != "")
           <div class="col-md-6">
             <div class="form-group">
-              <label>Title Section 3</label>
-              <input type="text" class="form-control" name="title3" placeholder="{{$showcaseDet->title3}}" disabled>
+              <label>Title Section 3 (h3)</label>
+              <input type="text" class="form-control" name="title3_h3" placeholder="{{$showcaseDet->title3_h3}}" disabled>
+            </div>
+            <div class="form-group">
+              <label>Title Section 3 (h2)</label>
+              <input type="text" class="form-control" name="title3_h2" placeholder="{{$showcaseDet->title3_h2}}" disabled>
             </div>
             <div class="form-group">
               <label>Description Section 3</label>
@@ -74,11 +108,15 @@
           </div>
           @endif
 
-          @if($showcaseDet->title4 != "" and $showcaseDet->desc4 != "")
+          @if($showcaseDet->title4_h3 != "" || $showcaseDet->title4_h2 != "" || $showcaseDet->desc4 != "")
           <div class="col-md-6">
             <div class="form-group">
-              <label>Title Section 4</label>
-              <input type="text" class="form-control" name="title4" placeholder="{{$showcaseDet->title4}}" disabled>
+              <label>Title Section 4 (h3)</label>
+              <input type="text" class="form-control" name="title4_h3" placeholder="{{$showcaseDet->title4_h3}}" disabled>
+            </div>
+            <div class="form-group">
+              <label>Title Section 4 (h2)</label>
+              <input type="text" class="form-control" name="title4_h2" placeholder="{{$showcaseDet->title4_h2}}" disabled>
             </div>
             <div class="form-group">
               <label>Description Section 4</label>
@@ -87,14 +125,40 @@
           </div>
           @endif
 
-          <!-- <div class="form-group">
-            <label>Title Section 5</label>
-            <input type="text" class="form-control" name="title5">
+          @if($showcaseDet->title5_h3 != "" || $showcaseDet->title5_h2 != "" || $showcaseDet->desc5 != "")
+          <div class="col-md-6">
+            <div class="form-group">
+              <label>Title Section 5 (h3)</label>
+              <input type="text" class="form-control" name="title5_h3" placeholder="{{$showcaseDet->title5_h3}}" disabled>
+            </div>
+            <div class="form-group">
+              <label>Title Section 5 (h2)</label>
+              <input type="text" class="form-control" name="title5_h2" placeholder="{{$showcaseDet->title5_h2}}" disabled>
+            </div>
+            <div class="form-group">
+              <label>Description Section 5</label>
+              <textarea class="" name="desc5" placeholder="{{$showcaseDet->desc5}}" style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;" disabled></textarea>
+            </div>
           </div>
-          <div class="form-group">
-            <label>Description Section 5</label>
-            <textarea class="" name="desc" placeholder="Place some text here" style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
-          </div> -->
+          @endif
+
+          @if($showcaseDet->title6_h3 != "" || $showcaseDet->title6_h2 != "" || $showcaseDet->desc6 != "")
+          <div class="col-md-6">
+            <div class="form-group">
+              <label>Title Section 6 (h3)</label>
+              <input type="text" class="form-control" name="title6_h3" placeholder="{{$showcaseDet->title6_h3}}" disabled>
+            </div>
+            <div class="form-group">
+              <label>Title Section 6 (h2)</label>
+              <input type="text" class="form-control" name="title6_h2" placeholder="{{$showcaseDet->title6_h2}}" disabled>
+            </div>
+            <div class="form-group">
+              <label>Description Section 6</label>
+              <textarea class="" name="desc6" placeholder="{{$showcaseDet->desc6}}" style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;" disabled></textarea>
+            </div>
+          </div>
+          @endif
+
         </div>
           <!-- /.box-body -->
     </div>

@@ -5,7 +5,13 @@
 
 @section('showcase-title')
 	<h2>{{$detail->showcase_name}}</h2>
-	<p>Logo</p>
+	<p>@foreach($detail->getCategory as $key => $value)
+	    @if (count($detail->getCategory) == 1 || $key==count($detail->getCategory)-1)
+	    {{$value->category_name}}
+	    @else
+	    {{$value->category_name}} & 
+	    @endif
+	  @endforeach</p>
 @endsection
 
 @section('showcase')
@@ -15,7 +21,7 @@
 				<img src="{{asset('images/showcase/dwi-golden/dg-logo.png')}}" class="img-responsive logo-dg">
 			</div>
 			<div class="col-md-6 col-sm-6 col-xs-12 electricity">
-				<h2>{{$detail->title1}}</h2>
+				<h2>{{$detail->title1_h2}}</h2>
 				<p>{{$detail->desc1}}</p>
 			</div>
 		</div>
@@ -24,7 +30,7 @@
 	<section id="crown">
 		<div class="container">
 			<div class="col-md-4 col-sm-6 col-xs-6 crown">
-				<h2>{{$detail->title2}}</h2>
+				<h2>{{$detail->title2_h2}}</h2>
 				<p>{{$detail->desc2}}</p>
 			</div>
 		</div>
@@ -39,8 +45,8 @@
 				</div>
 
 				<div class="col-md-6 col-sm-12 col-xs-12 colour-dg">
-					<h3>Meaning &</h3>
-					<h2>Colour</h2>
+					<h3>{{$detail->title3_h3}}</h3>
+					<h2>{{$detail->title3_h2}}</h2>
 					<p>{{$detail->desc3}}</p>
 				</div>
 			</div>
@@ -51,14 +57,14 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-6 col-sm-12 col-xs-12 dwi">
-					<h2>{{$detail->title4}}</h2>
+					<h2>{{$detail->title4_h2}}</h2>
 					<p>{{$detail->desc4}}</p>
 				</div>
 			</div>
 
 			<div class="row">
 				<div class="col-md-6 col-sm-12 col-xs-12 col-md-offset-6 golden">
-					<h2>{{$detail->title5}}</h2>
+					<h2>{{$detail->title5_h2}}</h2>
 					<p>{{$detail->desc5}}</p>
 				</div>
 			</div>

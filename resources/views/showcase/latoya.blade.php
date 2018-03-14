@@ -5,7 +5,13 @@
 
 @section('showcase-title')
 	<h2>{{$detail->showcase_name}}</h2>
-	<p>Website // Task : design, front end, back end // Status : active</p>
+	<p>@foreach($detail->getCategory as $key => $value)
+	    @if (count($detail->getCategory) == 1 || $key==count($detail->getCategory)-1)
+	    {{$value->category_name}}
+	    @else
+	    {{$value->category_name}} & 
+	    @endif
+	  @endforeach // Task : design, front end, back end // Status : active</p>
 @endsection
 
 @section('showcase')
@@ -15,8 +21,8 @@
 
 	<section id="latoya-main">
 		<div class="col-md-6 col-sm-6 col-xs-6 latoya-main">
-			<h3>Lorem Ipsum</h3>
-			<h2>Dolor Sit Amet</h2>
+			<h3>{{$detail->title1_h3}}</h3>
+			<h2>{{$detail->title1_h2}}</h2>
 			<p>{{$detail->desc1}}</p>
 		</div>
 		<div>

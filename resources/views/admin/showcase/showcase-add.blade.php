@@ -38,7 +38,10 @@
           <div class="col-md-6">
             <div class="form-group">
               <label>Title Section 1</label>
-              <input type="text" class="form-control" name="title1" placeholder="Insert title section 1">
+              <input type="text" class="form-control" name="title1_h3" placeholder="Insert title section 1 (h3)">
+            </div>
+            <div class="form-group">
+              <input type="text" class="form-control" name="title1_h2" placeholder="Insert title section 1 (h2)">
             </div>
             <div class="form-group">
               <label>Description Section 1</label>
@@ -49,7 +52,10 @@
           <div class="col-md-6">
             <div class="form-group">
               <label>Title Section 2</label>
-              <input type="text" class="form-control" name="title2" placeholder="Insert title section 2">
+              <input type="text" class="form-control" name="title2_h3" placeholder="Insert title section 2 (h3)">
+            </div>
+            <div class="form-group">
+              <input type="text" class="form-control" name="title2_h2" placeholder="Insert title section 2 (h2)">
             </div>
             <div class="form-group">
               <label>Description Section 2</label>
@@ -60,7 +66,10 @@
           <div class="col-md-6">
             <div class="form-group">
               <label>Title Section 3</label>
-              <input type="text" class="form-control" name="title3" placeholder="Insert title section 3">
+              <input type="text" class="form-control" name="title3_h3" placeholder="Insert title section 3 (h3)">
+            </div>
+            <div class="form-group">
+              <input type="text" class="form-control" name="title3_h2" placeholder="Insert title section 3 (h2)">
             </div>
             <div class="form-group">
               <label>Description Section 3</label>
@@ -71,7 +80,10 @@
           <div class="col-md-6">
             <div class="form-group">
               <label>Title Section 4</label>
-              <input type="text" class="form-control" name="title4" placeholder="Insert title section 4">
+              <input type="text" class="form-control" name="title4_h3" placeholder="Insert title section 4 (h3)">
+            </div>
+            <div class="form-group">
+              <input type="text" class="form-control" name="title4_h2" placeholder="Insert title section 4 (h2)">
             </div>
             <div class="form-group">
               <label>Description Section 4</label>
@@ -82,7 +94,10 @@
           <div class="col-md-6">
             <div class="form-group">
               <label>Title Section 5</label>
-              <input type="text" class="form-control" name="title5" placeholder="Insert title section 5">
+              <input type="text" class="form-control" name="title5_h3" placeholder="Insert title section 5 (h3)">
+            </div>
+            <div class="form-group">
+              <input type="text" class="form-control" name="title5_h2" placeholder="Insert title section 5 (h2)">
             </div>
             <div class="form-group">
               <label>Description Section 5</label>
@@ -93,7 +108,10 @@
           <div class="col-md-6">
             <div class="form-group">
               <label>Title Section 6</label>
-              <input type="text" class="form-control" name="title6" placeholder="Insert title section 6">
+              <input type="text" class="form-control" name="title6_h3" placeholder="Insert title section 6 (h3)">
+            </div>
+            <div class="form-group">
+              <input type="text" class="form-control" name="title6_h2" placeholder="Insert title section 6 (h2)">
             </div>
             <div class="form-group">
               <label>Description Section 6</label>

@@ -5,7 +5,13 @@
 
 @section('showcase-title')
 	<h2>{{$detail->showcase_name}}</h2>
-	<p>Website // Task : design, front end, back end // Status : active</p>
+	<p>@foreach($detail->getCategory as $key => $value)
+	    @if (count($detail->getCategory) == 1 || $key==count($detail->getCategory)-1)
+	    {{$value->category_name}}
+	    @else
+	    {{$value->category_name}} & 
+	    @endif
+	  @endforeach // Task : design, front end, back end // Status : active</p>
 @endsection
 
 @section('showcase')

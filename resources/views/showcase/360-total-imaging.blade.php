@@ -39,7 +39,13 @@
 	<section id="main-title">
 		<div class="container">
 			<h2>{{$detail->showcase_name}}</h2>
-			<p>Website // Task : design, front end, back end // Status : active</p>
+			<p>@foreach($detail->getCategory as $key => $value)
+			    @if (count($detail->getCategory) == 1 || $key==count($detail->getCategory)-1)
+			    {{$value->category_name}}
+			    @else
+			    {{$value->category_name}} & 
+			    @endif
+			  @endforeach // Task : design, front end, back end // Status : active</p>
 		</div>
 	</section>
 
@@ -78,7 +84,7 @@
 			<img src="{{asset('images/360/about1.jpg')}}" class="img-responsive about-img">
 		</div>
 		<div class="col-md-6 col-sm-6 col-xs-12 about-text">
-			<h3 class="h3-360">ABOUT</h3>
+			<h3 class="h3-360">{{$detail->title1_h3}}</h3>
 			<h2 class="h2-360">{{$detail->showcase_name}}</h2>
 
 			<div class="about-line"></div>
@@ -92,7 +98,7 @@
 	<section id="video-360">
 		<div class="contact-360-title">
 			<h3 class="h3-360">{{$detail->showcase_name}}</h3>
-			<h2 class="h2-360">services</h2>
+			<h2 class="h2-360">{{$detail->title2_h2}}</h2>
 		</div>
 		<div class="panel-body video-icon-box box-plus">
 			<div class="col-md-3 col-sm-3 col-xs-12">

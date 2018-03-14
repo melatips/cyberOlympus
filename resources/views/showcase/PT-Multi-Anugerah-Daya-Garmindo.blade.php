@@ -5,7 +5,13 @@
 
 @section('showcase-title')
 	<h2>{{$detail->showcase_name}}</h2>
-	<p>Branding Design & Website // Task : design, front end, back end // Status : active</p>
+	<p>@foreach($detail->getCategory as $key => $value)
+	    @if (count($detail->getCategory) == 1 || $key==count($detail->getCategory)-1)
+	    {{$value->category_name}}
+	    @else
+	    {{$value->category_name}} & 
+	    @endif
+	  @endforeach // Task : design, front end, back end // Status : active</p>
 @endsection
 
 @section('showcase')
@@ -17,8 +23,8 @@
 
 	<section id="multi-profile">
 		<div class="col-md-6 col-sm-6 col-xs-6 multi-profile">
-			<h3>About Us</h3>
-			<h2>WHO WE ARE</h2>
+			<h3>{{$detail->title1_h3}}</h3>
+			<h2>{{$detail->title1_h2}}</h2>
 			<p>{{$detail->desc1}}</p>
 		</div>
 	</section>
@@ -31,8 +37,8 @@
 			<img src="{{asset('images/showcase/pt-multi/shirt.svg')}}" class="img-responsive multi-shirt">
 		</div>
 		<div class="col-md-6 col-sm-6 col-xs-12 multi-product">
-			<h3>Our Products</h3>
-			<h2>WHAT WE DO</h2>
+			<h3>{{$detail->title2_h3}}</h3>
+			<h2>{{$detail->title2_h2}}</h2>
 			<p>{{$detail->desc2}}</p>
 		</div>
 	</section>

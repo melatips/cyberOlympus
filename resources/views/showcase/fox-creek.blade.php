@@ -5,14 +5,20 @@
 
 @section('showcase-title')
 	<h2>{{$detail->showcase_name}}</h2>
-	<p>Website // Task : design, front end, back end // Status : active</p>
+	<p>@foreach($detail->getCategory as $key => $value)
+	    @if (count($detail->getCategory) == 1 || $key==count($detail->getCategory)-1)
+	    {{$value->category_name}}
+	    @else
+	    {{$value->category_name}} & 
+	    @endif
+	  @endforeach // Task : design, front end, back end // Status : active</p>
 @endsection
 
 @section('showcase')
 	<section id="fox-hero">
 		<div class="col-md-8 col-sm-8 col-xs-8 fox-hero">
-			<h3>Making Films</h3>
-			<h2>THAT CROSS BORDERS</h2>
+			<h3>{{$detail->title1_h3}}</h3>
+			<h2>{{$detail->title1_h2}}</h2>
 			<p>{{$detail->desc1}}</p>
 		</div>
 	</section>
@@ -22,8 +28,8 @@
 			<img src="{{asset('images/showcase/fox-creek/fox-logo.svg')}}" class="img-responsive fox-img">
 		</div>
 		<div class="col-md-6 col-sm-6 col-xs-6 fox-logo">
-			<h3>Lorem Ipsum</h3>
-			<h2>DOLOR SIT AMET</h2>
+			<h3>{{$detail->title2_h3}}</h3>
+			<h2>{{$detail->title2_h2}}</h2>
 			<p>{{$detail->desc2}}</p>
 		</div>
 	</section>

@@ -5,7 +5,13 @@
 
 @section('showcase-title')
 	<h2>{{$detail->showcase_name}}</h2>
-	<p>Stationery</p>
+	<p>@foreach($detail->getCategory as $key => $value)
+	    @if (count($detail->getCategory) == 1 || $key==count($detail->getCategory)-1)
+	    {{$value->category_name}}
+	    @else
+	    {{$value->category_name}} & 
+	    @endif
+	  @endforeach</p>
 @endsection
 
 @section('showcase')
@@ -16,7 +22,7 @@
 	<section id="profile" style="background: url('{{asset('images/showcase/dr-theressia/bg-profile.jpg')}}') no-repeat; background-size: cover; background-position: center;">
 		<div class="container">
 			<div class="col-md-6 col-sm-6 col-xs-6">
-				<h2><strong>{{$detail->title1}}</strong></h2>
+				<h2><strong>{{$detail->title1_h2}}</strong></h2>
 				<p>{{$detail->desc1}}</p>
 			</div>
 		</div>

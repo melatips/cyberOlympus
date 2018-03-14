@@ -1,7 +1,11 @@
 @extends('template.AdminTemplate')
+<!-- @section('css')
+<script src="{{asset('AdminLTE-2.4.3/bower_components/datatables.net/js/jquery.dataTables.min.js')}}"></script>
+<script src="{{asset('AdminLTE-2.4.3/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js')}}"></script>
+@endsection -->
 
 @section('aside-title')
-	Showcase Category
+	Category List
 @endsection
 
 @section('aside-subtitle')
@@ -34,12 +38,12 @@
     @endforeach
           <div class="box">
             <div class="box-header">
-              <h3 class="box-title">Showcase Category</h3>
+              <a href="{{url('admin/category/add')}}" class="btn btn-primary"><i class="fa fa-plus"></i> Add Category</a>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
-            	<a href="{{url('admin/category/add')}}" class="btn btn-primary"><i class="fa fa-plus"></i> Add Category</a>
-              <table id="example2" class="table table-bordered table-hover">
+            	
+              <table id="category" class="table table-bordered table-hover">
                 <thead>
                 <tr>
                   <th>No.</th>
@@ -85,6 +89,12 @@
 @endsection
 
 @section('js')
+<script type="text/javascript">
+$(document).ready( function () {
+    $('#category').DataTable();
+} );
+</script>
+
 <script>
 $(document).ready(function(){
     $('[data-toggle="tooltip"]').tooltip();   

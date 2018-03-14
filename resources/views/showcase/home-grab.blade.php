@@ -5,21 +5,27 @@
 
 @section('showcase-title')
 	<h2>{{$detail->showcase_name}}</h2>
-	<p>Website // Task : design, front end, back end // Status : active</p>
+	<p>@foreach($detail->getCategory as $key => $value)
+	    @if (count($detail->getCategory) == 1 || $key==count($detail->getCategory)-1)
+	    {{$value->category_name}}
+	    @else
+	    {{$value->category_name}} & 
+	    @endif
+	  @endforeach // Task : design, front end, back end // Status : active</p>
 @endsection
 
 @section('showcase')
 	<section id="hero-sc" style="background: url('{{asset('images/showcase/home-grab/bg-hero.jpg')}}') no-repeat; background-size: cover; background-position: center; position: relative;">
 		<div class="col-md-6 col-md-offset-6 col-sm-6 col-sm-offset-6 col-xs-6 col-xs-offset-6 home-grab-hero">
-			<h2>{{$detail->title1}}</h2>
+			<h2>{{$detail->title1_h2}}</h2>
 			<p>{{$detail->desc1}}</p>
 		</div>
 	</section>
 
 	<section id="home-grab-detail">
 		<div class="col-md-6 col-sm-6 col-xs-6 home-grab-detail">
-			<h3>Grab the Best Property</h3>
-			<h2>DEALS NEAR YOU</h2>
+			<h3>{{$detail->title2_h3}}</h3>
+			<h2>{{$detail->title2_h2}}</h2>
 			<p>{{$detail->desc2}}</p>
 		</div>
 	</section>
