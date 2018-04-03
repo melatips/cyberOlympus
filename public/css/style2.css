@@ -1,0 +1,162 @@
+/*BLOG*/
+#detail-article{
+	padding: 5vh 10vw;
+	background-color: black;
+	height: 100vh;
+	color: white;
+}
+
+.article{
+	padding-right: 5vw;
+}
+
+.article-title{
+	font-family: 'quicksandlight';
+	font-size: 5vh;
+	margin-bottom: 10vh;
+	text-transform: capitalize;
+	text-align: center;
+}
+
+.article-date{
+	margin-bottom: 3vh;
+}
+
+.article-content, .article-date{
+	font-family: 'sf_ui__textregular';
+	font-size: 2.3vh;
+	line-height: 1.5;
+}
+
+.first-char{
+	font-size: 9vh;
+	float: left;
+	/*padding-top: 4px;*/
+  	padding-right: 2vh;
+  	line-height: 10vh;
+}
+
+.related-article{
+	padding: 0;
+	margin-right: -5vw;
+}
+
+.related{
+	font-family: 'quicksandlight';
+	margin-bottom: 3vh;
+	text-align: center;
+}
+
+.related-img p{
+	position: absolute;
+	background-color: rgba(255,0,0,0.5);
+	font-family: 'sf_ui__textregular';
+	text-align: center;
+	padding: 2vh 1vw;
+}
+
+.img-related{
+	position: relative;
+}
+
+#featured-img{
+	background-color: black;
+}
+
+.featured-img img{
+	max-height: 40vh;
+}
+
+#main-article{
+	background-color: black;
+	color: white;
+	/*height: 100vh;*/
+}
+
+/*.article2{
+	padding: 0 10vw;
+}*/
+
+.article-quote{
+	font-family: 'quicksandlight';
+	font-size: 5vh;
+	margin:0;
+	padding: 10vh 10vw;
+	text-transform: capitalize;
+	text-align: center;
+}
+
+.article-img2-box{
+	margin: 10vh 0 5vh;
+	padding: 0;
+}
+
+.article-img2{
+	margin: 3vh auto;
+}
+
+/*CAREERS*/
+#careers{
+	background-color: black;
+	color: white;
+}
+
+.careers-side li{
+	list-style: none;
+	border-bottom: solid;
+	padding: 1.5vh 0;
+}
+
+.careers-side li a{
+	color: white;
+	font-family: 'quicksandlight';
+	font-size: 4vh;
+	transition: .3s all;
+}
+
+.careers-side li a:hover{
+	text-decoration: none;
+	font-family: 'quicksandbold';
+	transition: .3s all;
+}
+
+.careers-email{
+	text-align: center;
+	margin-top: 10vh;
+}
+
+.send-us{
+	color: white;
+	font-size: 3vh;
+	border-style: solid;
+	border-width: thin;
+	padding: 1vh 1vw;
+	font-family: 'quicksandlight';
+	text-align: center;
+	transition: .3s all;
+}
+
+.send-us:hover{
+	padding: 1vh 3vw;
+	color: white;
+	transition: .3s all;
+	text-decoration: none;
+}
+
+.requirement li{
+	font-size: 2.5vh;
+	list-style: none;
+	margin-left: 3vw;
+	margin-bottom: 2vh;
+}
+
+.requirement li:before{
+	content: "\f046";
+	font-family: FontAwesome;
+    font-style: normal;
+    font-weight: normal;
+    text-decoration: inherit;
+    margin: 0 2vw 2vh -3vw;
+    /*line-height: 2.5vh;*/
+    font-size: 2.5vh;
+}

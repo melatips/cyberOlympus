@@ -11,6 +11,8 @@
 |
 */
 
+Route::get('mail','HomeController@sendmail');
+
 // Auth::routes();
 
 
@@ -29,56 +31,26 @@
 Route::get('/', 'CyberController@landingpage');
 Route::get('/search', 'CyberController@searchInput');
 Route::get('/360', 'CyberController@totalImaging');
-Route::get('/feature/fully-responsive', 'CyberController@feature1');
-Route::get('/feature/content-management-system', 'CyberController@feature2');
-Route::get('/feature/unique-design', 'CyberController@feature3');
-Route::get('/feature/custom-feature', 'CyberController@feature4');
+// Route::get('/feature/fully-responsive', 'CyberController@feature1');
+// Route::get('/feature/content-management-system', 'CyberController@feature2');
+// Route::get('/feature/unique-design', 'CyberController@feature3');
+// Route::get('/feature/custom-feature', 'CyberController@feature4');
 Route::post('/contact/submit', 'CyberController@contactSubmit');
-Route::post('/coba', 'CyberController@coba');
 
-//SHOWCASE LIST
-// Route::get('/showcase/list-logo', 'ShowcaseController@listLogo');
-// Route::get('/showcase/list-apps', 'ShowcaseController@listApps');
-// Route::get('/showcase/list-branding', 'ShowcaseController@listBranding');
-// Route::get('/showcase/list-game', 'ShowcaseController@listGame');
-// Route::get('/showcase/list-menu', 'ShowcaseController@listMenu');
-// Route::get('/showcase/list-packaging', 'ShowcaseController@listPackaging');
-// Route::get('/showcase/list-stationery', 'ShowcaseController@listStat');
-// Route::get('/showcase/list-website', 'ShowcaseController@listWeb');
+//FOOTER
+Route::get('/about-us', 'CyberController@aboutUs');
+Route::get('/blog', 'CyberController@blog');
+	//nanti /article-detail diganti id article
+	Route::get('/blog/article-detail', 'CyberController@articleDetail');
+Route::get('/careers', 'CyberController@noPosition');
+Route::get('/coba', 'CyberController@careers');
 
+
+//SHOWCASE
 Route::get('/showcase/category', 'ShowcaseController@categoryList');
+Route::get('/showcase/all', 'ShowcaseController@allShowcase');
 Route::get('/showcase/list/{id}', 'ShowcaseController@showcaseList');
 Route::get('/showcase/detail/{id}', 'ShowcaseController@showcaseDetail');
-
-//SHOWCASE DETAIL
-// Route::get('/showcase/360-total-imaging', 'ShowcaseController@total360');
-// Route::get('/showcase/adhi-buana', 'ShowcaseController@adhiBuana');
-// Route::get('/showcase/bcp-contractor', 'ShowcaseController@bcpContractor');
-// Route::get('/showcase/blue-dolphin', 'ShowcaseController@blueDolphin');
-// Route::get('/showcase/boss-katsu', 'ShowcaseController@bossKatsu');
-// Route::get('/showcase/chuar', 'ShowcaseController@chuar');
-// Route::get('/showcase/drg-andhika', 'ShowcaseController@drgAndhika');
-// Route::get('/showcase/dr-theressia', 'ShowcaseController@drTheressia');
-// Route::get('/showcase/dr-tisya', 'ShowcaseController@drTisya');
-// Route::get('/showcase/drg-andhika', 'ShowcaseController@drgAndhika');
-// Route::get('/showcase/dwi-golden', 'ShowcaseController@dwiGolden');
-// Route::get('/showcase/enggal-jaya', 'ShowcaseController@enggalJaya');
-// Route::get('/showcase/fox-creek', 'ShowcaseController@foxCreek');
-// Route::get('/showcase/home-grab', 'ShowcaseController@homeGrab');
-// Route::get('/showcase/icompete', 'ShowcaseController@icompete');
-// Route::get('/showcase/intec', 'ShowcaseController@intec');
-// Route::get('/showcase/irkon-panelindo', 'ShowcaseController@irkonPanelindo');
-// Route::get('/showcase/kaiser-medical', 'ShowcaseController@kaiserMedical');
-// Route::get('/showcase/latoya', 'ShowcaseController@latoya');
-// Route::get('/showcase/luisa', 'ShowcaseController@luisa');
-// Route::get('/showcase/noe', 'ShowcaseController@noe');
-// Route::get('/showcase/pakelan', 'ShowcaseController@pakelan');
-// Route::get('/showcase/people-finder', 'ShowcaseController@peopleFinder');
-// Route::get('/showcase/petraco', 'ShowcaseController@petraco');
-// Route::get('/showcase/p-pouch', 'ShowcaseController@pPouch');
-// Route::get('/showcase/pt-multi', 'ShowcaseController@ptMulti');
-// Route::get('/showcase/sehati', 'ShowcaseController@sehati');
-// Route::get('/showcase/tick-travel', 'ShowcaseController@tickTravel');
 
 //ADMIN
 Route::get('/admin', 'AdminController@contactUs');
@@ -101,7 +73,13 @@ Route::get('/admin/showcase', 'AdminController@showcase');
 		Route::post('admin/showcase/update/{id}', 'AdminController@updateShowcase');
 	Route::get('admin/showcase/delete/{id}', 'AdminController@showcaseDelete');
 
-Route::get('/admin/landing-page', 'AdminController@landingPage');
+Route::get('/admin/careers', 'AdminController@careers');
+	Route::get('/admin/careers/add', 'AdminController@careersAdd');
+		Route::post('/admin/careers/save', 'AdminController@careersSave');
+	Route::get('admin/careers/detail/{id}', 'AdminController@careersDetail');
+	Route::get('/admin/careers/edit/{id}', 'AdminController@careersEdit');
+		Route::post('/admin/careers/update/{id}', 'AdminController@careersUpdate');
+	Route::get('/admin/careers/delete/{id}', 'AdminController@careersDelete');
 
 Route::get('/admin/basic-info', 'AdminController@basicInfo');
 	Route::get('/admin/basic-info/edit', 'AdminController@basicEdit');

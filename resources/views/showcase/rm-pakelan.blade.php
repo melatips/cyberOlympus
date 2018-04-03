@@ -44,13 +44,13 @@
 
 	<section id="pakelan-menu">
 		<div class="col-md-12 pakelan-menu">
-			<div class="col-md-4 col-sm-4 col-xs-4 pakelan-menu-box">
+			<div class="col-md-4 col-sm-4 col-xs-12 pakelan-menu-box">
 				<img src="{{asset('images/showcase/pakelan/menu-1.png')}}" class="img-responsive pakelan-menu-img">
 			</div>
-			<div class="col-md-4 col-sm-4 col-xs-4 pakelan-menu-box">
+			<div class="col-md-4 col-sm-4 col-xs-12 pakelan-menu-box">
 				<img src="{{asset('images/showcase/pakelan/menu-2.png')}}" class="img-responsive pakelan-menu-img">
 			</div>
-			<div class="col-md-4 col-sm-4 col-xs-4 pakelan-menu-box">
+			<div class="col-md-4 col-sm-4 col-xs-12 pakelan-menu-box">
 				<img src="{{asset('images/showcase/pakelan/menu-3.png')}}" class="img-responsive pakelan-menu-img">
 			</div>
 		</div>

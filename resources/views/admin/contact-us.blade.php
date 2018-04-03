@@ -31,7 +31,7 @@
         {{ $error }}
     </div>
     @endforeach
-  <div class="col-md-3">
+      <!-- <div class="col-md-3">
           <div class="box box-solid">
             <div class="box-header with-border">
               <h3 class="box-title">Folders</h3>
@@ -50,12 +50,12 @@
                 <li><a href="#"><i class="fa fa-trash-o"></i> Trash</a></li>
               </ul>
             </div>
-            <!-- /.box-body -->
+            
           </div>
-          <!-- /. box -->
-        </div>
+          
+        </div> -->
 
-        <div class="col-md-9">
+        <div class="col-md-12">
           <div class="box box-primary">
             <div class="box-header with-border">
               <h3 class="box-title">Inbox</h3>

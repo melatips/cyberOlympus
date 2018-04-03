@@ -5,7 +5,7 @@
 
 @section('content')
 <header id="header-landing">
-		<div class="container">
+		<div class="header-landing">
 			<a href="#landing-page"><img src="{{asset('images/logo.png')}}" class="img-responsive logo-360"></a>
 			<div class="navbar-landing"  id="nav-landing">
 				<ul>
@@ -14,11 +14,12 @@
 					<li><a href="#step">STEP</a></li>
 					<li><a href="#showcase">SHOWCASE</a></li>
 					<li><a href="#contact">CONTACT US</a></li>
+					<!-- <li><input type="text" name="searchShowcase" placeholder="Search"></li> -->
 					<li>
 						<form action="{{url('/search')}}" method="get" enctype="multipart/form-data">
 							{{ csrf_field() }}
 						<input type="text" class="search-input" name="searchShowcase">
-				        <button type="submit"><i class="fa fa-search search-icon"></i></button>
+				        <button type="submit" class="search-icon"><i class="fa fa-search search-icon"></i></button>
 				        <!-- <i class="fa fa-chevron-down search-icon"></i> -->
 				        </form>
 				    </li>
@@ -69,13 +70,14 @@
 						<img src="{{asset('images/feature-icon.svg')}}" class="img-responsive feature-icon">
 						<!-- <div id="feature1"></div> -->
 					</div>
-				    <div class="col-md-7 col-sm-12 col-xs-12 feature-main">
+				    <div class="col-md-7 col-sm-12 col-xs-12 feature-main w3-animate-bottom">
 						<h3 class="sub-title">Our Features</h3>
 						<h2 class="title-thin">Fully</h2>
 						<h2 class="title-thick">RESPONSIVE</h2>
 						<p class="feature-text">We make sure that we deliver responsive website that well-viewed in various media</p>
-						<a href="{{url('/feature/fully-responsive')}}" class="view">View Detail <i class="fa fa-angle-right"></i><i class="fa fa-angle-right"></i></a>
+						<!-- <a href="{{url('/feature/fully-responsive')}}" class="view">View Detail <i class="fa fa-angle-right"></i><i class="fa fa-angle-right"></i></a> -->
 					</div>
+
 					<div class="col-md-5 col-sm-12 col-xs-12 icon-shown">
 						<img src="{{asset('images/feature-icon.svg')}}" class="img-responsive feature-icon">
 							<!-- <div id="feature1"></div> -->
@@ -93,12 +95,12 @@
 							<img src="{{asset('images/feature-icon-2.svg')}}" class="img-responsive feature-icon">
 							<!-- <div id="feature2"></div> -->
 						</div>
-				    	<div class="col-md-7 col-sm-12 col-xs-12">
+				    	<div class="col-md-7 col-sm-12 col-xs-12 w3-animate-top">
 							<h3 class="sub-title">Our Features</h3>
 							<h2 class="title-thin">Content management</h2>
 							<h2 class="title-thick">SYSTEM</h2>
 							<p class="feature-text">We make custom Content Management System for updating website content</p>
-							<a href="{{url('/feature/content-management-system')}}" class="view">View Detail <i class="fa fa-angle-right"></i><i class="fa fa-angle-right"></i></a>
+							<!-- <a href="{{url('/feature/content-management-system')}}" class="view">View Detail <i class="fa fa-angle-right"></i><i class="fa fa-angle-right"></i></a> -->
 						</div>
 						<div class="col-md-5 col-sm-12 col-xs-12 icon-shown">
 							<img src="{{asset('images/feature-icon-2.svg')}}" class="img-responsive feature-icon">
@@ -117,12 +119,12 @@
 							<img src="{{asset('images/feature-icon-3.svg')}}" class="img-responsive feature-icon">
 							<!-- <div id="feature3"></div> -->
 						</div>
-				    	<div class="col-md-7 col-sm-12 col-xs-12">
+				    	<div class="col-md-7 col-sm-12 col-xs-12 w3-animate-right">
 							<h3 class="sub-title">Our Features</h3>
 							<h2 class="title-thin">Unique</h2>
 							<h2 class="title-thick">DESIGN</h2>
 							<p class="feature-text">Our design are unique, we always make different designs for every website</p>
-							<a href="{{url('/feature/unique-design')}}" class="view">View Detail <i class="fa fa-angle-right"></i><i class="fa fa-angle-right"></i></a>
+							<!-- <a href="{{url('/feature/unique-design')}}" class="view">View Detail <i class="fa fa-angle-right"></i><i class="fa fa-angle-right"></i></a> -->
 						</div>
 						<div class="col-md-5 col-sm-12 col-xs-12 icon-shown">
 							<img src="{{asset('images/feature-icon-3.svg')}}" class="img-responsive feature-icon">
@@ -141,12 +143,12 @@
 							<img src="{{asset('images/feature-icon-4.svg')}}" class="img-responsive feature-icon">
 							<!-- <div id="feature4"></div> -->
 						</div>
-				    	<div class="col-md-7 col-sm-12 col-xs-12">
+				    	<div class="col-md-7 col-sm-12 col-xs-12 w3-animate-left">
 							<h3 class="sub-title">Our Features</h3>
 							<h2 class="title-thin">Custom</h2>
 							<h2 class="title-thick">FEATURE</h2>
 							<p class="feature-text">The feature we make are made by customers request so that it fits the need</p>
-							<a href="{{url('/feature/custom-feature')}}" class="view">View Detail <i class="fa fa-angle-right"></i><i class="fa fa-angle-right"></i></a>
+							<!-- <a href="{{url('/feature/custom-feature')}}" class="view">View Detail <i class="fa fa-angle-right"></i><i class="fa fa-angle-right"></i></a> -->
 						</div>
 						<div class="col-md-5 col-sm-12 col-xs-12 icon-shown">
 							<img src="{{asset('images/feature-icon-4.svg')}}" class="img-responsive feature-icon">
@@ -167,18 +169,19 @@
 				<div class="carousel-inner">
 				    <div class="item active">
 				    	<div class="col-md-5 col-sm-12 col-xs-12 step-box">
-							<img src="{{asset('images/step1.svg')}}" class="img-responsive step-img">
+							<img src="{{asset('images/step1.svg')}}" class="img-responsive step-img w3-animate-zoom">
+							<!-- <div id="feature4"></div> -->
 							<img src="{{asset('images/circle-tiny.png')}}" class="img-responsive circle-move">
 							<img src="{{asset('images/circle-mid.png')}}" class="img-responsive circle-move2">
 						</div>
-				    	<div class="col-md-7 col-sm-12 col-xs-12 step">
-							<h3 class="sub-title">How We Do It</h3>
-							<h2 class="title-thin">Requirements</h2>
-							<h2 class="title-thick">ANALYSIS</h2>
-							<p class="feature-text">This includes client goals, target, audience, detailed feature requests and as much relevant information for website development. We always give suggestions for our clients from our experience.</p>
+				    	<div class="col-md-7 col-sm-12 col-xs-12 step w3-animate-right">
+							<h3 class="sub-title p">How We Do It</h3>
+							<h2 class="title-thin p">Requirements</h2>
+							<h2 class="title-thick p">ANALYSIS</h2>
+							<p class="feature-text p">This includes client goals, target, audience, detailed feature requests and as much relevant information for website development. We always give suggestions for our clients from our experience.</p>
 							<!-- <i class="fa fa-chevron-circle-right"></i> -->
 							<div class="clearfix"></div>
-							<a class="right step-icon-box" href="#step-slide" data-slide="next">
+							<a class="right step-icon-box js-paint" href="#step-slide" data-slide="next" onclick="plusDivs(1, 0)">
 							    <img src="{{asset('images/next-icon.svg')}}" class="step-icon">
 							    <span class="sr-only">Next</span>
 							</a>
@@ -187,21 +190,22 @@
 
 				    <div class="item">
 				    	<div class="col-md-5 col-sm-12 col-xs-12 step-box">
-							<img src="{{asset('images/step2.svg')}}" class="img-responsive step-img">
+							<img src="{{asset('images/step2.svg')}}" class="img-responsive step-img w3-animate-bottom">
+							<!-- <div id="feature3"></div> -->
 							<img src="{{asset('images/circle-tiny.png')}}" class="img-responsive circle-move">
 							<img src="{{asset('images/circle-mid.png')}}" class="img-responsive circle-move2">
 						</div>
-				    	<div class="col-md-7 col-sm-12 col-xs-12 step">
-							<h3 class="sub-title">How We Do It</h3>
-							<h2 class="title-thick">PLAN</h2>
-							<p class="feature-text">We do plan and project charter (or equivalent document) sums up the information that has been gathered and agreed upon the previous point. These documents are tipycally concise and not overly technical and they serve as a reference througout the project.</p>
+				    	<div class="col-md-7 col-sm-12 col-xs-12 step w3-animate-right">
+							<h3 class="sub-title p">How We Do It</h3>
+							<h2 class="title-thick p">PLAN</h2>
+							<p class="feature-text p">We do plan and project charter (or equivalent document) sums up the information that has been gathered and agreed upon the previous point. These documents are tipycally concise and not overly technical and they serve as a reference througout the project.</p>
 							<!-- <i class="fa fa-chevron-circle-right"></i> -->
 							<div class="clearfix"></div>
-							<a class="left step-icon-box" href="#step-slide" data-slide="prev">
+							<a class="left step-icon-box" href="#step-slide" data-slide="prev" onclick="plusDivs(-1, 0)">
 							    <img src="{{asset('images/prev-icon.svg')}}" class="step-icon">
 							    <span class="sr-only">Previous</span>
 							</a>
-							<a class="right step-icon-box" href="#step-slide" data-slide="next">
+							<a class="right  step-icon-box" href="#step-slide" data-slide="next" onclick="plusDivs(1, 0)">
 							    <img src="{{asset('images/next-icon.svg')}}" class="step-icon">
 							    <span class="sr-only">Next</span>
 							</a>
@@ -210,22 +214,22 @@
 
 				    <div class="item">
 				    	<div class="col-md-5 col-sm-12 col-xs-12 step-box">
-							<img src="{{asset('images/step3.svg')}}" class="img-responsive step-img">
+							<img src="{{asset('images/step3.svg')}}" class="img-responsive step-img w3-animate-top">
 							<img src="{{asset('images/circle-tiny.png')}}" class="img-responsive circle-move">
 							<img src="{{asset('images/circle-mid.png')}}" class="img-responsive circle-move2">
 						</div>
-				    	<div class="col-md-7 col-sm-12 col-xs-12 step">
+				    	<div class="col-md-7 col-sm-12 col-xs-12 step w3-animate-right">
 							<h3 class="sub-title">How We Do It</h3>
 							<h2 class="title-thin">Site</h2>
 							<h2 class="title-thick">MAP</h2>
 							<p class="feature-text">A site map guides end users who are lost in the structure or need to find a piece of information quickly. Rather than simply listing pages, including links and a hierarchy of page organization is good practice.</p>
 							<div class="clearfix"></div>
 							<!-- <i class="fa fa-chevron-circle-right"></i> -->
-							<a class="left step-icon-box" href="#step-slide" data-slide="prev">
+							<a class="left  step-icon-box" href="#step-slide" data-slide="prev" onclick="plusDivs(-1, 0)">
 							    <img src="{{asset('images/prev-icon.svg')}}" class="step-icon">
 							    <span class="sr-only">Previous</span>
 							</a>
-							<a class="right step-icon-box" href="#step-slide" data-slide="next">
+							<a class="right  step-icon-box" href="#step-slide" data-slide="next" onclick="plusDivs(1, 0)">
 							    <img src="{{asset('images/next-icon.svg')}}" class="step-icon">
 							    <span class="sr-only">Next</span>
 							</a>
@@ -234,21 +238,21 @@
 
 				    <div class="item">
 				    	<div class="col-md-5 col-sm-12 col-xs-12 step-box">
-							<img src="{{asset('images/step4.svg')}}" class="img-responsive step-img">
+							<img src="{{asset('images/step4.svg')}}" class="img-responsive step-img w3-animate-zoom">
 							<img src="{{asset('images/circle-tiny.png')}}" class="img-responsive circle-move">
 							<img src="{{asset('images/circle-mid.png')}}" class="img-responsive circle-move2">
 						</div>
-				    	<div class="col-md-7 col-sm-12 col-xs-12 step">
+				    	<div class="col-md-7 col-sm-12 col-xs-12 step w3-animate-right">
 							<h3 class="sub-title">How We Do It</h3>
 							<h2 class="title-thick">DRAFTING</h2>
 							<p class="feature-text">This is where the visual layout of the website begins to take shape. Using information gathered from the client in the planning phase, begin designing the layout  using a wireframe.</p>
 							<div class="clearfix"></div>
 							<!-- <i class="fa fa-chevron-circle-right"></i> -->
-							<a class="left step-icon-box" href="#step-slide" data-slide="prev">
+							<a class="left  step-icon-box" href="#step-slide" data-slide="prev">
 							    <img src="{{asset('images/prev-icon.svg')}}" class="step-icon">
 							    <span class="sr-only">Previous</span>
 							</a>
-							<a class="right step-icon-box" href="#step-slide" data-slide="next">
+							<a class="right  step-icon-box" href="#step-slide" data-slide="next" onclick="plusDivs(1, 0)">
 							    <img src="{{asset('images/next-icon.svg')}}" class="step-icon">
 							    <span class="sr-only">Next</span>
 							</a>
@@ -257,21 +261,21 @@
 
 				    <div class="item">
 				    	<div class="col-md-5 col-sm-12 col-xs-12 step-box">
-							<img src="{{asset('images/step5.svg')}}" class="img-responsive step-img">
+							<img src="{{asset('images/step5.svg')}}" class="img-responsive step-img w3-animate-left">
 							<img src="{{asset('images/circle-tiny.png')}}" class="img-responsive circle-move">
 							<img src="{{asset('images/circle-mid.png')}}" class="img-responsive circle-move2">
 						</div>
-				    	<div class="col-md-7 col-sm-12 col-xs-12 step">
+				    	<div class="col-md-7 col-sm-12 col-xs-12 step w3-animate-right">
 							<h3 class="sub-title">How We Do It</h3>
 							<h2 class="title-thick">REVIEW</h2>
 							<p class="feature-text">A cycle of reviewing, tweaking and approving the mock-ups often takes piece until (ideally) both client and contractor are satisfied with the design. This is the easiest time to make changes, not after the design has been coded.</p>
 							<!-- <i class="fa fa-chevron-circle-right"></i> -->
 							<div class="clearfix"></div>
-							<a class="left step-icon-box" href="#step-slide" data-slide="prev">
+							<a class="left  step-icon-box" href="#step-slide" data-slide="prev" onclick="plusDivs(-1, 0)">
 							    <img src="{{asset('images/prev-icon.svg')}}" class="step-icon">
 							    <span class="sr-only">Previous</span>
 							</a>
-							<a class="right step-icon-box" href="#step-slide" data-slide="next">
+							<a class="right  step-icon-box" href="#step-slide" data-slide="next" onclick="plusDivs(1, 0)">
 							    <img src="{{asset('images/next-icon.svg')}}" class="step-icon">
 							    <span class="sr-only">Next</span>
 							</a>
@@ -280,17 +284,17 @@
 
 				    <div class="item">
 				    	<div class="col-md-5 col-sm-12 col-xs-12 step-box">
-							<img src="{{asset('images/step6.svg')}}" class="img-responsive step-img">
+							<img src="{{asset('images/step6.svg')}}" class="img-responsive step-img w3-animate-zoom">
 							<img src="{{asset('images/circle-tiny.png')}}" class="img-responsive circle-move">
 							<img src="{{asset('images/circle-mid.png')}}" class="img-responsive circle-move2">
 						</div>
-				    	<div class="col-md-7 col-sm-12 col-xs-12 step">
+				    	<div class="col-md-7 col-sm-12 col-xs-12 step w3-animate-right">
 							<h3 class="sub-title">How We Do It</h3>
 							<h2 class="title-thin">Slice &</h2>
 							<h2 class="title-thick">CODE</h2>
 							<p class="feature-text">It's coding time. Slice the final Photoshop mock-up, and write the HTML and CSS code for the basic design. Adding interactive elements and jQuery, building Content Management System.</p>
 							<!-- <i class="fa fa-chevron-circle-right"></i> -->
-							<a class="left step-icon-box" href="#step-slide" data-slide="prev">
+							<a class="left  step-icon-box" href="#step-slide" data-slide="prev" onclick="plusDivs(-1, 0)">
 							    <img src="{{asset('images/prev-icon.svg')}}" class="step-icon">
 							    <span class="sr-only">Previous</span>
 							</a>
@@ -310,12 +314,13 @@
 				<div class="item active ">
 				    <div class="showcase-inner " style="background: url({{asset('images/showcase/dashboard/chuar-bg.jpg')}}) no-repeat; background-size: cover; background-position: center; ">
 				    	<div class="bg-trans">
+				    		<img src="{{asset('images/showcase/bg/Chuar-Chuar.jpg')}}" class="img-responsive kaiser-hidden">
 					    	<div class="row">
-					    		<div class="col-md-6 col-sm-6 col-xs-12 chuar">
-									<a href="{{url('/showcase/list-game')}}"><h3 class="sub-title" style="color: #ff9680">Mobile Game</h3></a>
+					    		<div class="col-md-6 col-sm-12 col-xs-12 chuar">
+									<a href="{{url('/showcase/list/4')}}" class="sub-show"><h3 class="sub-title" style="color: #ff9680">Mobile Game</h3></a>
 									<h2 class="title-thick" style="color: #b0130e">CHUAR CHUAR</h2>
 									<p class="feature-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-									<a href="{{url('showcase/chuar')}}" class="view" style="color: #ff9680">View Detail <i class="fa fa-angle-right"></i><i class="fa fa-angle-right"></i></a>
+									<a href="{{url('showcase/detail/6')}}" class="view" style="color: #ff9680">View Detail <i class="fa fa-angle-right"></i><i class="fa fa-angle-right"></i></a>
 								</div>
 								<div class="col-md-6 col-sm-6 chuar-side-box">
 									<img src="{{asset('images/showcase/dashboard/chuar-side.png')}}" class="img-responsive chuar-side">
@@ -323,7 +328,7 @@
 
 								<img src="{{asset('images/showcase/dashboard/chuar-hand.svg')}}" class="img-responsive chuar-img">
 								
-								<div class="col-md-6 col-sm-6 col-xs-12 controller-box">
+								<div class="col-md-6 col-sm-12 col-xs-12 controller-box">
 									<a class="left showcase-icon-box" href="#showcase-slide" data-slide="prev">
 										<img src="{{asset('images/prev-show.svg')}}" class="showcase-icon left-con">
 										<span class="sr-only">Previous</span>
@@ -332,6 +337,10 @@
 										<img src="{{asset('images/next-show.svg')}}" class="showcase-icon right-con">
 										<span class="sr-only">Next</span>
 									</a>
+								</div>
+
+								<div class="col-md-12 col-sm-12 col-xs-12 button-box">
+									<a href="{{url('showcase/all')}}" class="btn cat-btn">View All Showcase</a>
 								</div>
 							
 							</div>
@@ -342,21 +351,22 @@
 				<div class="item">
 				    <div class="showcase-inner" style="background: url('{{asset('images/showcase/dashboard/pakelan-bg.png')}}') no-repeat; background-size: cover; background-position: center;">
 				    	<div class="bg-trans">
+				    		<img src="{{asset('images/showcase/bg/rumah-makan-pakelan.jpg')}}" class="img-responsive kaiser-hidden">
 				    		<div class="row">
 				    			<div class="col-md-6 col-sm-6 pakelan-side-box">
 									<img src="{{asset('images/showcase/dashboard/pakelan-side.png')}}" class="img-responsive pakelan-side">
 								</div>
 
-				    			<div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-6 col-sm-offset-6 pakelan">
-									<a href="{{url('/showcase/list-branding')}}"><h3 class="sub-title">Branding Design</h3></a>
+				    			<div class="col-md-6 col-sm-12 col-xs-12 col-md-offset-6  pakelan">
+									<a href="{{url('/showcase/list/3')}}" class="sub-show"><h3 class="sub-title">Branding Design</h3></a>
 									<h2 class="title-thick" style="color: #ffd200;">RM PAKELAN</h2>
 									<p class="feature-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-									<a href="{{url('showcase/pakelan')}}" class="view">View Detail <i class="fa fa-angle-right"></i><i class="fa fa-angle-right"></i></a>
+									<a href="{{url('showcase/detail/25')}}" class="view">View Detail <i class="fa fa-angle-right"></i><i class="fa fa-angle-right"></i></a>
 								</div>
 
 								<img src="{{asset('images/showcase/dashboard/pakelan-img.svg')}}" class="img-responsive pakelan-img">
 
-								<div class="col-md-6  col-sm-6 col-xs-12 col-md-offset-6 col-sm-offset-6 controller-box2">
+								<div class="col-md-6  col-sm-12 col-xs-12 col-md-offset-6 controller-box2">
 								<a class="left showcase-icon-box" href="#showcase-slide" data-slide="prev">
 									<img src="{{asset('images/prev-show.svg')}}" class="showcase-icon left-con">
 									<span class="sr-only">Previous</span>
@@ -366,6 +376,9 @@
 									<span class="sr-only">Next</span>
 								</a>
 
+								</div>
+								<div class="col-md-12 col-sm-12 col-xs-12 button-box">
+									<a href="{{url('showcase/all')}}" class="btn cat-btn">View All Showcase</a>
 								</div>
 							</div>
 						</div>
@@ -377,12 +390,12 @@
 				    	<div class="bg-trans">
 				    		<img src="{{asset('images/showcase/dashboard/kaiser-768.jpg')}}" class="img-responsive kaiser-hidden">
 				    		<div class="row">
-				    			<div class="col-md-6 col-sm-6 col-xs-12 kaiser">
-									<a href="{{url('/showcase/list-website')}}"><h3 class="sub-title" style="color: #0090c3">Branding Design & Website</h3></a>
+				    			<div class="col-md-6 col-sm-12 col-xs-12 kaiser">
+									<a href="{{url('/showcase/list/3')}}"><h3 class="sub-title" style="color: #0090c3">Branding Design & Website</h3></a>
 									<!-- <h2 class="title-thin">Brand</h2> -->
 									<h2 class="title-thick" style="color: #ff6b00; font-size: 38px;">KAISER MEDICAL INC</h2>
 									<p class="feature-text" style="color: black">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-									<a href="{{url('showcase/kaiser-medical')}}" class="view" style="color: #0090c3; font-weight: 100;">View Detail <i class="fa fa-angle-right"></i><i class="fa fa-angle-right"></i></a>
+									<a href="{{url('showcase/detail/21')}}" class="view" style="color: #0090c3; font-weight: 100;">View Detail <i class="fa fa-angle-right"></i><i class="fa fa-angle-right"></i></a>
 								</div>
 
 								<div class="col-md-6 col-sm-6 kaiser-side-box">
@@ -390,7 +403,7 @@
 								</div>
 
 								
-								<div class="col-md-6 col-sm-6 col-xs-12 controller-box">
+								<div class="col-md-6 col-sm-12 col-xs-12 controller-box">
 									<a class="left showcase-icon-box" href="#showcase-slide" data-slide="prev">
 										<img src="{{asset('images/showcase/dashboard/kaiser-prev.svg')}}" class="showcase-icon left-con">
 										<span class="sr-only">Previous</span>
@@ -399,6 +412,9 @@
 										<img src="{{asset('images/showcase/dashboard/kaiser-next.svg')}}" class="showcase-icon right-con">
 										<span class="sr-only">Next</span>
 									</a>
+								</div>
+								<div class="col-md-12 col-sm-12 col-xs-12 button-box">
+									<a href="" class="btn cat-btn-kaiser">View All Showcase</a>
 								</div>
 							</div>
 						</div>
@@ -415,15 +431,15 @@
 									<img src="{{asset('images/showcase/dashboard/ab-side.png')}}" class="img-responsive ab-side">
 								</div>
 				    			
-				    			<div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-6 col-sm-offset-6 adhibuana">
-									<a href="{{url('/showcase/list-website')}}"><h3 class="sub-title" style="color: #0187e0">Website</h3></a>
+				    			<div class="col-md-6 col-sm-12 col-xs-12 col-md-offset-6 adhibuana">
+									<a href="{{url('/showcase/list/2')}}" class="sub-show"><h3 class="sub-title">Website</h3></a>
 									<h2 class="title-thick" style="color: #ffd200">ADHI BUANA</h2>
 									<p class="feature-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-									<a href="{{url('showcase/adhi-buana')}}" class="view" style="color: #ffd200">View Detail <i class="fa fa-angle-right"></i><i class="fa fa-angle-right"></i></a>
+									<a href="{{url('showcase/detail/2')}}" class="view" style="color: #ffd200">View Detail <i class="fa fa-angle-right"></i><i class="fa fa-angle-right"></i></a>
 								</div>
 
 								<img src="{{asset('images/showcase/dashboard/ab-logo.svg')}}" class="img-responsive ab-img">
-								<div class="col-md-5 col-sm-5 col-xs-12 col-md-offset-7 col-sm-offset-7 controller-box2">
+								<div class="col-md-5 col-sm-12 col-xs-12 col-md-offset-7 controller-box2">
 									<a class="left showcase-icon-box" href="#showcase-slide" data-slide="prev">
 										<img src="{{asset('images/prev-show.svg')}}" class="showcase-icon left-con">
 										<span class="sr-only">Previous</span>
@@ -432,6 +448,9 @@
 										<img src="{{asset('images/next-show.svg')}}" class="showcase-icon right-con">
 										<span class="sr-only">Next</span>
 									</a>
+								</div>
+								<div class="col-md-12 col-sm-12 col-xs-12 button-box">
+									<a href="{{url('showcase/all')}}" class="btn cat-btn">View All Showcase</a>
 								</div>
 							</div>
 						</div>
@@ -441,13 +460,13 @@
 				<div class="item">
 				    <div class="showcase-inner" style="background: url({{asset('images/showcase/dashboard/dg-bg2.png')}}) no-repeat; background-size: cover; background-position: center;">
 				    	<div class="bg-trans">
+				    		<img src="{{asset('images/showcase/bg/dwi-golden.jpg')}}" class="img-responsive kaiser-hidden">
 				    		<div class="row">
-				    			<img src="{{asset('images/showcase/dashboard/dg-white-logo.svg')}}" class="img-responsive dg-dash-hidden">
-				    			<div class="col-md-6 col-sm-6 col-xs-12 dg-dash">
-									<a href="{{url('/showcase/list-logo')}}"><h3 class="sub-title">Logo</h3></a>
+				    			<div class="col-md-6 col-sm-12 col-xs-12 dg-dash">
+									<a href="{{url('/showcase/list/1')}}" class="sub-show"><h3 class="sub-title">Logo</h3></a>
 									<h2 class="title-thick" style="color: #a67c00; font-size: 38px;">DWI GOLDEN ELECTRIC</h2>
 									<p class="feature-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-									<a href="{{url('showcase/dwi-golden')}}" class="view" style="color: #a67c00">View Detail <i class="fa fa-angle-right"></i><i class="fa fa-angle-right"></i></a>
+									<a href="{{url('showcase/detail/10')}}" class="view" style="color: #a67c00">View Detail <i class="fa fa-angle-right"></i><i class="fa fa-angle-right"></i></a>
 								</div>
 
 								<div class="col-md-6 col-sm-6 dg-side-box">
@@ -456,7 +475,7 @@
 								
 
 								<img src="{{asset('images/showcase/dashboard/dg-bg-3.png')}}" class="img-responsive dg-img-mobile">
-								<div class="col-md-6 col-sm-6 col-xs-12 controller-box">
+								<div class="col-md-6 col-sm-12 col-xs-12 controller-box">
 									<a class="left showcase-icon-box" href="#showcase-slide" data-slide="prev">
 										<img src="{{asset('images/prev-show.svg')}}" class="showcase-icon left-con">
 										<span class="sr-only">Previous</span>
@@ -466,13 +485,12 @@
 										<span class="sr-only">Next</span>
 									</a>
 								</div>
+								<div class="col-md-12 col-sm-12 col-xs-12 button-box">
+									<a href="{{url('showcase/all')}}" class="btn cat-btn">View All Showcase</a>
+								</div>
 							</div>
 						</div>
 				    </div>
-				</div>
-
-				<div class="col-md-12">
-					<a href="" class="btn btn-default" class="view">View All Categories</a>
 				</div>
 			</div>
 		</div>
@@ -481,18 +499,18 @@
 	<div class="clearfix"></div>
 
 	<section id="contact">
-		<div class="container">
+		<div class="contact-box">
 			<div class="col-md-12 col-sm-12 col-xs-12">
 				<div class="col-md-6 col-sm-12 col-xs-12">
 					<h3 class="contact-title">Make the call.<strong> We'll make the rest.</strong></h3>
 					<h3 class="title-hidden">Make the call.<br><strong> We'll make the rest.</strong></h3>
-					<p>Reaching out to us will do more than organise a meeting. It will give you the necessary path for success in brand development and online marketing.</p>
+					<p class="par-contact">Reaching out to us will do more than organise a meeting. It will give you the necessary path for success in brand development and online marketing.</p>
 					<h2 class="contact-title">{{$basic->phone}}</h2>
 				</div>
 				<div class="col-md-6 col-sm-12 col-xs-12">
 					<h3 class="contact-title">Visit Us. <strong>Let's Collaborate & Create.</strong></h3>
 					<h3 class="title-hidden">Visit Us.<br><strong>Let's Collaborate & Create.</strong></h3>
-					<p>{{$basic->full_address}}
+					<p class="par-contact">{{$basic->full_address}}
 					<br>email us <strong>{{$basic->email}}</strong></p>
 					<a class="socmed" href="{{url($basic->facebook)}}">
 						<img src="{{asset('images/facebook.svg')}}">
@@ -523,10 +541,9 @@
 						<input type="text" name="name" placeholder="enter name">
 						<p><strong>and i would love to have a chat about</strong></p>
 						<select name="topic" class="topic js-states form-control" id="topic" >
-							<option value="design">Design</option>
-					        <option value="app">Application</option>
-					        <option value="logo">Logo</option>
-					        <option value="web">Website</option>
+							@foreach($category as $cat)
+							<option value="{{$cat->category_name}}">{{$cat->category_name}}</option>
+							@endforeach
 						</select>
 						<input type="text" name="message" placeholder="message">
 						<p><strong>you can reach me at</strong></p>
@@ -540,6 +557,34 @@
 			</div>
 		</div>
 	</section>
+
+	<div class="clearfix"></div>
+	<footer id="footer">
+	    <div class="container">
+	      <div class="footer-main">
+	        <div class="col-md-12 col-sm-12 col-xs-12">
+	          <div class="col-md-4 col-sm-12 col-xs-12 footer">
+	            <a href="{{url('/about-us')}}">About Cyber Olympus</a>
+	            <a href="#feature">Features</a>
+	            <a href="#step">How we do it</a>
+	          </div>
+	          <div class="col-md-4 col-sm-12 col-xs-12 footer">
+	            <a href="#showcase">Showcase</a>
+	            <a href="#contact">Contact Us</a>
+	            
+	          </div>
+	          <div class="col-md-4 col-sm-12 col-xs-12 footer">
+	            <a href="{{url('/careers')}}">Careers</a>
+	            <a href="{{url('/blog')}}">Blog</a>
+	          </div>
+	        </div>
+	      <div class="col-md-12 col-sm-12 col-xs-12 copy">
+	        Cyber Olympus Copyright 2018. <br>All rights reserved.
+	      </div>
+
+	    </div>
+	    </div>
+	</footer>
 
 	<!-- Modal -->
   <!-- <div class="modal fade" id="myModal" role="dialog">
@@ -564,7 +609,7 @@
 	<script src="{{asset('js/jquery-1.9.1.min')}}"></script>
 	<script>window.jQuery || document.write('<script src="{{asset('js/jquery-1.9.1.min.js')}}"><\/script>')</script>
 	<script src="{{asset('js/main.js')}}"></script>
-
+	
 	<!-- RESPONSIVE NAVBAR -->
 	<script type="text/javascript">
 		function myFunction() {
@@ -576,6 +621,63 @@
 		    }
 		}
 	</script>
+
+	<!-- SLIDE STEP -->
+	<script>
+		var myIndex = 0;
+		var slideIndex = [1,1];
+		carousel();
+
+		carousel(1, 0);
+		carousel(1, 1);
+
+		function plusDivs(n, no) {
+		  carousel(slideIndex[no] += n, no);
+		  step(slideIndex[no] += n, no);
+		}
+
+		function carousel() {
+		    var i;
+		    var x = document.getElementsByClassName("step-slide");
+		    for (i = 0; i < x.length; i++) {
+		      x[i].style.display = "none";  
+		    }
+		    myIndex++;
+		    if (myIndex > x.length) {myIndex = 1}    
+		    x[myIndex-1].style.display = "block";  
+		    setTimeout(carousel, 4000);    
+		}
+
+		function step(){
+			var j;
+		    var y = document.getElementsByClassName("step-img");
+		    for (j = 0; j < y.length; j++) {
+		      y[j].style.display = "none";  
+		    }
+		    myIndex++;
+		    if (myIndex > y.length) {myIndex = 1}    
+		    y[myIndex-1].style.display = "block";  
+		    setTimeout(step, 2500);
+		}
+	</script>
+
+	<!-- SLIDE FEATURE -->
+	<!-- <script>
+		var myIndex = 0;
+		feature();
+
+		function feature() {
+		    var i;
+		    var x = document.getElementsByClassName("js-feature");
+		    for (i = 0; i < x.length; i++) {
+		      x[i].style.display = "hidden";  
+		    }
+		    myIndex++;
+		    if (myIndex > x.length) {myIndex = 1}    
+		    x[myIndex-1].style.display = "block";  
+		    setTimeout(feature, 1000);    
+		}
+	</script> -->
 
 	<!-- MODAL CONTACT US -->
 	<script>
@@ -736,8 +838,7 @@
 	</script>
 
 	<!-- LAZYLINEPAINTER -->
-	<script type="text/javascript">
-
+<!--<script type="text/javascript">
 			(function( $ ){
 
 				$(document).ready(function(){
@@ -804,9 +905,98 @@
 				})
 
 			})( jQuery );
+	</script> -->
+
+	<script type="text/javascript">
+		// var paintIndex = [1,1];
+		// function plusLazy(n, no) {
+		//   paintLazy(paintIndex[no] += n, no);
+		// }
+			(function( $ ){
+
+				$(document).ready(function(){
+					var $feature1 = $('#feature1');
+					var $feature2 = $('#feature2');
+					var $feature3 = $('#feature3');
+					var $feature4 = $('#feature4');
+					var $paint = $('.js-paint');
+					var $pause = $('.js-pause');
+					var destroyed = false;
+				
+		            function init(){
+			            $feature1.lazylinepainter({
+			                'svgData': svgData,
+			                'strokeWidth': 7,
+			                'strokeColor': 'white',
+	                        'drawSequential': false,
+	                        'ease': 'easeInOutQuad'
+		            	});
+
+	                    $feature1.lazylinepainter('paint');
+	                    
+					};
+
+					function onPaintClick(){
+						update($paint, 'paint');
+		            	$pause.removeClass('inactive');
+					};
+
+                    $feature2.lazylinepainter({
+		                'svgData': svgData,
+		                'strokeWidth': 7,
+		                'strokeColor': 'white',
+                        'drawSequential': false,
+                        'ease': 'easeInOutQuad'
+		            });
+
+                    setTimeout(function(){
+                        $feature2.lazylinepainter('paint');
+                    }, 10);
+
+                    $feature3.lazylinepainter({
+		                'svgData': svgData,
+		                'strokeWidth': 7,
+		                'strokeColor': 'white',
+                        'drawSequential': false,
+                        'ease': 'easeInOutQuad'
+		            });
+
+                    setTimeout(function(){
+                        $feature3.lazylinepainter('paint');
+                    }, 10);
+
+                    $feature4.lazylinepainter({
+		                'svgData': svgData,
+		                'strokeWidth': 7,
+		                'strokeColor': 'white',
+                        'drawSequential': false,
+                        'ease': 'easeInOutQuad'
+		            });
+
+                    setTimeout(function(){
+                        $feature4.lazylinepainter('paint');
+                    }, 10);
+
+                    function update($el, target){
+
+						if($el.hasClass('inactive')){
+							return;
+						}
+
+		            	$feature3.lazylinepainter(target);
+						console.log('>> ' + target);
+		            	$feature4.lazylinepainter(target);
+						console.log('>> ' + target);
+					}
+
+					$paint.on('click', onPaintClick);
+					init();
+				})
+
+			})( jQuery );
 	</script>
 
-	<!-- LAZYLINEPAINTER -->
+	<!-- STROKE LAZYLINEPAINTER -->
 	<script type="text/javascript">
 			var svgData = {
 			    "feature1": {

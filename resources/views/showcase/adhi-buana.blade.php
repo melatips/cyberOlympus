@@ -1,6 +1,6 @@
 @extends('template.showcaseTemplate')
 @section('title')
-	<title>{{$detail->showcase_name}}</title>
+	<title>{{ucwords($detail->showcase_name)}}</title>
 @endsection
 
 @section('showcase-title')
@@ -37,7 +37,7 @@
 	</section> -->
 
 	<section id="ab-click">
-		<div class="col-md-6 col-md-offset-6 col-sm-6 col-sm-offset-6 col-xs-6 col-xs-offset-6 ab-click-box">
+		<div class="col-md-6 col-md-offset-6 col-sm-6 col-sm-offset-6 col-xs-12 ab-click-box">
 			<a href="" class="ab-click">
 				adhibuanaskaffolding.com
 			</a>

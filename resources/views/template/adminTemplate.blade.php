@@ -36,6 +36,7 @@
 
   <!-- jQuery 3 -->
 <script src="{{asset('AdminLTE-2.4.3/bower_components/jquery/dist/jquery.min.js')}}"></script>
+<script src="{{asset('tinymce/js/tinymce/tinymce.min.js')}}"></script>
 
 @yield('css')
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -207,11 +208,16 @@
         </li>
 
         <li class="">
+          <a href="{{url('/admin/careers')}}">
+            <i class="fa fa-check-square-o"></i> <span>Careers</span>
+          </a>
+        </li>
+
+        <li class="">
           <a href="{{url('/admin/basic-info')}}">
             <i class="fa fa-edit"></i> <span>Basic Info</span>
           </a>
         </li>
-
       </ul>
     </section>
     <!-- /.sidebar -->

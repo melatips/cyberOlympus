@@ -10,7 +10,7 @@
 @section('showcase')
 	@foreach($findSearch as $showcaseList)
 	<section class="showcase-list-id">
-		<img src="{{asset('images/showcase/bg/'.$showcaseList->file_name.'.jpg')}}" class="img-responsive">
+		<img src="{{asset('images/showcase/bg/'.$showcaseList->file_name.'.jpg')}}" class="img-responsive all-showcase">
 
 		<div class="clearfix"></div>
 

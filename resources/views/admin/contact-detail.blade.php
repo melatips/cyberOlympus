@@ -9,7 +9,7 @@
 @endsection
 
 @section('content')
-	<div class="col-md-3">
+	<!-- <div class="col-md-3">
           <div class="box box-solid">
             <div class="box-header with-border">
               <h3 class="box-title">Folders</h3>
@@ -28,20 +28,20 @@
                 <li><a href="#"><i class="fa fa-trash-o"></i> Trash</a></li>
               </ul>
             </div>
-            <!-- /.box-body -->
+            
           </div>
-          <!-- /. box -->
-        </div>
+          
+        </div> -->
 
-        <div class="col-md-9">
+        <div class="col-md-12">
           <div class="box box-primary">
             <div class="box-header with-border">
               <h3 class="box-title">Read Mail</h3>
 
-              <div class="box-tools pull-right">
+              <!-- <div class="box-tools pull-right">
                 <a href="#" class="btn btn-box-tool" data-toggle="tooltip" title="Previous"><i class="fa fa-chevron-left"></i></a>
                 <a href="#" class="btn btn-box-tool" data-toggle="tooltip" title="Next"><i class="fa fa-chevron-right"></i></a>
-              </div>
+              </div> -->
             </div>
             <!-- /.box-header -->
             <div class="box-body no-padding">
@@ -78,11 +78,14 @@
                 <button type="button" class="btn btn-default"><i class="fa fa-reply"></i> Reply</button>
                 <button type="button" class="btn btn-default"><i class="fa fa-share"></i> Forward</button>
               </div> -->
-              <a type="button" class="btn btn-default" href="{{url('/admin/contact-detail/'.$contactDetail->contact_id.'/delete')}}"><i class="fa fa-trash-o"></i> Delete</a>
-              <a type="button" class="btn btn-default"><i class="fa fa-print"></i> Print</a>
+              <a type="button" class="btn btn-info" href="{{url('/admin')}}"><i class="fa fa-chevron-left"></i> Back</a>
+              <a type="button" class="btn btn-danger" href="{{url('/admin/contact-detail/'.$contactDetail->contact_id.'/delete')}}"><i class="fa fa-trash-o"></i> Delete</a>
+              <!-- <a type="button" class="btn btn-default"><i class="fa fa-print"></i> Print</a> -->
             </div>
+
             <!-- /.box-footer -->
           </div>
+           
           <!-- /. box -->
         </div>
 @endsection

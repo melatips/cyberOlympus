@@ -60,7 +60,7 @@
             @foreach($showcaseList as $showcaseList)
             <tr>
               <td>{{$no}}</td>
-              <td>{{$showcaseList->showcase_name}}</td>
+              <td>{{ucwords($showcaseList->showcase_name)}}</td>
               <td>
                 @if(count($showcaseList->getCategory)!=0)
                   @foreach($showcaseList->getCategory as $key => $value)

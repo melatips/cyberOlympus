@@ -16,6 +16,7 @@
   <link rel="stylesheet" type="text/css" href="{{asset('css/animate.css')}}">
   <link rel="stylesheet" type="text/css" href="{{asset('css/stylesheet.css')}}">
 <!--   <link rel="stylesheet" type="text/css" href="{{asset('css/style-360.css')}}"> -->
+  <link rel="stylesheet" type="text/css" href="{{asset('css/style2.css')}}">
   <link rel="stylesheet" type="text/css" href="{{asset('css/style.css')}}">
 
   <!-- Include preloading -->
@@ -44,35 +45,7 @@
 
 @yield('content')
 
-<div class="clearfix"></div>
-<footer id="footer">
-    <div class="container">
-      <div class="footer-main">
-        <div class="col-md-12 col-sm-12 col-xs-12">
-          <div class="col-md-4 col-sm-12 col-xs-12 footer">
-            <a href="">About Cyber Olympus</a>
-            <a href="#feature">Features</a>
-            <a href="#step">How we do it</a>
-          </div>
-          <div class="col-md-4 col-sm-12 col-xs-12 footer">
-            <a href="#showcase">Showcase</a>
-            <a href="#contact">Contact Us</a>
-            
-          </div>
-          <div class="col-md-4 col-sm-12 col-xs-12 footer">
-            <a href="">Careers</a>
-            <a href="">Blog</a>
-          </div>
-        </div>
-      <div class="col-md-12 col-sm-12 col-xs-12 copy">
-        Cyber Olympus Copyright 2018. All rights reserved.
-      </div>
-
-    </div>
-    </div>
-  </footer>
-
-  @yield('js')
+@yield('js')
 
 </body>
 </html>

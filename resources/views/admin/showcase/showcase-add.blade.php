@@ -22,13 +22,12 @@
         <div class="box-body">
           <div class="form-group">
             <label>Showcase Name</label>
-            <input type="text" class="form-control" name="showcase_name" placeholder="Showcase Name">
+            <input type="text" class="form-control" name="showcase_name" placeholder="Showcase Name" required="">
           </div>
 
           <div class="form-group">
             <label>Category</label>
-            <select class="form-control select2" name="showcase_cat[]" multiple="multiple" data-placeholder="Select category"
-                    style="width: 100%;">
+            <select class="form-control select2" name="showcase_cat[]" multiple="multiple" data-placeholder="Select category" style="width: 100%;" required="">
               @foreach($catList as $category)
               <option value="{{$category->category_id}}">{{$category->category_name}}</option>
               @endforeach

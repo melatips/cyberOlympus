@@ -8,27 +8,32 @@ use App\BasicInfo;
 use App\Showcase;
 use App\Category;
 use App\ShowCat;
+use App\Careers;
+use App\Mail\SendMail;
+use Mail;
 
 class CyberController extends Controller
 {
     public function landingpage(){
     	$basic = BasicInfo::first();
+        $category = Category::get();
     	return view('landing-page')
-    			->with('basic', $basic);
+    			->with('basic', $basic)
+                ->with('category', $category);
     }
 
     public function searchInput(Request $request){
         $findSearch = Showcase::where('showcase_name', 'like', '%'.$request->searchShowcase.'%')
-                        // ->orwhere('title1', 'like', '%'.$request->searchShowcase.'%')
-                        // ->orwhere('title2', 'like', '%'.$request->searchShowcase.'%')
-                        // ->orwhere('title3', 'like', '%'.$request->searchShowcase.'%')
-                        // ->orwhere('title4', 'like', '%'.$request->searchShowcase.'%')
-                        // ->orwhere('title5', 'like', '%'.$request->searchShowcase.'%')
-                        // ->orwhere('title6', 'like', '%'.$request->searchShowcase.'%')
                         ->get();
-        // return $findSearch;
-        return view('search-result')
-                ->with('findSearch', $findSearch);
+
+        if(count($findSearch) == 0){
+            return view('no-result');
+        }
+
+        else{
+            return view('search-result')
+                    ->with('findSearch', $findSearch);
+        }
     }
 
     public function totalImaging(){
@@ -60,16 +65,40 @@ class CyberController extends Controller
     	$contactSave->c_phone    = $request->phone;
 
     	$contactSave->save();
-        // return back()
-        //         ->with('status', 'Success');
-    	return redirect('/#contact');
 
+        Mail::to('info@cyberolympus.com')->send(new SendMail($contactSave));
+
+    	return redirect('/');
     }
 
+    //FOOTER
+
+    public function aboutUs(){
+        return view('about-us');
+    }
+
+    public function blog(){
+        return view('blog');
+    }
+
+        public function articleDetail(){
+            return view('article');
+        }
+
+    public function careers(){
+        $careersList = Careers::get();
+        // $pos = strtolower(str_replace(array(' ', '&', '.'), array('-', '', ''), array($careersList->position)));
+        // return $pos;
+        return view('careers')
+                ->with('careersList', $careersList);
+    }
+
+        public function noPosition(){
+            return view('no-position');
+        }
 
     public function coba(Request $request){
         $data = array('status'=>true, 'message'=>'success');
-    return $data;
-}
+        return $data;
     }
-    
+}

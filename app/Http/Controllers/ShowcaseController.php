@@ -29,6 +29,15 @@ class ShowcaseController extends Controller
                 ->with('category', $category);
     }
 
+    //ALL SHOWCASE
+    public function allShowcase(){
+        $allShowcase = Showcase::orderBy('showcase_name')
+                        ->get();
+        // return $allShowcase;
+        return view('showcase.all-showcase')
+                ->with('allShowcase', $allShowcase);
+    }
+
     //SHOWCASE DETAIL
     public function showcaseDetail($id){
         $detail = Showcase::where('showcase_list_id', $id)
@@ -36,7 +45,7 @@ class ShowcaseController extends Controller
         // $categoryShowcase = $detail->getCategory;
 
         // return $categoryShowcase;
-        return view('showcase.'.$detail->file_name)
+        return view('showcase.'.strtolower($detail->file_name))
                 ->with('detail', $detail);
                 // ->with('categoryShowcase', $categoryShowcase);
     }

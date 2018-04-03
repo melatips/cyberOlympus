@@ -3,11 +3,16 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Input;
 use App\Contact;
 use App\BasicInfo;
 use App\Category;
 use App\Showcase;
 use App\ShowCat;
+use App\Careers;
+use File;
+use Image;
+use Carbon\Carbon;
 
 class AdminController extends Controller
 {
@@ -41,13 +46,13 @@ class AdminController extends Controller
     public function showcase(){
         $showcaseList = Showcase::with('getCategory')->get();
         // return $showcaseList->getCategory;
-    	return view('admin\showcase.showcase')
+    	return view('admin.showcase.showcase')
                 ->with('showcaseList', $showcaseList);
     }
 
         public function showcaseAdd(){
             $catList = Category::get();
-            return view('admin\showcase.showcase-add')
+            return view('admin.showcase.showcase-add')
                     ->with('catList', $catList);
         }
 
@@ -56,8 +61,8 @@ class AdminController extends Controller
                                 ->get();
                 if(count($findShowcase) == 0){
                     $showcaseSave = new Showcase;
-                    $showcaseSave->showcase_name    = $request->showcase_name;
-                    $showcaseSave->file_name        = str_replace(array(' ', '&', '.'), array('-', '', ''), $request->showcase_name);
+                    $showcaseSave->showcase_name    = strtolower($request->showcase_name);
+                    $showcaseSave->file_name        = strtolower(str_replace(array(' ', '&', '.'), array('-', '', ''), $request->showcase_name));
                     // $showcaseSave->category_id      = $request->showcase_cat;
                     $showcaseSave->title1_h3        = $request->title1_h3;
                     $showcaseSave->title1_h2        = $request->title1_h2;
@@ -98,7 +103,7 @@ class AdminController extends Controller
             $catName = $showcaseDet->getCategory;
             // return $catName;
             // return $showcaseDet->all();
-            return view('admin\showcase.showcase-detail')
+            return view('admin.showcase.showcase-detail')
                             ->with('showcaseDet', $showcaseDet)
                             ->with('catName', $catName);
         }
@@ -109,7 +114,7 @@ class AdminController extends Controller
             $findCat = $showcaseEdit->getCategory;
             $getCat = Category::get();
 
-            return view('admin\showcase.showcase-edit')
+            return view('admin.showcase.showcase-edit')
                     ->with('showcaseEdit', $showcaseEdit)
                     ->with('findCat', $findCat)
                     ->with('getCat', $getCat);
@@ -119,8 +124,8 @@ class AdminController extends Controller
                 $showcaseUpdate = Showcase::where('showcase_list_id', $request->id)
                                 ->first();
                 // return $showcaseUpdate->all();
-                $showcaseUpdate->showcase_name  = $request->showcase_name;
-                $showcaseUpdate->file_name      = str_replace(array(' ', '&', '.'), array('-', '', ''), $request->showcase_name);
+                $showcaseUpdate->showcase_name  = strtolower($request->showcase_name);
+                $showcaseUpdate->file_name      = strtolower(str_replace(array(' ', '&', '.'), array('-', '', ''), $request->showcase_name));
                 $showcaseUpdate->title1_h3      = $request->title1_h3;
                 $showcaseUpdate->title1_h2      = $request->title1_h2;
                 $showcaseUpdate->desc1          = $request->desc1;
@@ -188,19 +193,19 @@ class AdminController extends Controller
     public function category(){
         $category = Category::get();
         // return $category->getShowcase;
-        return view('admin\showcase.category')
+        return view('admin.showcase.category')
                 ->with('category', $category);
     }
 
         public function categoryDetail($catID){
             $categoryDetail = Category::find($catID);
             // return $categoryDetail->getShowcase;
-            return view('admin\showcase.category-detail')
+            return view('admin.showcase.category-detail')
                     ->with('categoryDetail', $categoryDetail);
         }
 
         public function categoryAdd(){
-            return view('admin\showcase.category-add');
+            return view('admin.showcase.category-add');
         }
 
         public function saveCategory(Request $request){
@@ -227,7 +232,7 @@ class AdminController extends Controller
             $categoryEdit = Category::where('category_id', $catIDedit)
                             ->first();
             // return $categoryEdit->all();
-            return view('admin\showcase.category-edit')
+            return view('admin.showcase.category-edit')
                     ->with('categoryEdit', $categoryEdit);
         }
 
@@ -238,7 +243,8 @@ class AdminController extends Controller
                 $categoryUpdate->category_description = $request->category_description;
 
                 $categoryUpdate->save();
-                return redirect('admin/category');
+                return redirect('admin/category')
+                        ->with('status', 'Category updated successfully');
             }
 
         public function deleteCategory($catIDdelete){
@@ -253,5 +259,87 @@ class AdminController extends Controller
                     ->with('status', 'Category can not be deleted because category is in use');
             }
             
+        }
+
+    public function careers(){
+        $careersList = Careers::get();
+        return view('admin.careers.careers')
+                ->with('careersList', $careersList);
+    }
+
+        public function careersAdd(){
+            return view('admin.careers.addCareers');
+        }
+
+            public function careersSave(Request $request){
+                $findCareers = Careers::where('position', $request->position)
+                            ->get();
+                if(count($findCareers) == 0){
+                    $saveCareer                 = new Careers;
+                    $saveCareer->position       = $request->position;
+                    $saveCareer->requirements   = $request->requirements;
+                    if($request->file('icon') != '')
+                    {
+                        $file       = Input::file('icon');
+                        $name       = $file->getClientOriginalName();
+                        $filename   = strtolower(str_replace(array(' ', '&', '.'), array('-', '', ''), $request->position)). '.' . strtolower($file->getClientOriginalExtension());
+                        // md5($name.time()+mt_rand(0,999999)). '.' . strtolower($file->getClientOriginalExtension());
+                        
+                        $path = 'images/careers';
+                        if(!File::exists($path)) {
+                            File::makeDirectory('images/careers/');
+                        }
+                        $file->move($path, $filename);
+                        $saveCareer->icon = $path.'/'. $filename;
+                    }
+
+                    $saveCareer->save();
+                }
+                return redirect('admin/careers');
+            }
+
+        public function careersDetail($carIDdetail){
+            $detailCareers = Careers::find($carIDdetail);
+            return view('admin.careers.detailCareers')
+                    ->with('detailCareers', $detailCareers);
+        }
+
+        public function careersEdit($carIDedit){
+            $editCareers = Careers::find($carIDedit);
+            return view('admin.careers.editCareers')
+                    ->with('editCareers', $editCareers);
+        }
+
+            public function careersUpdate(Request $request){
+                    $updateCareer                 = Careers::find($request->id);
+                    // return $updateCareer;
+                    $updateCareer->position       = $request->position;
+                    $updateCareer->requirements   = $request->requirements;
+                    if($request->file('icon') != '')
+                    {
+                        $file       = Input::file('icon');
+                        $name       = $file->getClientOriginalName();
+                        $filename   = strtolower(str_replace(array(' ', '&', '.'), array('-', '', ''), $request->position)). '.' . strtolower($file->getClientOriginalExtension());
+                                                
+                        $path = 'images/careers';
+                        if(!File::exists($path)) {
+                            File::makeDirectory('images/careers/');
+                        }
+                        $file->move($path, $filename);
+                        $updateCareer->icon = $path.'/'. $filename;
+                    }
+
+                    $updateCareer->save();
+                
+                return redirect('admin/careers/detail/'.$request->id)
+                        ->with('status', 'Position updated successfully!');
+            }
+
+        public function careersDelete($carIDdel){
+            $findCarDel = Careers::find($carIDdel);
+            $findCarDel->delete();
+
+            return redirect('admin/careers')
+                    ->with('status', 'Position deleted successfully');
         }
 }

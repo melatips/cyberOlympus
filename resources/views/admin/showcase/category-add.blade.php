@@ -22,7 +22,7 @@
               <div class="box-body">
                 <div class="form-group">
                   <label for="exampleInputEmail1">Category Name</label>
-                  <input type="text" class="form-control" name="category_name">
+                  <input type="text" class="form-control" name="category_name" required="">
                 </div>
                 <div class="form-group">
                   <label for="exampleInputPassword1">Description</label>

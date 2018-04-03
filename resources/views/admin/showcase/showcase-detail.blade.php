@@ -49,15 +49,15 @@
 	          </div>
 	      	</div>
 
-			<div class="col-md-6">
-			  <div class="form-group">
-				<label>Category</label>
-				<input type="" class="form-control" placeholder="@if (count($catName) != 0) @foreach ($catName as $key => $value) @if(count($catName) == 1 || $key==count($catName)-1) {{$value->category_name}} @else {{$value->category_name}}, @endif @endforeach @endif" 
-          name="" disabled>
-			  </div>
-			</div>
+    			<div class="col-md-6">
+    			  <div class="form-group">
+    				<label>Category</label>
+    				<input type="" class="form-control" placeholder="@if (count($catName) != 0) @foreach ($catName as $key => $value) @if(count($catName) == 1 || $key==count($catName)-1) {{$value->category_name}} @else {{$value->category_name}}, @endif @endforeach @endif" 
+              name="" disabled>
+    			  </div>
+    			</div>
 
-		  @if($showcaseDet->title1_h3 != "" || $showcaseDet->title1_h2 != "" || $showcaseDet->desc1 != "")
+    		  @if($showcaseDet->title1_h3 != "" || $showcaseDet->title1_h2 != "" || $showcaseDet->desc1 != "")
           <div class="col-md-6">
             <div class="form-group">
               <label>Title Section 1 (h3)</label>

@@ -29,7 +29,7 @@
 
 	<section id="crown">
 		<div class="container">
-			<div class="col-md-4 col-sm-6 col-xs-6 crown">
+			<div class="col-md-4 col-sm-5 col-xs-6 crown">
 				<h2>{{$detail->title2_h2}}</h2>
 				<p>{{$detail->desc2}}</p>
 			</div>
