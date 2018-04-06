@@ -35,7 +35,7 @@
                             @php($checked='checked')
                           @endif
                         @endforeach
-                        <input type="checkbox" name="article_cat[]" value="{{$blogcat->id_blog_category}}" {{$checked}}> {{$blogcat->category}} <br>m</option>
+                        <input type="checkbox" name="article_cat[]" value="{{$blogcat->id_blog_category}}" {{$checked}}> {{$blogcat->category}} <br></option>
                     @endforeach
                   </div>
                 </div>

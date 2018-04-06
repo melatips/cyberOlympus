@@ -11,8 +11,8 @@ use App\Showcase;
 use App\ShowCat;
 use App\Careers;
 use App\Article;
-use App\BlogCat;
-use App\ArticleXCat;
+use App\CategoryArt;
+use App\ArtCat;
 use File;
 use Image;
 use Carbon\Carbon;
@@ -53,7 +53,7 @@ class AdminController extends Controller
     }
 
         public function articleAdd(){
-            $blogCatList = BlogCat::get();
+            $blogCatList = CategoryArt::get();
             return view('admin.blog.article-add')
                     ->with('blogCatList', $blogCatList);
         }
@@ -61,6 +61,7 @@ class AdminController extends Controller
             public function articleSave(Request $request){
                 $findArticle = Article::where('title', $request->title)
                                 ->get();
+                // return $findArticle;
                 if(count($findArticle) == 0){
                     $saveArticle            = new Article;
                     $saveArticle->title     = strtolower($request->title);
@@ -69,7 +70,7 @@ class AdminController extends Controller
 
                     $saveArticle->save();
 
-                    $saveArticle->getBlogCategory()->attach($request->article_cat);
+                    $saveArticle->getCategoryArt()->attach($request->article_cat);
 
                     return redirect('admin/blog')
                         ->with('status', 'Article added!');
@@ -82,18 +83,20 @@ class AdminController extends Controller
             }
 
         public function articleDetail($blogID){
-            $articleDet = Article::where('id_blog', $blogID)
+            $articleDet = Article::where('id_article', $blogID)
                             ->first();
-                            // return $articleDet;
+            $catArtName = $articleDet->getCategoryArt;
+            return $catArtName;
             return view('admin.blog.article-detail')
-                    ->with('articleDet', $articleDet);
+                    ->with('articleDet', $articleDet)
+                    ->with('catArtName', $catArtName);
         }
 
         public function articleEdit($blogIDedit){
-            $articleEdit = Article::where('id_blog', $blogIDedit)
+            $articleEdit = Article::where('id_article', $blogIDedit)
                             ->first();
             $findBlogCat = $articleEdit->getBlogCategory;
-            $getBlogCat = BlogCat::get();
+            $getBlogCat = CategoryArt::get();
             return view('admin.blog.article-edit')
                     ->with('articleEdit', $articleEdit)
                     ->with('findBlogCat', $findBlogCat)
@@ -101,20 +104,20 @@ class AdminController extends Controller
         }
 
             public function articleUpdate(Request $request){
-                $articleUpdate = Article::where('id_blog', $request->id)
+                $articleUpdate = Article::where('id_article', $request->id)
                                 ->first();
-                return $articleUpdate->getBlogCat;
-                                return $request->article_cat;
+                // return $articleUpdate->getBlogCat;
+                //                 return $request->article_cat;
                 $articleUpdate->title   = strtolower($request->title);
                 $articleUpdate->slug    = strtolower(str_replace(array(' ', '&', '.'), array('-', '', ''), $request->title));
                 $articleUpdate->content = $request->content;
 
                 $articleUpdate->save();
 
-                $articleUpdate->getBlogCat()->sync($request->article_cat);
-                return $request->article_cat;
+                $articleUpdate->getBlogCategory()->sync($request->article_cat);
+                // return $request->article_cat;
 
-                return redirect('admin/blog/article/'.$articleUpdate->id_blog)
+                return redirect('admin/blog/article/'.$articleUpdate->id_article)
                         ->with('status', 'Article updated successfully');
             }
 
@@ -127,17 +130,17 @@ class AdminController extends Controller
         }
 
     public function blogCat(){
-        $blogCat = BlogCat::get();
+        $blogCat = CategoryArt::get();
         return view('admin.blog.category')
                 ->with('blogCat', $blogCat);
     }
 
         public function saveBlogCat(Request $request){
-            $findBlogCat = BlogCat::where('category', $request->category)
+            $findBlogCat = CategoryArt::where('category', $request->category)
                             ->get();
 
             if(count($findBlogCat) == 0){
-                $saveCat = new BlogCat;
+                $saveCat = new CategoryArt;
                 $saveCat->category = $request->category;
 
                 $saveCat->save();
@@ -216,8 +219,8 @@ class AdminController extends Controller
             // return $catName;
             // return $showcaseDet->all();
             return view('admin.showcase.showcase-detail')
-                            ->with('showcaseDet', $showcaseDet)
-                            ->with('catName', $catName);
+                    ->with('showcaseDet', $showcaseDet)
+                    ->with('catName', $catName);
         }
 
         public function showcaseEdit($showcaseIDedit){

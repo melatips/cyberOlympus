@@ -29,7 +29,7 @@
                   <label>Category</label>
                   <select class="form-control select2" name="article_cat[]" multiple="multiple" data-placeholder="Select category" style="width: 100%;" required="">
                     @foreach($blogCatList as $category)
-                      <option value="{{$category->id_blog_category}}">{{$category->category}}</option>
+                      <option value="{{$category->id_article_category}}">{{$category->category}}</option>
                     @endforeach
                   </select>
                 </div>

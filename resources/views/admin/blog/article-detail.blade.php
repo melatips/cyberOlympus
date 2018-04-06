@@ -5,7 +5,7 @@
 @endsection
 
 @section('aside-subtitle')
-	Judul Article
+	{{ucwords($articleDet->title)}}
 @endsection
 
 @section('content')
@@ -21,16 +21,12 @@
               <div class="box-body">
                 <div class="form-group">
                   <label>Title</label>
-                  <input type="text" class="form-control" name="title" readonly placeholder="{{$articleDet->title}}">
+                  <input type="text" class="form-control" name="title" readonly placeholder="{{ucwords($articleDet->title)}}">
                 </div>
 
                 <div class="form-group">
                   <label>Category</label>
-                  <select class="form-control select2" name="article_cat[]" multiple="multiple" data-placeholder="Select category" style="width: 100%;" disabled>
-                    
-                    <option value=""></option>
-                    
-                  </select>
+                  <input type="" class="form-control" placeholder="@if (count($catArtName) != 0) @foreach ($catArtName as $key => $value) @if(count($catArtName) == 1 || $key==count($catArtName)-1) {{$value->category}} @else {{$value->category}}, @endif @endforeach @endif" name="" disabled>
                 </div>
                 
                 <div class="form-group">

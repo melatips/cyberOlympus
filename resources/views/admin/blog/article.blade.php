@@ -60,9 +60,9 @@
             <td></td>
             <td>{{date('d F Y', strtotime($art->created_at))}}</td>
             <td>
-            	<a href="{{url('/admin/blog/article/'.$art->id_blog)}}" class="btn btn-primary" data-toggle="tooltip" title="Detail"><i class="fa fa-eye"></i></a>
-            	<a href="{{url('/admin/blog/article/edit/'.$art->id_blog)}}" class="btn btn-success" data-toggle="tooltip" title="Edit"><i class="fa fa-pencil"></i></a>
-              <a href="{{url('/admin/blog/article/delete/'.$art->id_blog)}}" class="btn btn-danger" data-toggle="tooltip" title="Delete"><i class="fa fa-trash"></i></a>
+            	<a href="{{url('/admin/blog/article/'.$art->id_article)}}" class="btn btn-primary" data-toggle="tooltip" title="Detail"><i class="fa fa-eye"></i></a>
+            	<a href="{{url('/admin/blog/article/edit/'.$art->id_article)}}" class="btn btn-success" data-toggle="tooltip" title="Edit"><i class="fa fa-pencil"></i></a>
+              <a href="{{url('/admin/blog/article/delete/'.$art->id_article)}}" class="btn btn-danger" data-toggle="tooltip" title="Delete"><i class="fa fa-trash"></i></a>
             </td>
           </tr>
           @php
