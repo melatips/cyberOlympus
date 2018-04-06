@@ -194,15 +194,29 @@
         </li>
 
         <li class="">
+          <a href="{{url('/admin/blog')}}">
+            <i class="fa fa-newspaper-o"></i>
+            <span>Blog</span>
+          </a>
+        </li>
+
+        <li class="">
+          <a href="{{url('/admin/blog/category')}}">
+            <i class="fa fa-th-list"></i>
+            <span>Blog Category</span>
+          </a>
+        </li>
+
+        <li class="">
           <a href="{{url('/admin/category')}}">
-            <i class="fa fa-laptop"></i>
+            <i class="fa fa-ellipsis-v"></i>
             <span>Showcase Category</span>
           </a>
         </li>
 
         <li class="">
           <a href="{{url('/admin/showcase')}}">
-            <i class="fa fa-pie-chart"></i>
+            <i class="fa fa-list-alt"></i>
             <span>Showcase List</span>
           </a>
         </li>
@@ -461,23 +475,24 @@
 <!-- DataTables -->
 <script src="{{asset('AdminLTE-2.4.3/bower_components/datatables.net/js/jquery.dataTables.min.js')}}"></script>
 <script src="{{asset('AdminLTE-2.4.3/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js')}}"></script>
-<!-- Morris.js charts -->
-<script src="{{asset('AdminLTE-2.4.3/bower_components/raphael/raphael.min.js')}}"></script>
-<script src="{{asset('AdminLTE-2.4.3/bower_components/morris.js/morris.min.js')}}"></script>
-<!-- Sparkline -->
-<script src="{{asset('AdminLTE-2.4.3/bower_components/jquery-sparkline/dist/jquery.sparkline.min.js')}}"></script>
-<!-- jvectormap -->
-<script src="{{asset('AdminLTE-2.4.3/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js')}}"></script>
-<script src="{{asset('AdminLTE-2.4.3/plugins/jvectormap/jquery-jvectormap-world-mill-en.js')}}"></script>
-<!-- jQuery Knob Chart -->
-<script src="{{asset('AdminLTE-2.4.3/bower_components/jquery-knob/dist/jquery.knob.min.js')}}"></script>
-<!-- daterangepicker -->
-<script src="{{asset('AdminLTE-2.4.3/bower_components/moment/min/moment.min.js')}}"></script>
-<script src="{{asset('AdminLTE-2.4.3/bower_components/bootstrap-daterangepicker/daterangepicker.js')}}"></script>
-<!-- datepicker -->
-<script src="{{asset('AdminLTE-2.4.3/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js')}}"></script>
 <!-- Select2 -->
   <script src="{{asset('AdminLTE-2.4.3/bower_components/select2/dist/js/select2.full.min.js')}}"></script>
+<!-- Morris.js charts -->
+<!-- <script src="{{asset('AdminLTE-2.4.3/bower_components/raphael/raphael.min.js')}}"></script>
+<script src="{{asset('AdminLTE-2.4.3/bower_components/morris.js/morris.min.js')}}"></script> -->
+<!-- Sparkline -->
+<!-- <script src="{{asset('AdminLTE-2.4.3/bower_components/jquery-sparkline/dist/jquery.sparkline.min.js')}}"></script> -->
+<!-- jvectormap -->
+<!-- <script src="{{asset('AdminLTE-2.4.3/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js')}}"></script>
+<script src="{{asset('AdminLTE-2.4.3/plugins/jvectormap/jquery-jvectormap-world-mill-en.js')}}"></script> -->
+<!-- jQuery Knob Chart -->
+<!-- <script src="{{asset('AdminLTE-2.4.3/bower_components/jquery-knob/dist/jquery.knob.min.js')}}"></script> -->
+<!-- daterangepicker -->
+<!-- <script src="{{asset('AdminLTE-2.4.3/bower_components/moment/min/moment.min.js')}}"></script>
+<script src="{{asset('AdminLTE-2.4.3/bower_components/bootstrap-daterangepicker/daterangepicker.js')}}"></script> -->
+<!-- datepicker -->
+<!-- <script src="{{asset('AdminLTE-2.4.3/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js')}}"></script> -->
+
 <!-- Bootstrap WYSIHTML5 -->
 <script src="{{asset('AdminLTE-2.4.3/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js')}}"></script>
 <!-- Slimscroll -->
@@ -490,5 +505,15 @@
 <script src="{{asset('AdminLTE-2.4.3/dist/js/pages/dashboard.js')}}"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="{{asset('AdminLTE-2.4.3/dist/js/demo.js')}}"></script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        var url = window.location;
+        $('ul.sidebar-menu a[href="'+ url +'"]').parent().addClass('active');
+        $('ul.sidebar-menu a').filter(function() {
+             return this.href == url;
+        }).parent().addClass('active');
+    });
+</script>
 </body>
 </html>

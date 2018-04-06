@@ -40,22 +40,6 @@ class CyberController extends Controller
     	return view('360-total-imaging');
     }
 
-    public function feature1(){
-    	return view('feature.fully-responsive');
-    }
-
-    public function feature2(){
-    	return view('feature.content-management');
-    }
-
-    public function feature3(){
-    	return view('feature.unique-design');
-    }
-
-    public function feature4(){
-    	return view('feature.custom-feature');
-    }
-
     public function contactSubmit(Request $request){
     	$contactSave = new Contact;
     	$contactSave->c_username = $request->name;
@@ -87,8 +71,6 @@ class CyberController extends Controller
 
     public function careers(){
         $careersList = Careers::get();
-        // $pos = strtolower(str_replace(array(' ', '&', '.'), array('-', '', ''), array($careersList->position)));
-        // return $pos;
         return view('careers')
                 ->with('careersList', $careersList);
     }

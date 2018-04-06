@@ -10,6 +10,9 @@ use App\Category;
 use App\Showcase;
 use App\ShowCat;
 use App\Careers;
+use App\Article;
+use App\BlogCat;
+use App\ArticleXCat;
 use File;
 use Image;
 use Carbon\Carbon;
@@ -42,6 +45,115 @@ class AdminController extends Controller
                 return redirect('admin/')
                         ->with('status', 'Message deleted successfully');
             }
+
+    public function articleList(){
+        $article = Article::get();
+        return view('admin.blog.article')
+                ->with('article', $article);
+    }
+
+        public function articleAdd(){
+            $blogCatList = BlogCat::get();
+            return view('admin.blog.article-add')
+                    ->with('blogCatList', $blogCatList);
+        }
+
+            public function articleSave(Request $request){
+                $findArticle = Article::where('title', $request->title)
+                                ->get();
+                if(count($findArticle) == 0){
+                    $saveArticle            = new Article;
+                    $saveArticle->title     = strtolower($request->title);
+                    $saveArticle->content   = $request->content;
+                    $saveArticle->slug      = strtolower(str_replace(array(' ', '&', '.'), array('-', '', ''), $request->title));
+
+                    $saveArticle->save();
+
+                    $saveArticle->getBlogCategory()->attach($request->article_cat);
+
+                    return redirect('admin/blog')
+                        ->with('status', 'Article added!');
+                }
+                
+                else{
+                    return redirect('admin/blog')
+                        ->with('status', 'Article already exists!');
+                }
+            }
+
+        public function articleDetail($blogID){
+            $articleDet = Article::where('id_blog', $blogID)
+                            ->first();
+                            // return $articleDet;
+            return view('admin.blog.article-detail')
+                    ->with('articleDet', $articleDet);
+        }
+
+        public function articleEdit($blogIDedit){
+            $articleEdit = Article::where('id_blog', $blogIDedit)
+                            ->first();
+            $findBlogCat = $articleEdit->getBlogCategory;
+            $getBlogCat = BlogCat::get();
+            return view('admin.blog.article-edit')
+                    ->with('articleEdit', $articleEdit)
+                    ->with('findBlogCat', $findBlogCat)
+                    ->with('getBlogCat', $getBlogCat);
+        }
+
+            public function articleUpdate(Request $request){
+                $articleUpdate = Article::where('id_blog', $request->id)
+                                ->first();
+                return $articleUpdate->getBlogCat;
+                                return $request->article_cat;
+                $articleUpdate->title   = strtolower($request->title);
+                $articleUpdate->slug    = strtolower(str_replace(array(' ', '&', '.'), array('-', '', ''), $request->title));
+                $articleUpdate->content = $request->content;
+
+                $articleUpdate->save();
+
+                $articleUpdate->getBlogCat()->sync($request->article_cat);
+                return $request->article_cat;
+
+                return redirect('admin/blog/article/'.$articleUpdate->id_blog)
+                        ->with('status', 'Article updated successfully');
+            }
+
+        public function articleDelete($blogIDdelete){
+            $findArtDel = Article::find($blogIDdelete);
+            $findArtDel->getCategory()->detach();
+            $findArtDel->delete();
+            return redirect('admin/blog')
+                    ->with('status', 'Article deleted successfully');
+        }
+
+    public function blogCat(){
+        $blogCat = BlogCat::get();
+        return view('admin.blog.category')
+                ->with('blogCat', $blogCat);
+    }
+
+        public function saveBlogCat(Request $request){
+            $findBlogCat = BlogCat::where('category', $request->category)
+                            ->get();
+
+            if(count($findBlogCat) == 0){
+                $saveCat = new BlogCat;
+                $saveCat->category = $request->category;
+
+                $saveCat->save();
+                return redirect('/admin/blog/category')
+                    ->with('status', 'Category created successfully');
+            }
+
+            else{
+                return redirect('admin/blog/category')
+                        ->with('status', 'Category already exist!');
+            }
+        }
+
+        public function catDetail(){
+            return view('admin.blog.category-detail');
+        }
 
     public function showcase(){
         $showcaseList = Showcase::with('getCategory')->get();
@@ -283,7 +395,6 @@ class AdminController extends Controller
                         $file       = Input::file('icon');
                         $name       = $file->getClientOriginalName();
                         $filename   = strtolower(str_replace(array(' ', '&', '.'), array('-', '', ''), $request->position)). '.' . strtolower($file->getClientOriginalExtension());
-                        // md5($name.time()+mt_rand(0,999999)). '.' . strtolower($file->getClientOriginalExtension());
                         
                         $path = 'images/careers';
                         if(!File::exists($path)) {
@@ -311,25 +422,25 @@ class AdminController extends Controller
         }
 
             public function careersUpdate(Request $request){
-                    $updateCareer                 = Careers::find($request->id);
-                    // return $updateCareer;
-                    $updateCareer->position       = $request->position;
-                    $updateCareer->requirements   = $request->requirements;
-                    if($request->file('icon') != '')
-                    {
-                        $file       = Input::file('icon');
-                        $name       = $file->getClientOriginalName();
-                        $filename   = strtolower(str_replace(array(' ', '&', '.'), array('-', '', ''), $request->position)). '.' . strtolower($file->getClientOriginalExtension());
-                                                
-                        $path = 'images/careers';
-                        if(!File::exists($path)) {
-                            File::makeDirectory('images/careers/');
-                        }
-                        $file->move($path, $filename);
-                        $updateCareer->icon = $path.'/'. $filename;
+                $updateCareer                 = Careers::find($request->id);
+                
+                $updateCareer->position       = $request->position;
+                $updateCareer->requirements   = $request->requirements;
+                if($request->file('icon') != '')
+                {
+                    $file       = Input::file('icon');
+                    $name       = $file->getClientOriginalName();
+                    $filename   = strtolower(str_replace(array(' ', '&', '.'), array('-', '', ''), $request->position)). '.' . strtolower($file->getClientOriginalExtension());
+                                            
+                    $path = 'images/careers';
+                    if(!File::exists($path)) {
+                        File::makeDirectory('images/careers/');
                     }
+                    $file->move($path, $filename);
+                    $updateCareer->icon = $path.'/'. $filename;
+                }
 
-                    $updateCareer->save();
+                $updateCareer->save();
                 
                 return redirect('admin/careers/detail/'.$request->id)
                         ->with('status', 'Position updated successfully!');

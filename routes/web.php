@@ -31,10 +31,6 @@ Route::get('mail','HomeController@sendmail');
 Route::get('/', 'CyberController@landingpage');
 Route::get('/search', 'CyberController@searchInput');
 Route::get('/360', 'CyberController@totalImaging');
-// Route::get('/feature/fully-responsive', 'CyberController@feature1');
-// Route::get('/feature/content-management-system', 'CyberController@feature2');
-// Route::get('/feature/unique-design', 'CyberController@feature3');
-// Route::get('/feature/custom-feature', 'CyberController@feature4');
 Route::post('/contact/submit', 'CyberController@contactSubmit');
 
 //FOOTER
@@ -56,6 +52,19 @@ Route::get('/showcase/detail/{id}', 'ShowcaseController@showcaseDetail');
 Route::get('/admin', 'AdminController@contactUs');
 	Route::get('admin/contact-us/{id}', 'AdminController@contactDetail');
 		Route::get('admin/contact-detail/{id}/delete', 'AdminController@contactDetailDelete');
+
+Route::get('/admin/blog', 'AdminController@articleList');
+	Route::get('/admin/blog/add', 'AdminController@articleAdd');
+		Route::post('/admin/blog/save', 'AdminController@articleSave');
+	Route::get('/admin/blog/article/{id}', 'AdminController@articleDetail');
+	Route::get('/admin/blog/article/edit/{id}', 'AdminController@articleEdit');
+		Route::post('/admin/blog/article/update/{id}', 'AdminController@articleUpdate');
+	Route::get('admin/blog/article/delete/{id}', 'AdminController@articleDelete');
+
+Route::get('/admin/blog/category', 'AdminController@blogCat');
+Route::post('admin/blog/category/save', 'AdminController@saveBlogCat');
+	Route::get('/admin/blog/category/detail', 'AdminController@catDetail');
+
 
 Route::get('admin/category', 'AdminController@category');
 	Route::get('admin/category/add', 'AdminController@categoryAdd');

@@ -16,5 +16,6 @@ class Category extends Model
 
     public function getShow(){
     	return $this->hasMany('App\ShowCat','category_id');
+    	//hasMany('ModelGabungan', 'id nya si ini')
     }
 }

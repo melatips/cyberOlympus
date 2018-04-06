@@ -314,7 +314,7 @@
 				<div class="item active ">
 				    <div class="showcase-inner " style="background: url({{asset('images/showcase/dashboard/chuar-bg.jpg')}}) no-repeat; background-size: cover; background-position: center; ">
 				    	<div class="bg-trans">
-				    		<img src="{{asset('images/showcase/bg/Chuar-Chuar.jpg')}}" class="img-responsive kaiser-hidden">
+				    		<img src="{{asset('images/showcase/bg/chuar-chuar.jpg')}}" class="img-responsive kaiser-hidden">
 					    	<div class="row">
 					    		<div class="col-md-6 col-sm-12 col-xs-12 chuar">
 									<a href="{{url('/showcase/list/4')}}" class="sub-show"><h3 class="sub-title" style="color: #ff9680">Mobile Game</h3></a>
@@ -460,7 +460,7 @@
 				<div class="item">
 				    <div class="showcase-inner" style="background: url({{asset('images/showcase/dashboard/dg-bg2.png')}}) no-repeat; background-size: cover; background-position: center;">
 				    	<div class="bg-trans">
-				    		<img src="{{asset('images/showcase/bg/dwi-golden.jpg')}}" class="img-responsive kaiser-hidden">
+				    		<img src="{{asset('images/showcase/bg/dwi-golden-electric.jpg')}}" class="img-responsive kaiser-hidden">
 				    		<div class="row">
 				    			<div class="col-md-6 col-sm-12 col-xs-12 dg-dash">
 									<a href="{{url('/showcase/list/1')}}" class="sub-show"><h3 class="sub-title">Logo</h3></a>

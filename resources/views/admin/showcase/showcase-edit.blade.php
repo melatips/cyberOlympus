@@ -28,16 +28,7 @@
           <div class="form-group">
             <label>Category</label>
             <div class="col-md-12">
-            <!-- @foreach($findCat as $cat)
-            <input type="checkbox" name="showcase_cat[]" value="{{$cat->category_id}}" checked=""> {{$cat->category_name}} <br>
-            @endforeach
-
-            @foreach($getCat as $category)
-              
-            <input type="checkbox" name="showcase_cat[]" value="{{$category->category_id}}"> {{$category->category_name}} <br>
-            @endforeach -->
-
-            @foreach($getCat as $category)
+              @foreach($getCat as $category)
               @php($checked='')
                   @foreach($findCat as $cat)
                     @if($cat->category_id==$category->category_id)
@@ -47,14 +38,6 @@
                   <input type="checkbox" name="showcase_cat[]" value="{{$category->category_id}}" {{$checked}}> {{$category->category_name}} <br></option>
               @endforeach
             </div>
-            <!-- <select class="form-control select2" name="showcase_cat[]" multiple="multiple" data-placeholder="@foreach($findCat as $cat) {{$cat->category_name}} @endforeach" style="width: 100%;" required=""> -->
-              <!-- @foreach($findCat as $cat)
-              <option value="{{$cat->category_id}}">{{$cat->category_name}}</option>
-              @endforeach -->
-              <!-- @foreach($getCat as $category)
-              <option value="{{$category->category_id}}">{{$category->category_name}}</option>
-              @endforeach
-            </select> -->
         	</div>
 
           <div class="col-md-6">

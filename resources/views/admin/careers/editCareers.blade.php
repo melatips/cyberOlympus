@@ -48,7 +48,9 @@
 @section('js')
 	<script>
 	  tinymce.init({
-	    selector: '#editCareers'
+	    selector: '#editCareers',
+	    plugins: ["lists", "advlist"],
+      	toolbar: "numlist bullist"
 	  });
 	</script>
 @endsection

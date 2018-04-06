@@ -1,11 +1,11 @@
 @extends('template.AdminTemplate')
 
 @section('aside-title')
-	Showcase Category : {{$categoryDetail->category_name}}
+	Article Category : 
 @endsection
 
 @section('aside-subtitle')
-	Showcase List
+	Article List
 @endsection
 
 @section('content')
@@ -36,44 +36,34 @@
     <div class="box">
       <div class="box-body">
       	
-        <table id="showCat" class="table table-bordered table-hover">
+        <table id="blogCat" class="table table-bordered table-hover">
           <thead>
           <tr>
             <th>No.</th>
-            <th>Showcase Name</th>
-            <th>Action</th>
+            <th>Article Title</th>
           </tr>
           </thead>
           <tbody>
-          @php
-            $no = 1;
-          @endphp
-          @foreach($categoryDetail->getShowcase as $val)
+          
           <tr>
-            <td>{{$no}}</td>
-            <td>{{$val->showcase_name}}</td>
-            <td>
-            	<a href="{{url('/admin/showcase/detail/'.$val->showcase_list_id)}}" class="btn btn-primary">Detail</a>
-            </td>
+            <td></td>
+            <td></td>
           </tr>
-          @php
-            $no++;
-          @endphp
-          @endforeach
+          
         </table>
       </div>
       <!-- /.box-body -->
     </div>
     <!-- /.box -->
 
-    <a href="{{url('/admin/category')}}" class="btn btn-primary">Back</a>
+    <a href="{{url('/admin/blog/category')}}" class="btn btn-primary">Back</a>
   </div>
 @endsection
 
 @section('js')
 <script type="text/javascript">
 $(document).ready( function () {
-    $('#showCat').DataTable();
+    $('#blogCat').DataTable();
 } );
 </script>
 

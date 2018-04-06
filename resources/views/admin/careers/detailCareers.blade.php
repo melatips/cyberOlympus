@@ -43,7 +43,9 @@
 	<script>
 	  tinymce.init({
 	    selector: '#detail',
-	    readonly : 1
+	    readonly : 1,
+	    plugins: ["lists", "advlist"],
+      	toolbar: "numlist bullist"
 	  });
 	</script>
 @endsection
