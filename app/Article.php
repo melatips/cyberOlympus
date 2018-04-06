@@ -11,7 +11,7 @@ class Article extends Model
 
     //1 article punya banyak category
     public function getCategoryArt(){
-    	return $this->belongsToMany('App\CategoryArt','art_cat','id_article_category','id_article');
+    	return $this->belongsToMany('App\CategoryArt','art_cat','id_article','id_article_category');
     }
 
     //mengarah ke model ArtCat

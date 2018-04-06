@@ -1469,45 +1469,6 @@
 	}
 }
 
-/*@media screen and (min-width: 769px) and (max-width: 992px){
-	#showcase{
-		text-align: center;
-	}
-
-	.controller-box{
-		text-align: left;
-	}
-
-	.controller-box2{
-		text-align: right;
-	}
-
-	.chuar, .pakelan, .kaiser, .adhibuana, .dg-dash{
-		padding: 100px 50px 0;
-	}
-
-	.chuar, .kaiser, .dg-dash{
-		text-align: left;
-	}
-
-	.chuar p, .pakelan p, .kaiser p, .adhibuana p, .dg-dash p{
-		font-size: 14px;
-	}
-
-	.pakelan-img{
-		width: 45%;
-		top: 100px;
-	}
-
-	.ab-img{
-		display: none;
-	}
-
-	.showcase-icon{
-		width: 10%;
-	}
-}*/
-
 @media screen and (max-width: 992px){
 	#showcase{
 		height: 100%;
@@ -2039,6 +2000,8 @@
 /*====================================================================================================================
 										DR. THERESSIA, DRG. ANDHIKA, DR. TISYA
 ====================================================================================================================*/
+@media screen and (min-width: 1366px){}
+
 @media screen and (max-width: 1366px){
 	#hero-sc{
 		height: 650px;
@@ -2220,6 +2183,8 @@
 /*====================================================================================================================
 														SHOWCASE
 ====================================================================================================================*/
+@media screen and (min-width: 1366px){}
+
 @media screen and (max-width: 1366px){
 	.butterfly h2, .book h2, .colour h2, .deer h2, .coffee h2, .colour-noe h2, .electricity h2, .crown h2, .colour-dg h2, #dwi-golden h2, .scaffolding h2, .bcp-hero h2, .bcp-main h2, .blue-dolphin-hero h2, .children h2, .enggal-jaya h2, .fox-hero h2, .fox-logo h2, .intec-hero h2, .intec-main h2, .irkon-hero h2, .irkon-main h2, .boss-katsu h2, .chuar-detail h2, .home-grab-hero h2, .home-grab-detail h2, .icompete-hero h2, .icompete-main h2, .icompete-tagline h2, .multi-profile h2, .multi-product h2, .sehati-hero h2, .sehati-main h2, .sehati-colour-text h2, .tick-main h2, .tick-travel h2, .kaiser-detail h2, .kaiser-detail-2 h2, .latoya-main h2, .luisa-main h2, .luisa-main-2 h2, .luisa-product h2, .pakelan-main-text h2, .pakelan-main-2 h2, .finder-main-text h2, .finder-main-2text h2{
 		font-family: 'quicksandregular';
@@ -2297,6 +2262,8 @@
 /*====================================================================================================================
 														PETRACO
 ====================================================================================================================*/
+@media screen and (min-width: 1366px){}
+
 @media screen and (max-width: 1366px){
 	#danaus{
 		background: url(../images/showcase/petraco/bg-hero.jpg) no-repeat;
@@ -2478,6 +2445,8 @@
 /*====================================================================================================================
 														NOE
 ====================================================================================================================*/
+@media screen and (min-width: 1366px){}
+
 @media screen and (max-width: 1366px){
 	#deer{
 		background: url(../images/showcase/noe/bg-hero.jpg) no-repeat;
@@ -2706,6 +2675,131 @@
 /*====================================================================================================================
 													DWI GOLDEN
 ====================================================================================================================*/
+@media screen and (min-width: 1366px){
+
+	#electricity{
+		background-color: #a67c00;
+		height: 650px;
+		padding-top: 150px;
+	}
+
+	.logo-dg{
+		width: 60%;
+		margin: 0 auto;
+	}
+
+	.electricity{
+		text-align: right;
+		color: white;
+	}
+
+	#crown{
+		background: url(../images/showcase/dwi-golden/bg-crown.jpg) no-repeat;
+		background-size: cover;
+		background-position: center;
+		height: 650px;
+		padding-top: 150px;
+	}
+
+	#colour-dg{
+		background: url(../images/showcase/dwi-golden/dg-bg.png) no-repeat;
+		height: 650px;
+	}
+
+	.dg-bg{
+		background: url(../images/showcase/dwi-golden/dg-bg-3.png) no-repeat;
+		background-size: contain;
+		width: 100%;
+		height: 650px;
+		position: absolute;
+		padding-top: 150px;
+		transform: scale(1);
+	}
+
+	.circle1-dg {
+	  	background: #000000;
+	  	margin-left: 20vw;
+	}
+
+	.circle2-dg{
+		background: #a67c00;
+	}
+
+	.colour-dg{
+		text-align: right;
+		color: white;
+	}
+
+	#dwi-golden{
+		background: url(../images/showcase/dwi-golden/bg-dwi-golden2.jpg) no-repeat;
+		background-size: cover;
+		height: 650px;
+		padding-top: 150px;
+		color: #fff;
+	}
+
+	.golden{
+		text-align: right;
+	}
+
+	#dwi-golden-logo{
+		height: 650px;
+		text-align: center;
+	}
+
+	.dg-color-logo{
+		padding: 100px;
+	}
+
+	.dg-color-logo img{
+		margin: 0 auto;
+	}
+
+	.dg-white-logo{
+		padding: 0;
+	}
+
+	.dg-white-logo1{
+		background-color: #a67c00;
+		padding: 68px;
+	}
+
+	.dg-white-logo2{
+		background-color: #000000;
+		padding: 68px;
+	}
+
+	#dwi-golden-logo2{
+		height: 650px;
+		padding: 0;
+		background-color: white;
+	}
+
+	.dg-logoc{
+		margin: 150px auto 100px auto;
+		height: 400px;
+	}
+
+	.dg-logo1, .dg-logo2{
+		height: 200px;
+		margin: 65px auto 60px auto;
+	}
+
+	.dg-logo1-bg{
+		background-color: #a67c00;
+		height: 325px;
+	}
+
+	.dg-logo2-bg{
+		background-color: #000000;
+		height: 325px;
+	}
+
+	.dg-logo-white, .dg-logoc-bg, .noe-logo-white, .noe-logoc-bg{
+		padding: 0;
+	}
+}
+
 @media screen and (max-width: 1366px){
 	#electricity{
 		background-color: #a67c00;
@@ -2973,6 +3067,81 @@
 /*====================================================================================================================
 													ADHI BUANA
 ====================================================================================================================*/
+@media screen and (min-width: 1366px){
+
+	#scaffolding, #ab-click, #big-bc{
+		height: 650px;
+	}
+
+	.scaffolding{
+		padding: 150px 50px 100px 50px;
+	}
+
+	.ab-icon{
+		margin: 120px auto 0 auto;
+	}
+
+	.ab-logo{
+		width: 20%;
+		right: 0;
+		position: absolute;
+		margin-right: 100px;
+		bottom: 0;
+		margin-bottom: -30px;
+	}
+
+	#ab-click{
+		background: url(../images/showcase/adhibuana/bg2.jpg) no-repeat center center;
+		background-size: cover;
+		position: relative;
+	}
+
+	.ab-text{
+		width: 40%;
+		position: absolute;
+		right: 0;
+		top: 45%;
+		margin-right: 65px;
+	}
+
+	.ab-click-box{
+		position: absolute;
+		top: 0;
+		left: 0;
+		margin-top: 300px;
+		text-align: center;
+	}
+
+	.ab-click{
+		color: black;
+		font-size: 32px;
+		font-weight: bold;
+		background-color: transparent;
+		padding: 10px;
+		letter-spacing: 2px;
+		border-style: solid solid solid dashed;
+		border-width: thick;
+		border-color: black;
+		transition: .3s all;
+	}
+
+	.ab-click:hover{
+		text-decoration: none;
+		color: #ffd200;
+		background-color: black;
+		border-color: black black black #ffd200;
+		transition: .3s all;
+	}
+
+	.ab-pointer{
+		top: 53%;
+		right: 0;
+		position: absolute;
+		margin-right: 100px;
+		width: 2%;
+	}
+}
+
 @media screen and (max-width: 1366px){
 	#scaffolding, #ab-click, #big-bc{
 		height: 650px;
@@ -3111,6 +3280,8 @@
 /*====================================================================================================================
 										BHINNEKA CITRA PRIMA CONTRACTOR
 ====================================================================================================================*/
+@media screen and (min-width: 1366px){}
+
 @media screen and (max-width: 1366px){
 	#bcp-hero{
 		background: url(../images/showcase/bcp-contractor/bg-hero.jpg) no-repeat center center;
@@ -3257,6 +3428,8 @@
 /*====================================================================================================================
 												BLUE DOLPHIN PLAYSKOOL
 ====================================================================================================================*/
+@media screen and (min-width: 1366px){}
+
 @media screen and (max-width: 1366px){
 	#blue-dolphin-hero{
 		background: url(../images/showcase/blue-dolphin/bg-hero.jpg) no-repeat center;
@@ -3351,6 +3524,8 @@
 /*====================================================================================================================
 												TOKO ENGGAL JAYA
 ====================================================================================================================*/
+@media screen and (min-width: 1366px){}
+
 @media screen and (max-width: 1366px){
 	#enggal-hero, #enggal-jaya, #enggal-bc{
 		height: 650px;
@@ -3439,6 +3614,8 @@
 /*====================================================================================================================
 													FOX CREEK
 ====================================================================================================================*/
+@media screen and (min-width: 1366px){}
+
 @media screen and (max-width: 1366px){
 	#fox-hero, #fox-logo, #fox-click{
 		height: 650px;
@@ -3576,6 +3753,8 @@
 /*====================================================================================================================
 													IN TEC
 ====================================================================================================================*/
+@media screen and (min-width: 1366px){}
+
 @media screen and (max-width: 1366px){
 	#intec-hero, #intec-main, #intec-bc, #intec-full{
 		height: 650px;
@@ -3716,6 +3895,8 @@
 /*====================================================================================================================
 											IRKON PANELINDO PRODUK
 ====================================================================================================================*/
+@media screen and (min-width: 1366px){}
+
 @media screen and (max-width: 1366px){
 	#irkon-hero, #irkon-main, #irkon-click{
 		height: 650px;
@@ -3845,6 +4026,8 @@
 /*====================================================================================================================
 													BOSS KATSU
 ====================================================================================================================*/
+@media screen and (min-width: 1366px){}
+
 @media screen and (max-width: 1366px){
 	#boss-katsu{
 		height: 650px;
@@ -3954,6 +4137,60 @@
 /*====================================================================================================================
 													CHUAR-CHUAR
 ====================================================================================================================*/
+@media screen and (min-width: 1366px){
+	#chuar-detail{
+		height: 650px;
+	}
+
+	.chuar-detail{
+		padding: 200px 0 0 100px;
+	}
+
+	.chuar-detail-hidden{
+		display: none;
+	}
+
+	.chuar-big{
+		position: absolute;
+		width: 50%;
+		margin: auto;
+		top: 0;
+		right: 0;
+		left: 0;
+		margin-top: 150px;
+	}
+
+	.chuar-tiny{
+		position: absolute;
+		width: 30%;
+		left: 0;
+		top: 0;
+		margin-left: 50px;
+		margin-top: 350px;
+	}
+
+	#chuar-detail-logo{
+		background: url(../images/showcase/chuar/bg-2.jpg);
+		background-size: cover;
+		height: 650px;
+		position: relative;
+	}
+
+	.chuar-detail-logo{
+		position: absolute;
+		width: 60%;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		margin: auto;
+	}
+
+	.chuar-detail-full{
+		height: 100%;
+	}
+}
+
 @media screen and (max-width: 1366px){
 	#chuar-detail{
 		height: 650px;
@@ -4062,6 +4299,8 @@
 /*====================================================================================================================
 													HOME GRAB
 ====================================================================================================================*/
+@media screen and (min-width: 1366px){}
+
 @media screen and (max-width: 1366px){
 	.home-grab-hero{
 		padding: 200px 100px 0 0;
@@ -4153,6 +4392,8 @@
 /*====================================================================================================================
 													ICOMPETE
 ====================================================================================================================*/
+@media screen and (min-width: 1366px){}
+
 @media screen and (max-width: 1366px){
 	.icompete-hero{
 		padding: 200px 100px 0 0;
@@ -4241,6 +4482,8 @@
 /*====================================================================================================================
 										PT MULTI ANUGERAH DAYA GARMINDO
 ====================================================================================================================*/
+@media screen and (min-width: 1366px){}
+
 @media screen and (max-width: 1366px){
 	#multi-profile{
 		background: url(../images/showcase/pt-multi/bg-main.jpg) no-repeat right top;
@@ -4393,6 +4636,8 @@
 /*====================================================================================================================
 													SEHATI MART
 ====================================================================================================================*/
+@media screen and (min-width: 1366px){}
+
 @media screen and (max-width: 1366px){
 	#sehati-hero{
 		background-color: #0b5ab9;
@@ -4563,6 +4808,8 @@
 /*====================================================================================================================
 												TICK TRAVEL INSURANCE
 ====================================================================================================================*/
+@media screen and (min-width: 1366px){}
+
 @media screen and (max-width: 1366px){
 	#tick-main{
 		background: url(../images/showcase/tick-travel/bg-main.jpg) no-repeat center;
@@ -4610,6 +4857,65 @@
 /*====================================================================================================================
 												KAISER MEDICAL INC
 ====================================================================================================================*/
+@media screen and (min-width: 1366px){
+
+	#kaiser-detail{
+		background: url(../images/showcase/kaiser-med/bg-1.jpg) no-repeat center;
+		background-size: cover;
+		height: 650px;
+	}
+
+	.kaiser-detail{
+		text-align: right;
+		padding: 150px 100px 0 25px;
+	}
+
+	#kaiser-detail-2{
+		background: url(../images/showcase/kaiser-med/bg-icon.png) no-repeat center;
+		background-size: cover;
+		height: 650px;
+	}
+
+	.kaiser-detail-2{
+		padding: 150px 25px 0 100px;
+		color: white;
+	}
+
+	.kaiser-img-hidden{
+		display: none;
+	}
+
+	.kaiser-img{
+		position: relative;
+	}
+
+	.kaiser-img img{
+		position: absolute;
+		right: 0;
+		margin: 150px auto 0;
+		top: 0;
+		left: 0;
+	}
+
+	#kaiser-detail-3{
+		background: url(../images/showcase/kaiser-med/bg-2.jpg) no-repeat center;
+
+		background-size: cover;
+		height: 650px;
+	}
+
+	#kaiser-detail-4{
+		/*background: url(../images/showcase/kaiser-med/bg-poster.png) no-repeat center;*/
+		background-color: #0090c2;/*
+		background-size: cover;*/
+		/*height: 650px;*/
+	}
+
+	.kaiser-poster{
+		margin: 150px 0 0;
+	}
+}
+
 @media screen and (max-width: 1366px){
 	#kaiser-detail{
 		background: url(../images/showcase/kaiser-med/bg-1.jpg) no-repeat center;
@@ -4735,6 +5041,8 @@
 /*====================================================================================================================
 													LATOYA
 ====================================================================================================================*/
+@media screen and (min-width: 1366px){}
+
 @media screen and (max-width: 1366px){
 	#latoya-main{
 		height: 650px;
@@ -4854,6 +5162,7 @@
 /*====================================================================================================================
 												LUISA SKINCARE
 ====================================================================================================================*/
+@media screen and (min-width: 1366px){}
 
 @media screen and (max-width: 1366px){
 	#luisa-main{
@@ -5019,6 +5328,67 @@
 /*====================================================================================================================
 												RM. PAKELAN
 ====================================================================================================================*/
+@media screen and (min-width: 1366px){
+
+	#pakelan-main{
+		height: 650px;
+		position: relative;
+	}
+
+	.pakelan-main{
+		position: relative;
+	}
+
+	.pakelan-main img{
+		position: absolute;
+		top: 0;
+		margin: 100px auto 0;
+		right: 0;
+		left: 0;
+	}
+
+	.pakelan-main-text{
+		padding: 150px 100px 0 0;
+		text-align: right;
+	}
+
+	#pakelan-main-2{
+		height: 650px;
+		background: url(../images/showcase/pakelan/bg-hand.jpg) no-repeat center;
+		background-size: cover;
+		position: relative;
+	}
+
+	.pakelan-main-2{
+		padding: 150px 0 0 100px;
+		color: white;
+	}
+
+	.pakelan-hand{
+		position: absolute;
+		right: 0;
+		width: 42%;
+	}
+
+	#pakelan-menu{
+		height: 650px;
+		background: url(../images/showcase/pakelan/bg-menu.jpg) no-repeat center;
+		background-size: cover;
+	}
+
+	.pakelan-menu{
+		height: 100%;
+		padding: 100px 0;
+	}
+
+	.pakelan-menu-box, .pakelan-menu-img{
+		height: 100%;
+	}
+
+	.pakelan-menu-img{
+		margin: 0 auto;
+	}
+}
 
 @media screen and (max-width: 1366px){
 	#pakelan-main{
@@ -5123,6 +5493,7 @@
 /*====================================================================================================================
 												PEOPLE FINDER
 ====================================================================================================================*/
+@media screen and (min-width: 1366px){}
 
 @media screen and (max-width: 1366px){
 	#finder-hero{

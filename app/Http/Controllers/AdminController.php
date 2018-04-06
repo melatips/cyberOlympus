@@ -86,7 +86,7 @@ class AdminController extends Controller
             $articleDet = Article::where('id_article', $blogID)
                             ->first();
             $catArtName = $articleDet->getCategoryArt;
-            return $catArtName;
+            // return $catArtName;
             return view('admin.blog.article-detail')
                     ->with('articleDet', $articleDet)
                     ->with('catArtName', $catArtName);
@@ -95,7 +95,7 @@ class AdminController extends Controller
         public function articleEdit($blogIDedit){
             $articleEdit = Article::where('id_article', $blogIDedit)
                             ->first();
-            $findBlogCat = $articleEdit->getBlogCategory;
+            $findBlogCat = $articleEdit->getCategoryArt;
             $getBlogCat = CategoryArt::get();
             return view('admin.blog.article-edit')
                     ->with('articleEdit', $articleEdit)
@@ -114,7 +114,7 @@ class AdminController extends Controller
 
                 $articleUpdate->save();
 
-                $articleUpdate->getBlogCategory()->sync($request->article_cat);
+                $articleUpdate->getCategoryArt()->sync($request->article_cat);
                 // return $request->article_cat;
 
                 return redirect('admin/blog/article/'.$articleUpdate->id_article)
@@ -123,7 +123,7 @@ class AdminController extends Controller
 
         public function articleDelete($blogIDdelete){
             $findArtDel = Article::find($blogIDdelete);
-            $findArtDel->getCategory()->detach();
+            $findArtDel->getCategoryArt()->detach();
             $findArtDel->delete();
             return redirect('admin/blog')
                     ->with('status', 'Article deleted successfully');

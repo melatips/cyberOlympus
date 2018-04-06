@@ -17,7 +17,7 @@
             </div>
             <!-- /.box-header -->
             <!-- form start -->
-            <form action="{{url('/admin/blog/article/update/'.$articleEdit->id_blog)}}" method="post" enctype="multipart/form-data">
+            <form action="{{url('/admin/blog/article/update/'.$articleEdit->id_article)}}" method="post" enctype="multipart/form-data">
               {{ csrf_field() }}
               <div class="box-body">
                 <div class="form-group">
@@ -31,11 +31,11 @@
                     @foreach($getBlogCat as $blogcat)
                     @php($checked='')
                         @foreach($findBlogCat as $cat)
-                          @if($cat->id_blog_category==$blogcat->id_blog_category)
+                          @if($cat->id_article_category==$blogcat->id_article_category)
                             @php($checked='checked')
                           @endif
                         @endforeach
-                        <input type="checkbox" name="article_cat[]" value="{{$blogcat->id_blog_category}}" {{$checked}}> {{$blogcat->category}} <br></option>
+                        <input type="checkbox" name="article_cat[]" value="{{$blogcat->id_article_category}}" {{$checked}}> {{$blogcat->category}} <br></option>
                     @endforeach
                   </div>
                 </div>

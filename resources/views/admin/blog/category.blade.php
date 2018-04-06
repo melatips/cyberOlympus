@@ -116,7 +116,7 @@
 	  <div class="modal-dialog modal-dialog-centered" role="document">
 	    <div class="modal-content">
 	      <div class="modal-header">
-	        <h5 class="modal-title" id="namaKat"></h5>
+	        <h5 class="modal-title namaKat"></h5>
 	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 	          <span aria-hidden="true">&times;</span>
 	        </button>
@@ -128,7 +128,8 @@
               <div class="box-body">
                 <div class="form-group">
                   <label>Category Name</label>
-                  <input type="text" class="form-control" name="category" required="" value-id="categoryName">
+                  <label class="namaKat"></label>
+                  <input type="text" class="form-control" name="category" required="">
                 </div>
               </div>
               <!-- /.box-body -->
@@ -198,7 +199,8 @@
     	$("#editCategory").on("show.bs.modal", function(e) {
         var id = $(e.relatedTarget).data('target-id');
             $.get( "{{url('admin/blog/category')}}/" + id, function( data ) {
-                $("#namaKat").text("Edit Category " + data.category);
+                $(".namaKat").text("Edit Category " + data.category);
+                // $("#categoryName")
                 $(".update").attr("href", "{{url('admin/blog/category/update')}}/"+data.id_blog_category);
             });
         });
