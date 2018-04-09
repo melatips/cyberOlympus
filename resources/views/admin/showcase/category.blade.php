@@ -38,7 +38,8 @@
     @endforeach
           <div class="box">
             <div class="box-header">
-              <a href="{{url('admin/category/add')}}" class="btn btn-primary"><i class="fa fa-plus"></i> Add Category</a>
+              <!-- href="{{url('admin/category/add')}}" -->
+              <a data-toggle="modal" data-target="#addCategory" class="btn btn-primary"><i class="fa fa-plus"></i> Add Category</a>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
@@ -64,27 +65,123 @@
                   <td>{{count($categoryList->getShowcase)}}</td>
                   <td>
                   	<a href="{{url('admin/category/'.$categoryList->category_id)}}" class="btn btn-primary" data-toggle="tooltip" title="Detail"><i class="fa fa-eye"></i></a>
-                  	<a href="{{url('admin/category/edit/'.$categoryList->category_id)}}" class="btn btn-success" data-toggle="tooltip" title="Edit"><i class="fa fa-pencil"></i></a>
-                    <a href="{{url('admin/category/delete/'.$categoryList->category_id)}}" class="btn btn-danger" data-toggle="tooltip" title="Delete"><i class="fa fa-trash"></i></a>
+
+                    <button type="button" data-toggle="modal" data-target="#editCategory" data-target-id="{{$categoryList->category_id}}" data-nama="{{$categoryList->category_name}}" data-url="{{url('/admin/category/update',$categoryList->category_id)}}" class="btn btn-success"><i class="fa fa-pencil"></i></button>
+
+                    <button type="button" data-toggle="modal" data-target="#deleteCategory" data-target-id="{{$categoryList->category_id}}" data-nama="{{$categoryList->category_name}}" data-hapus="{{url('/admin/category/delete',$categoryList->category_id)}}" class="btn btn-danger"><i class="fa fa-trash"></i></button>
+                  	<!-- <a href="{{url('admin/category/edit/'.$categoryList->category_id)}}" class="btn btn-success" data-toggle="tooltip" title="Edit"><i class="fa fa-pencil"></i></a> -->
+                    <!-- <a href="{{url('admin/category/delete/'.$categoryList->category_id)}}" class="btn btn-danger" data-toggle="tooltip" title="Delete"><i class="fa fa-trash"></i></a> -->
                   </td>
                 </tr>
                 @php
                   $no++;
                 @endphp
                 @endforeach
-               
-                <!-- <tfoot>
-                <tr>
-                  <th>Name</th>
-                  <th>Link</th>
-                  <th>Action</th>
-                </tr>
-                </tfoot> -->
               </table>
             </div>
             <!-- /.box-body -->
           </div>
           <!-- /.box -->
+  </div>
+
+  <div class="modal fade" id="addCategory" tabindex="-1" role="dialog" aria-labelledby="addCategory" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Add Category</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <!-- </.modal-header> -->
+        <div class="modal-body">
+          <form action="{{url('/admin/category/saveCategory')}}" method="post" enctype="multipart/form-data">
+              {{ csrf_field() }}
+              <div class="box-body">
+                <div class="form-group">
+                  <label>Category Name</label>
+                  <input type="text" class="form-control" name="category_name" required="" id="categoryInput">
+                </div>
+              </div>
+              <!-- /.box-body -->
+          </div>
+          
+        <div class="modal-footer">
+          <input type="hidden" value="{{ csrf_token() }}" name="_token" />
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary">Save</button>
+        </div>
+        </form>
+      </div>
+      <!-- </.modal-content> -->
+    </div>
+  </div>
+
+  <div class="modal fade" id="editCategory" tabindex="-1" role="dialog" aria-labelledby="editCategory" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title"></h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <!-- </.modal-header> -->
+        <div class="modal-body">
+          <form action="#" method="post" enctype="multipart/form-data">
+              {{ csrf_field() }}
+              <div class="box-body">
+                <div class="form-group">
+                  <label>Category Name</label>
+                  <label class="namaKat"></label>
+                  <input type="text" class="form-control blogCatName" name="category_name" required="">
+                </div>
+              </div>
+              <!-- /.box-body -->
+          </div>
+          
+        <div class="modal-footer">
+          <input type="hidden" value="{{ csrf_token() }}" name="_token" />
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary update">Save</button>
+        </div>
+        </form>
+      </div>
+      <!-- </.modal-content> -->
+    </div>
+  </div>
+
+  <div class="modal fade" id="deleteCategory" tabindex="-1" role="dialog" aria-labelledby="editCategory" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-sm" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title delCat" style="text-align: center;"></h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <!-- </.modal-header> -->
+        <div class="modal-body">
+          <form action="#" method="get" enctype="multipart/form-data">
+              {{ csrf_field() }}
+              <div class="box-body">
+                <div class="form-group">
+                  <label style="text-align: center;">Are you sure you want to delete this category?</label>
+                  <!-- <input type="text" class="form-control" name="category" required="" id="categoryInput"> -->
+                </div>
+              </div>
+              <!-- /.box-body -->
+          </div>
+          
+        <div class="modal-footer">
+          <input type="hidden" value="{{ csrf_token() }}" name="_token" />
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+          <button type="submit" class="btn btn-danger">Delete</button>
+        </div>
+        </form>
+      </div>
+      <!-- </.modal-content> -->
+    </div>
   </div>
 @endsection
 
@@ -93,6 +190,23 @@
 $(document).ready( function () {
     $('#category').DataTable();
 } );
+</script>
+
+<script type="text/javascript">
+  $(document).ready(function() {
+      $("#editCategory").on("show.bs.modal", function(e) {
+        var id = $(e.relatedTarget).data('target-id');
+        $(this).find('form').attr('action',$(e.relatedTarget).data('url'));
+        $('.blogCatName').val($(e.relatedTarget).data('nama'));
+        $('.namaKat').text($(e.relatedTarget).data('nama'));
+      });
+
+      $("#deleteCategory").on("show.bs.modal", function(e) {
+        var id = $(e.relatedTarget).data('target-id');
+        $(this).find('form').attr('action',$(e.relatedTarget).data('hapus'));
+        $('.delCat').text("Category : " + $(e.relatedTarget).data('nama'));
+      });
+    });
 </script>
 
 <script>

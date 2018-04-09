@@ -56,8 +56,18 @@
           @foreach($article as $art)
           <tr>
             <td>{{$no}}</td>
-            <td>{{$art->title}}</td>
-            <td></td>
+            <td>{{ucwords($art->title)}}</td>
+            <td>
+              @if(count($art->getCategoryArt)!=0)
+                  @foreach($art->getCategoryArt as $key => $value)
+                    @if (count($art->getCategoryArt) == 1 || $key==count($art->getCategoryArt)-1)
+                    {{ucwords($value->category)}}
+                    @else
+                    {{ucwords($value->category)}},
+                    @endif
+                  @endforeach
+                @endif
+            </td>
             <td>{{date('d F Y', strtotime($art->created_at))}}</td>
             <td>
             	<a href="{{url('/admin/blog/article/'.$art->id_article)}}" class="btn btn-primary" data-toggle="tooltip" title="Detail"><i class="fa fa-eye"></i></a>

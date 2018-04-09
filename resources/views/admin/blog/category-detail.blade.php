@@ -1,7 +1,7 @@
 @extends('template.AdminTemplate')
 
 @section('aside-title')
-	Article Category : 
+	Article Category : {{$catDetail->category}}
 @endsection
 
 @section('aside-subtitle')
@@ -41,15 +41,25 @@
           <tr>
             <th>No.</th>
             <th>Article Title</th>
+            <th>Action</th>
           </tr>
           </thead>
           <tbody>
-          
+          @php
+            $no = 1;
+          @endphp
+          @foreach($catDetail->getArticle as $cat)
           <tr>
-            <td></td>
-            <td></td>
+            <td>{{$no}}</td>
+            <td>{{ucwords($cat->title)}}</td>
+            <td>
+              <a href="{{url('/admin/blog/article/'.$cat->id_article)}}" class="btn btn-primary">Detail</a>
+            </td>
           </tr>
-          
+          @php
+            $no++;
+          @endphp
+          @endforeach
         </table>
       </div>
       <!-- /.box-body -->

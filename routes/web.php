@@ -37,7 +37,7 @@ Route::post('/contact/submit', 'CyberController@contactSubmit');
 Route::get('/about-us', 'CyberController@aboutUs');
 Route::get('/blog', 'CyberController@blog');
 	//nanti /article-detail diganti id article
-	Route::get('/blog/article-detail', 'CyberController@articleDetail');
+	Route::get('/blog/article/{id}', 'CyberController@articleDetail');
 Route::get('/careers', 'CyberController@noPosition');
 Route::get('/coba', 'CyberController@careers');
 
@@ -56,15 +56,17 @@ Route::get('/admin', 'AdminController@contactUs');
 Route::get('/admin/blog', 'AdminController@articleList');
 	Route::get('/admin/blog/add', 'AdminController@articleAdd');
 		Route::post('/admin/blog/save', 'AdminController@articleSave');
-	Route::get('/admin/blog/article/{id}', 'AdminController@articleDetail');
+	// Route::get('/admin/blog/{title}', 'AdminController@articleDetail');
+		Route::get('/admin/blog/article', 'AdminController@articleDetail');
 	Route::get('/admin/blog/article/edit/{id}', 'AdminController@articleEdit');
 		Route::post('/admin/blog/article/update/{id}', 'AdminController@articleUpdate');
 	Route::get('admin/blog/article/delete/{id}', 'AdminController@articleDelete');
 
 Route::get('/admin/blog/category', 'AdminController@blogCat');
-Route::post('admin/blog/category/save', 'AdminController@saveBlogCat');
-	Route::get('/admin/blog/category/detail', 'AdminController@catDetail');
-
+	Route::post('admin/blog/category/save', 'AdminController@saveBlogCat');
+	Route::get('/admin/blog/category/detail/{id}', 'AdminController@catDetail');
+	Route::post('/admin/blog/category/update/{id}', 'AdminController@updateBlogCat');
+	Route::get('admin/blog/category/delete/{id}', 'AdminController@deleteBlogCat');
 
 Route::get('admin/category', 'AdminController@category');
 	Route::get('admin/category/add', 'AdminController@categoryAdd');

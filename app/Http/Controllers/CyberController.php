@@ -9,6 +9,9 @@ use App\Showcase;
 use App\Category;
 use App\ShowCat;
 use App\Careers;
+use App\Article;
+use App\ArtCat;
+use App\CategoryArt;
 use App\Mail\SendMail;
 use Mail;
 
@@ -58,15 +61,19 @@ class CyberController extends Controller
     //FOOTER
 
     public function aboutUs(){
-        return view('about-us');
+        return view('coming-soon');
     }
 
     public function blog(){
-        return view('blog');
+        return view('coming-soon');
     }
 
-        public function articleDetail(){
-            return view('article');
+        public function articleDetail($articleIDdet){
+            $findArticle = Article::where('id_article', $articleIDdet)
+                            ->first();
+            // return $findArticle;
+            return view('article')
+                    ->with('findArticle', $findArticle);
         }
 
     public function careers(){

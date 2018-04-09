@@ -26,7 +26,7 @@
 
                 <div class="form-group">
                   <label>Category</label>
-                  <input type="" class="form-control" placeholder="@if (count($catArtName) != 0) @foreach ($catArtName as $key => $value) @if(count($catArtName) == 1 || $key==count($catArtName)-1) {{$value->category}} @else {{$value->category}}, @endif @endforeach @endif" name="" disabled>
+                  <input type="" class="form-control" placeholder="@if (count($catArtName) != 0) @foreach ($catArtName as $key => $value) @if(count($catArtName) == 1 || $key==count($catArtName)-1) {{ucwords($value->category)}} @else {{ucwords($value->category)}}, @endif @endforeach @endif" name="" disabled>
                 </div>
                 
                 <div class="form-group">

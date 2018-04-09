@@ -51,7 +51,7 @@
           @foreach($categoryDetail->getShowcase as $val)
           <tr>
             <td>{{$no}}</td>
-            <td>{{$val->showcase_name}}</td>
+            <td>{{ucwords($val->showcase_name)}}</td>
             <td>
             	<a href="{{url('/admin/showcase/detail/'.$val->showcase_list_id)}}" class="btn btn-primary">Detail</a>
             </td>

@@ -154,8 +154,100 @@ class AdminController extends Controller
             }
         }
 
-        public function catDetail(){
-            return view('admin.blog.category-detail');
+        public function catDetail($blogCatID){
+            $catDetail = CategoryArt::where('id_article_category', $blogCatID)
+                        ->first();
+            return view('admin.blog.category-detail')
+                    ->with('catDetail', $catDetail);
+        }
+
+        public function updateBlogCat(Request $request){
+            $blogCatUpdate = CategoryArt::find($request->id);
+            // return $blogCatUpdate->all();
+            $blogCatUpdate->category = $request->category;
+
+            $blogCatUpdate->save();
+
+            return redirect('admin/blog/category')
+                    ->with('status', 'Category updated successfully!');
+        }
+
+        public function deleteBlogCat($blogCatIDdel){
+            $findCatArt = CategoryArt::find($blogCatIDdel);
+            if(count($findCatArt->getArticle) == 0){
+                $findCatArt->delete();
+                return redirect('admin/blog/category')
+                    ->with('status', 'Category deleted successfully');
+            }
+            else{
+                return redirect('admin/blog/category')
+                    ->with('status', 'Category can not be deleted because category is in use');
+            }
+        }
+
+    public function category(){
+        $category = Category::get();
+        return view('admin.showcase.category')
+                ->with('category', $category);
+    }
+
+        public function categoryDetail($catID){
+            $categoryDetail = Category::find($catID);
+            return view('admin.showcase.category-detail')
+                    ->with('categoryDetail', $categoryDetail);
+        }
+
+        public function categoryAdd(){
+            return view('admin.showcase.category-add');
+        }
+
+        public function saveCategory(Request $request){
+            $findCategory = Category::where('category_name', $request->category_name)
+                            ->get();
+            if(count($findCategory) == 0){
+                $saveCategory = new Category;
+                $saveCategory->category_name = $request->category_name;
+                $saveCategory->category_description = $request->category_description;
+
+                $saveCategory->save();
+                return redirect('/admin/category')
+                    ->with('status', 'Category created successfully');
+            }
+
+            else{
+                return redirect('admin/category')
+                        ->with('status', 'Category already exist!');
+            }
+        }
+
+        public function categoryEdit($catIDedit){
+            $categoryEdit = Category::where('category_id', $catIDedit)
+                            ->first();
+            return view('admin.showcase.category-edit')
+                    ->with('categoryEdit', $categoryEdit);
+        }
+
+            public function updateCategory(Request $request){
+                $categoryUpdate = Category::find($request->id);
+                $categoryUpdate->category_name = $request->category_name;
+                $categoryUpdate->category_description = $request->category_description;
+
+                $categoryUpdate->save();
+                return redirect('admin/category')
+                        ->with('status', 'Category updated successfully');
+            }
+
+        public function deleteCategory($catIDdelete){
+            $findCat = Category::find($catIDdelete);
+            if(count($findCat->getShowcase) == 0){
+                $findCat->delete();
+                return redirect('admin/category')
+                    ->with('status', 'Category deleted successfully');
+            }
+            else{
+                return redirect('admin/category')
+                    ->with('status', 'Category can not be deleted because category is in use');
+            }
         }
 
     public function showcase(){
@@ -278,104 +370,6 @@ class AdminController extends Controller
                     ->with('status', 'Showcase deleted successfully');
         }
 
-    public function basicInfo(){
-        $basic = BasicInfo::first();
-    	return view('admin.basic-info')
-                ->with('basic', $basic);
-    }
-
-    	public function basicEdit(){
-            $basic = BasicInfo::first();
-    		return view('admin.basic-edit')
-                    ->with('basic', $basic);
-    	}
-
-            public function basicUpdate(Request $request){
-                $basicSave = BasicInfo::find($request->id = 1);
-                $basicSave->email           = $request->email;
-                $basicSave->facebook        = $request->facebook;
-                $basicSave->twitter         = $request->twitter;
-                $basicSave->instagram       = $request->instagram;
-                $basicSave->linkedin        = $request->linkedin;
-                $basicSave->phone           = $request->phone;
-                $basicSave->full_address    = $request->address;
-
-                $basicSave->save();
-                return redirect('admin/basic-info')
-                        ->with('status', 'Basic info updated successfully');
-            }
-
-    public function category(){
-        $category = Category::get();
-        // return $category->getShowcase;
-        return view('admin.showcase.category')
-                ->with('category', $category);
-    }
-
-        public function categoryDetail($catID){
-            $categoryDetail = Category::find($catID);
-            // return $categoryDetail->getShowcase;
-            return view('admin.showcase.category-detail')
-                    ->with('categoryDetail', $categoryDetail);
-        }
-
-        public function categoryAdd(){
-            return view('admin.showcase.category-add');
-        }
-
-        public function saveCategory(Request $request){
-            $findCategory = Category::where('category_name', $request->category_name)
-                            ->get();
-            // return $findCategory->all();
-            if(count($findCategory) == 0){
-                $saveCategory = new Category;
-                $saveCategory->category_name = $request->category_name;
-                $saveCategory->category_description = $request->category_description;
-
-                $saveCategory->save();
-                return redirect('/admin/category')
-                    ->with('status', 'Category created successfully');
-            }
-
-            else{
-                return redirect('admin/category')
-                        ->with('status', 'Category already exist!');
-            }
-        }
-
-        public function categoryEdit($catIDedit){
-            $categoryEdit = Category::where('category_id', $catIDedit)
-                            ->first();
-            // return $categoryEdit->all();
-            return view('admin.showcase.category-edit')
-                    ->with('categoryEdit', $categoryEdit);
-        }
-
-            public function updateCategory(Request $request){
-                $categoryUpdate = Category::find($request->id);
-                // return $categoryUpdate->all();
-                $categoryUpdate->category_name = $request->category_name;
-                $categoryUpdate->category_description = $request->category_description;
-
-                $categoryUpdate->save();
-                return redirect('admin/category')
-                        ->with('status', 'Category updated successfully');
-            }
-
-        public function deleteCategory($catIDdelete){
-            $findCat = Category::find($catIDdelete);
-            if(count($findCat->getShowcase) == 0){
-                $findCat->delete();
-                return redirect('admin/category')
-                    ->with('status', 'Category deleted successfully');
-            }
-            else{
-                return redirect('admin/category')
-                    ->with('status', 'Category can not be deleted because category is in use');
-            }
-            
-        }
-
     public function careers(){
         $careersList = Careers::get();
         return view('admin.careers.careers')
@@ -456,4 +450,31 @@ class AdminController extends Controller
             return redirect('admin/careers')
                     ->with('status', 'Position deleted successfully');
         }
+
+    public function basicInfo(){
+        $basic = BasicInfo::first();
+        return view('admin.basic-info')
+                ->with('basic', $basic);
+    }
+
+        public function basicEdit(){
+            $basic = BasicInfo::first();
+            return view('admin.basic-edit')
+                    ->with('basic', $basic);
+        }
+
+            public function basicUpdate(Request $request){
+                $basicSave = BasicInfo::find($request->id = 1);
+                $basicSave->email           = $request->email;
+                $basicSave->facebook        = $request->facebook;
+                $basicSave->twitter         = $request->twitter;
+                $basicSave->instagram       = $request->instagram;
+                $basicSave->linkedin        = $request->linkedin;
+                $basicSave->phone           = $request->phone;
+                $basicSave->full_address    = $request->address;
+
+                $basicSave->save();
+                return redirect('admin/basic-info')
+                        ->with('status', 'Basic info updated successfully');
+            }
 }

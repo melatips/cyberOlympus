@@ -9,7 +9,30 @@
 @endsection
 
 @section('content')
-	<div class="col-md-12">
+	<div class="col-md-12 modal fade" id="add-image" role="dialog">
+    <h3>Image Gallery</h3>
+    <button type="button" class="btn btn-default" data-dismiss="modal" style="float:right;margin-top: -30px;"><span class="fa fa-close"></span></button>
+    <hr>
+    <div class="col-md-8">
+        <div id="fillgrid">
+
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div id="loading-icon" align="center" style="display: none;">
+            <img src="" width="30px">
+        </div>
+        <form name="uploadimageajax" id="uploadimageajax" >
+            <input id="file_upload" name="attachment_file" class="file_upload_icon" type="file"/>
+            <input type="text" name="desc" class="form-control" placeholder="Image title">
+            <div id="loading"></div>
+            <input type="button" class="btn btn-green" value="upload" onclick="return sendData()"/>
+        </form>
+    </div>
+</div>
+
+  <div class="col-md-12">
         <!-- general form elements -->
         <div class="box box-primary">
             <div class="box-header with-border">
@@ -29,17 +52,43 @@
                   <label>Category</label>
                   <select class="form-control select2" name="article_cat[]" multiple="multiple" data-placeholder="Select category" style="width: 100%;" required="">
                     @foreach($blogCatList as $category)
-                      <option value="{{$category->id_article_category}}">{{$category->category}}</option>
+                      <option value="{{$category->id_article_category}}">{{ucwords($category->category)}}</option>
                     @endforeach
                   </select>
                 </div>
                 
                 <div class="form-group">
                   <label>Content</label>
-                  <textarea id="articleContent" name="content"></textarea>
+                  <div id="editor-wysiwyg">
+                    <div id="wysiwyg-panel">
+                      <button type="button" class="btn btn-success" data-toggle="modal" data-target="#add-image" style="margin-bottom: 15px; margin-top: 15px;">Add Image</button>
+                      <textarea name="intro"></textarea>
+                      <textarea id="articleContent" name="content"></textarea>
+                    </div>
+                  </div>
                 </div>
+                <div class="col-md-4 col-sm-4 col-xs-12">
+
+            <h3>Featured Image</h3>
+            <hr>
+            <div class="alert alert-danger" id="image-alert" style="display: none;">Opps, Gambar Masih Kosong</div>
+
+            <div class="image-editor-3">
+                <input type="file" class="cropit-image-input" id="featured-image">
+                <label>* Best size min 960px with 2:3 ratio</label>
+                <!-- <div class="cropit-image-article"></div>
+                <div class="image-size-label">
+                    Resize image
+                </div>
+                <input type="range" class="cropit-image-zoom-input"> -->
+                <input type="hidden" name="image-data" class="hidden-image-data-article" />
+            </div>
+
+        </div>
               </div>
               <!-- /.box-body -->
+
+
         </div>
           <!-- /.box -->
 
@@ -56,19 +105,11 @@
   <script src="{{asset('plugins/input-mask/jquery.inputmask.js')}}"></script>
   <script src="{{asset('plugins/input-mask/jquery.inputmask.date.extensions.js')}}"></script>
   <script src="{{asset('plugins/input-mask/jquery.inputmask.extensions.js')}}"></script>
+  <script src="{{asset('js/article.js')}}"></script>
+
   <script type="text/javascript">
     $(function () {
-      //Initialize Select2 Elements
       $('.select2').select2()
     })
   </script>
-	<script>
-	  tinymce.init({
-	    selector: '#articleContent',
-	      plugins: ["lists", "advlist", "image"],
-	      toolbar: "numlist bullist image",
-		  menubar: ["file", "insert"],
-		  image_dimensions: false
-	  });
-	</script>
 @endsection

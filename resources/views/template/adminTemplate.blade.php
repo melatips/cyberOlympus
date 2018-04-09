@@ -21,15 +21,15 @@
        folder instead of downloading all of them to reduce the load. -->
   <link rel="stylesheet" href="{{asset('AdminLTE-2.4.3/dist/css/skins/_all-skins.min.css')}}">
   <!-- Morris chart -->
-  <link rel="stylesheet" href="{{asset('AdminLTE-2.4.3/bower_components/morris.js/morris.css')}}">
+  <!-- <link rel="stylesheet" href="{{asset('AdminLTE-2.4.3/bower_components/morris.js/morris.css')}}"> -->
   <!-- jvectormap -->
-  <link rel="stylesheet" href="{{asset('AdminLTE-2.4.3/bower_components/jvectormap/jquery-jvectormap.css')}}">
+  <!-- <link rel="stylesheet" href="{{asset('AdminLTE-2.4.3/bower_components/jvectormap/jquery-jvectormap.css')}}"> -->
   <!-- Select2 -->
   <link rel="stylesheet" href="{{asset('AdminLTE-2.4.3/bower_components/select2/dist/css/select2.min.css')}}">
   <!-- Date Picker -->
-  <link rel="stylesheet" href="{{asset('AdminLTE-2.4.3/bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css')}}">
+  <!-- <link rel="stylesheet" href="{{asset('AdminLTE-2.4.3/bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css')}}"> -->
   <!-- Daterange picker -->
-  <link rel="stylesheet" href="{{asset('AdminLTE-2.4.3/bower_components/bootstrap-daterangepicker/daterangepicker.css')}}">
+  <!-- <link rel="stylesheet" href="{{asset('AdminLTE-2.4.3/bower_components/bootstrap-daterangepicker/daterangepicker.css')}}"> -->
   <!-- bootstrap wysihtml5 - text editor -->
   <link rel="stylesheet" href="{{asset('AdminLTE-2.4.3/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css')}}">
   <link rel="stylesheet" href="{{asset('AdminLTE-2.4.3/dist/css/style.css')}}">
@@ -37,6 +37,7 @@
   <!-- jQuery 3 -->
 <script src="{{asset('AdminLTE-2.4.3/bower_components/jquery/dist/jquery.min.js')}}"></script>
 <script src="{{asset('tinymce/js/tinymce/tinymce.min.js')}}"></script>
+
 
 @yield('css')
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
