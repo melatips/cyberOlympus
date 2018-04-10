@@ -23,8 +23,8 @@
 
     function fillgrid(){
         $.ajax({
-            //url untuk ??
-            url:'<?php echo base_url() ?>member/article/article_gallery',
+            //url untuk grab gallery
+            url:'<?php echo base_url() ?>admin/blog/article/article_gallery',
             type:'GET'
         }).done(function (data){
             //ambil id fillgrid dari blade
@@ -43,7 +43,7 @@
                 if(v==true){
                     var data_url = $(this).attr('data-url');
                     var del_url = '<?php echo base_url() ?>member/article/ajax_image_del/'+data_url;
-
+                    // ajax delete
                     $.ajax({
                         url: del_url,
                         type:'GET',

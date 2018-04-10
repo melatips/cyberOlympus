@@ -62,6 +62,9 @@ Route::get('/admin/blog', 'AdminController@articleList');
 		Route::post('/admin/blog/article/update/{id}', 'AdminController@articleUpdate');
 	Route::get('admin/blog/article/delete/{id}', 'AdminController@articleDelete');
 
+//ROUTE UNTUK ARTICLE GALLERY
+	Route::get('admin/blog/article/article_gallery', 'AdminController@article_gallery');
+
 Route::get('/admin/blog/category', 'AdminController@blogCat');
 	Route::post('admin/blog/category/save', 'AdminController@saveBlogCat');
 	Route::get('/admin/blog/category/detail/{id}', 'AdminController@catDetail');
@@ -69,9 +72,9 @@ Route::get('/admin/blog/category', 'AdminController@blogCat');
 	Route::get('admin/blog/category/delete/{id}', 'AdminController@deleteBlogCat');
 
 Route::get('admin/category', 'AdminController@category');
-	Route::get('admin/category/add', 'AdminController@categoryAdd');
+	// Route::get('admin/category/add', 'AdminController@categoryAdd');
 		Route::post('admin/category/saveCategory', 'AdminController@saveCategory');
-	Route::get('admin/category/edit/{id}', 'AdminController@categoryEdit');
+	// Route::get('admin/category/edit/{id}', 'AdminController@categoryEdit');
 		Route::post('admin/category/update/{id}', 'AdminController@updateCategory');
 	Route::get('admin/category/delete/{id}', 'AdminController@deleteCategory');
 	Route::get('admin/category/{id}', 'AdminController@categoryDetail');

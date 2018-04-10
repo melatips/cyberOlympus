@@ -9,6 +9,7 @@
 @endsection
 
 @section('content')
+<!-- modal add image -->
 	<div class="col-md-12 modal fade" id="add-image" role="dialog">
     <h3>Image Gallery</h3>
     <button type="button" class="btn btn-default" data-dismiss="modal" style="float:right;margin-top: -30px;"><span class="fa fa-close"></span></button>
@@ -30,7 +31,7 @@
             <input type="button" class="btn btn-green" value="upload" onclick="return sendData()"/>
         </form>
     </div>
-</div>
+  </div>
 
   <div class="col-md-12">
         <!-- general form elements -->
@@ -56,13 +57,18 @@
                     @endforeach
                   </select>
                 </div>
+
+                <label>Intro</label>
+                <div class="form-group">
+                  <textarea name="intro"></textarea>
+                </div>
                 
                 <div class="form-group">
                   <label>Content</label>
                   <div id="editor-wysiwyg">
                     <div id="wysiwyg-panel">
                       <button type="button" class="btn btn-success" data-toggle="modal" data-target="#add-image" style="margin-bottom: 15px; margin-top: 15px;">Add Image</button>
-                      <textarea name="intro"></textarea>
+
                       <textarea id="articleContent" name="content"></textarea>
                     </div>
                   </div>
