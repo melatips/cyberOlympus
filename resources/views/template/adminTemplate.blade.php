@@ -33,10 +33,14 @@
   <!-- bootstrap wysihtml5 - text editor -->
   <link rel="stylesheet" href="{{asset('AdminLTE-2.4.3/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css')}}">
   <link rel="stylesheet" href="{{asset('AdminLTE-2.4.3/dist/css/style.css')}}">
+  <link rel="stylesheet" href="{{asset('froala/css/froala_editor.css')}}">
+  <link rel="stylesheet" href="{{asset('froala/css/froala_style.css')}}">
 
   <!-- jQuery 3 -->
 <script src="{{asset('AdminLTE-2.4.3/bower_components/jquery/dist/jquery.min.js')}}"></script>
 <script src="{{asset('tinymce/js/tinymce/tinymce.min.js')}}"></script>
+<!-- <script type="text/javascript" src="{{asset('froala/js/froala_editor.min.js')}}"></script> -->
+<script type="text/javascript" src="{{asset('froala/js/froala_editor.pkgd.min.js')}}"></script>
 
 
 @yield('css')

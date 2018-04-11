@@ -65,6 +65,7 @@ class AdminController extends Controller
                 if(count($findArticle) == 0){
                     $saveArticle            = new Article;
                     $saveArticle->title     = strtolower($request->title);
+                    $saveArticle->intro   = $request->intro;
                     $saveArticle->content   = $request->content;
                     $saveArticle->slug      = strtolower(str_replace(array(' ', '&', '.'), array('-', '', ''), $request->title));
 
@@ -128,8 +129,6 @@ class AdminController extends Controller
             return redirect('admin/blog')
                     ->with('status', 'Article deleted successfully');
         }
-
-
 
     public function blogCat(){
         $blogCat = CategoryArt::get();
@@ -483,8 +482,8 @@ class AdminController extends Controller
     //TAMBAHAN DARI AJAX-ACTION.PHP
 
     public function article_gallery(){
-        $user_id = $this->session->userdata('user_id');
-        $image_data = $this->Blog_models->getImageByUserId($user_id)->result();
+        $image_data = Showcase::all();
+
         $i=0 ;
 
         foreach($image_data as $image){
@@ -492,12 +491,12 @@ class AdminController extends Controller
             $html ="
               <div class='col-md-4'>
                 <div class='post-image' style='max-height:140px; margin-top:5px; margin-bottom:5px; overflow:hidden'>
-                    <div class='media'> <img class='media__image img-responsive' src='".base_url()."files/img/".$image->post_picture_image."' />
+                    <div class='media'> <img class='media__image img-responsive' src='".asset('images/showcase/bg/'.strtolower($image->file_name).'.jpg')."' />
                       <div class='media__body no-padding' style='margin-top:-40px;'>
                       <br>
-                      <a href='#' class='btn btn-green btn-xs add-image-to-text' id='link".$i."' data-value='".base_url()."files/img/".$image->post_picture_image."' data-url='".$image->post_picture_image."'";
+                      <a href='#' class='btn btn-green btn-xs add-image-to-text' id='link".$i."' data-value='".asset('images/showcase/bg/'.strtolower($image->file_name).'.jpg')."' data-url='".asset('images/showcase/bg/'.strtolower($image->file_name).'.jpg')."'";
             $html .="><span class='fa fa-upload'></span> Add</a>
-                      <a href='#' class='btn btn-red btn-xs delete-image-ajax' id='del".$i."' data-url='".$image->post_picture_image."'";
+                      <a href='#' class='btn btn-red btn-xs delete-image-ajax' id='del".$i."' data-url='".asset('images/showcase/bg/'.strtolower($image->file_name).'.jpg')."'";
             $html .="><span class='fa fa-close'></span> Del</a>
                       </div>
                     </div>
@@ -506,181 +505,6 @@ class AdminController extends Controller
 
             echo $html;
             $i++;
-        }
-    }
-
-    /*Function image upload*/
-    public function fileUpload(){
-
-        $new_name = uniqid();
-        $config['upload_path'] = './files/img/';
-        $config['allowed_types'] = 'gif|jpg|jpeg|png';
-        $config['max_size'] = '6048000';
-        $config['max_width']  = '6048';
-        $config['max_height']  = '6048';
-        $config['file_name'] = $new_name;
-
-        $this->upload->initialize($config);
-        $image_detail = $this->input->post('desc');
-        $user_id = $this->session->userdata('user_id');
-
-        if ( ! $this->upload->do_upload('attachment_file')){
-
-            $response = array(
-                'status'=>'0',
-                'message'=> $this->upload->display_errors()
-            );
-
-        } else {
-
-            $image_data =   $this->upload->data();
-
-            $w_orig = $image_data['image_width'];
-            $h_orig = $image_data['image_height'];
-
-            $configimage =  array(
-                'image_library'   => 'gd2',
-                'source_image'    =>  $image_data['full_path'],
-                'maintain_ratio'  =>  true,
-                'width'           =>  960
-            );
-            $this->image_lib->clear();
-            $this->image_lib->initialize($configimage);
-            $this->image_lib->resize();
-
-            $data = array(
-                'user_id' => $user_id,
-                'post_picture_image' => $image_data['file_name'],
-                'post_picture_detail' => $image_detail
-            );
-
-            $this->Blog_models->insertImageDB($data);
-
-            $response = array(
-                'status'=>'1',
-                'message'=> 'image saved'
-            );
-
-        }
-
-        echo json_encode($response);
-    }
-
-    public function addpost(){
-        $post_id = $this->input->post('post_id');
-        $post_title = $this->input->post('post_title');
-        $post_content = $this->input->post('post_content');
-        $user_id = $this->session->userdata('user_id');
-        $post_date = date('Y-m-d H:i:s');
-        $post_category_id = $this->input->post('post_category_id');
-        $post_tag_name = $this->input->post('post_tag_name');
-
-        $slug = strtolower(clean_str($post_title));
-        $slug_exist = $this->Blog_models->getPostBySlug($slug)->result();
-
-        if(count($slug_exist)>0){
-            $slug = $slug."-".(count($slug_exist)+1);
-        }
-
-        $save = $this->input->post('btn-save');
-        $draft = $this->input->post('btn-draft');
-
-        $image_data = $this->input->post('image-data');
-
-        // decoding base64 string value
-        $image = base64_decode(preg_replace('#^data:image/\w+;base64,#i', '', $image_data));
-        $image_name = $slug.md5(uniqid(rand(), true));
-        $filename = $image_name . '.' . 'jpg';
-        //rename file name with random number
-        $path = './files/img/';
-        //image uploading folder path
-        file_put_contents($path . $filename, $image);
-
-        //Resize
-        $configer =  array(
-            'image_library'   => 'gd2',
-            'source_image'    =>  $path.$filename,
-            'maintain_ratio'  =>  true,
-            'width'           =>  960
-        );
-
-        $this->image_lib->clear();
-        $this->image_lib->initialize($configer);
-        $this->image_lib->resize();
-
-        $image = $filename;
-
-        if($save == 1){
-            $data = array(
-                'post_title' => $post_title,
-                'post_content' => $post_content,
-                'post_slug' => $slug,
-                'user_id' => $user_id,
-                'post_date' => $post_date,
-                'featured_image' => $image,
-                'post_status' => 3,
-                'post_share_count' => 0,
-                'post_read_count' => 0,
-                'post_category_id' => $post_category_id
-            );
-
-            $this->Blog_models->insertpostDB($data);
-            $post_id = $this->db->insert_id();
-            helper_log("add", "post_article", "", $post_id);
-
-            foreach ($post_tag_name as $key => $value) {
-
-                $tag_name = $value;
-                $slug = str_replace(" ","-",$tag_name);
-                $tag_slug = strtolower($slug);
-
-                $data_tag = array(
-                    'post_tag_name' => $value,
-                    'post_id' => $post_id,
-                    'post_tag_slug' => $tag_slug
-
-                );
-                $this->Blog_models->insertTagDB($data_tag);
-            }
-
-            header('location:'.base_url().'member/article/add');
-            $this->session->set_flashdata("m", "<div align='center' class='alert alert-info'>Post success</div>");
-
-        }else if($draft == 0 ){
-            $data = array(
-                'post_title' => $post_title,
-                'post_content' => $post_content,
-                'post_slug' => $slug,
-                'user_id' => $user_id,
-                'featured_image' => $image,
-                'post_status' => 0,
-                'post_date' => '2000-01-01 00:00:00',
-                'post_share_count' => 0,
-                'post_read_count' => 0,
-                'post_category_id' => $post_category_id
-            );
-            $this->Blog_models->insertpostDB($data);
-
-            $post_id = $this->db->insert_id();
-
-            foreach ($post_tag_name as $key => $value) {
-
-                $tag_name = $value;
-                $slug = str_replace(" ","-",$tag_name);
-                $tag_slug = strtolower($slug);
-
-                $data_tag = array(
-                    'post_tag_name' => $value,
-                    'post_id' => $post_id,
-                    'post_tag_slug' => $tag_slug
-
-                );
-                $this->Blog_models->insertTagDB($data_tag);
-            }
-
-            header('location:'.base_url().'member/article/add');
-            $this->session->set_flashdata("m", "<div align='center' class='alert alert-info'>Post Draft</div>");
-
         }
     }
 }

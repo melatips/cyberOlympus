@@ -24,7 +24,7 @@
     function fillgrid(){
         $.ajax({
             //url untuk grab gallery
-            url:'<?php echo base_url() ?>admin/blog/article/article_gallery',
+            url:window.location.origin+"admin/blog/article/article_gallery",
             type:'GET'
         }).done(function (data){
             //ambil id fillgrid dari blade

@@ -1,35 +1,45 @@
 @extends('template.AdminTemplate')
 
 @section('aside-title')
-	Article
+  Article
 @endsection
 
 @section('aside-subtitle')
-	Add New
+  Add New
 @endsection
 
 @section('content')
 <!-- modal add image -->
-	<div class="col-md-12 modal fade" id="add-image" role="dialog">
-    <h3>Image Gallery</h3>
-    <button type="button" class="btn btn-default" data-dismiss="modal" style="float:right;margin-top: -30px;"><span class="fa fa-close"></span></button>
-    <hr>
-    <div class="col-md-8">
-        <div id="fillgrid">
+  <div class="modal fade" id="add-image" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-body">
+          <div class="box-body">
+        <div class="col-md-12">
+          <h3>Image Gallery</h3>
+          <button type="button" class="btn btn-default" data-dismiss="modal" style="float:right;margin-top: -30px;"><span class="fa fa-close"></span></button>
+          <hr>
+          <div class="col-md-8">
+              <div id="fillgrid">
 
-        </div>
-    </div>
+              </div>
+          </div>
 
-    <div class="col-md-4">
-        <div id="loading-icon" align="center" style="display: none;">
-            <img src="" width="30px">
+          <div class="col-md-4">
+              <div id="loading-icon" align="center" style="display: none;">
+                  <img src="" width="30px">
+              </div>
+              <form name="uploadimageajax" id="uploadimageajax" >
+                  <input id="file_upload" style="color: white;" name="attachment_file" class="file_upload_icon" type="file"/>
+                  <input type="text" style="margin: 10px 0" name="desc" class="form-control" placeholder="Image title">
+                  <div id="loading"></div>
+                  <input type="button" class="btn btn-primary" value="Upload" onclick="return sendData()"/>
+              </form>
+          </div>
         </div>
-        <form name="uploadimageajax" id="uploadimageajax" >
-            <input id="file_upload" name="attachment_file" class="file_upload_icon" type="file"/>
-            <input type="text" name="desc" class="form-control" placeholder="Image title">
-            <div id="loading"></div>
-            <input type="button" class="btn btn-green" value="upload" onclick="return sendData()"/>
-        </form>
+      </div>
+      </div>
+      </div>
     </div>
   </div>
 
@@ -37,7 +47,7 @@
         <!-- general form elements -->
         <div class="box box-primary">
             <div class="box-header with-border">
-            	<h3 class="box-title">New Article</h3>
+              <h3 class="box-title">New Article</h3>
             </div>
             <!-- /.box-header -->
             <!-- form start -->
@@ -69,7 +79,7 @@
                     <div id="wysiwyg-panel">
                       <button type="button" class="btn btn-success" data-toggle="modal" data-target="#add-image" style="margin-bottom: 15px; margin-top: 15px;">Add Image</button>
 
-                      <textarea id="articleContent" name="content"></textarea>
+                      <textarea id="froalaid" name="content"></textarea>
                     </div>
                   </div>
                 </div>
@@ -99,12 +109,12 @@
           <!-- /.box -->
 
           <!-- <div class="col-md-12"> -->
-        	<input type="hidden" value="{{ csrf_token() }}" name="_token" />
-       		<button type="submit" class="btn btn-primary" >Save</button>
-       		<a href="{{url('/admin/blog')}}" class="btn btn-warning">Cancel</a>
-   		 <!-- </div> -->
-		</form>
-	</div>
+          <input type="hidden" value="{{ csrf_token() }}" name="_token" />
+          <button type="submit" class="btn btn-primary" >Save</button>
+          <a href="{{url('/admin/blog')}}" class="btn btn-warning">Cancel</a>
+       <!-- </div> -->
+    </form>
+  </div>
 @endsection
 
 @section('js')
@@ -117,5 +127,14 @@
     $(function () {
       $('.select2').select2()
     })
+  </script>
+
+  <script>
+    $(function() {
+      $('textarea#froalaid').froalaEditor({
+        // toolbarBottom: true,
+        toolbarButtons: ['fullscreen', 'bold', 'italic', 'underline', 'strikeThrough', 'subscript', 'superscript', 'fontFamily', 'fontSize', '|', 'color', 'emoticons', 'inlineStyle', 'paragraphStyle', '|', 'paragraphFormat', 'align', 'formatOL', 'formatUL', 'outdent', 'indent', '-', 'insertLink', 'insertImage', 'insertVideo', 'insertFile', 'insertTable', '|', 'quote', 'insertHR', 'undo', 'redo', 'clearFormatting', 'selectAll', 'html']
+      })
+    });
   </script>
 @endsection
