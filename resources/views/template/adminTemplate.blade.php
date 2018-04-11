@@ -33,15 +33,10 @@
   <!-- bootstrap wysihtml5 - text editor -->
   <link rel="stylesheet" href="{{asset('AdminLTE-2.4.3/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css')}}">
   <link rel="stylesheet" href="{{asset('AdminLTE-2.4.3/dist/css/style.css')}}">
-  <link rel="stylesheet" href="{{asset('froala/css/froala_editor.css')}}">
-  <link rel="stylesheet" href="{{asset('froala/css/froala_style.css')}}">
 
   <!-- jQuery 3 -->
 <script src="{{asset('AdminLTE-2.4.3/bower_components/jquery/dist/jquery.min.js')}}"></script>
 <script src="{{asset('tinymce/js/tinymce/tinymce.min.js')}}"></script>
-<!-- <script type="text/javascript" src="{{asset('froala/js/froala_editor.min.js')}}"></script> -->
-<script type="text/javascript" src="{{asset('froala/js/froala_editor.pkgd.min.js')}}"></script>
-
 
 @yield('css')
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -77,51 +72,7 @@
       </a>
 
       <div class="navbar-custom-menu">
-        <ul class="nav navbar-nav">
-          
-          <!-- Notifications: style can be found in dropdown.less -->
-          <!-- <li class="dropdown notifications-menu">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <i class="fa fa-bell-o"></i>
-              <span class="label label-warning">10</span>
-            </a>
-            <ul class="dropdown-menu">
-              <li class="header">You have 10 notifications</li>
-              <li>
-                
-                <ul class="menu">
-                  <li>
-                    <a href="#">
-                      <i class="fa fa-users text-aqua"></i> 5 new members joined today
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <i class="fa fa-warning text-yellow"></i> Very long description here that may not fit into the
-                      page and may cause design problems
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <i class="fa fa-users text-red"></i> 5 new members joined
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <i class="fa fa-shopping-cart text-green"></i> 25 sales made
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <i class="fa fa-user text-red"></i> You changed your username
-                    </a>
-                  </li>
-                </ul>
-              </li>
-              <li class="footer"><a href="#">View all</a></li>
-            </ul>
-          </li> -->
-          
+        <ul class="nav navbar-nav">          
           <!-- User Account: style can be found in dropdown.less -->
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -176,17 +127,6 @@
           <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
       </div>
-      <!-- search form -->
-      <!-- <form action="#" method="get" class="sidebar-form">
-        <div class="input-group">
-          <input type="text" name="q" class="form-control" placeholder="Search...">
-          <span class="input-group-btn">
-                <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
-                </button>
-              </span>
-        </div>
-      </form> -->
-      <!-- /.search form -->
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">MAIN NAVIGATION</li>

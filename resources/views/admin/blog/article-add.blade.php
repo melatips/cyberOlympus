@@ -117,11 +117,17 @@
   </div>
 @endsection
 
+@section('css')
+    <link rel="stylesheet" type="text/css" href="{{asset('froala/css/froala_editor.pkgd.css ')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('froala/css/froala_editor.min.css')}}">
+@endsection
+
 @section('js')
   <script src="{{asset('plugins/input-mask/jquery.inputmask.js')}}"></script>
   <script src="{{asset('plugins/input-mask/jquery.inputmask.date.extensions.js')}}"></script>
   <script src="{{asset('plugins/input-mask/jquery.inputmask.extensions.js')}}"></script>
-  <script src="{{asset('js/article.js')}}"></script>
+  <script type="text/javascript" src="{{asset('froala/js/froala_editor.pkgd.min.js')}}"></script>
+  <script type="text/javascript" src="{{asset('js/article.js')}}"></script>
 
   <script type="text/javascript">
     $(function () {
@@ -132,8 +138,19 @@
   <script>
     $(function() {
       $('textarea#froalaid').froalaEditor({
-        // toolbarBottom: true,
-        toolbarButtons: ['fullscreen', 'bold', 'italic', 'underline', 'strikeThrough', 'subscript', 'superscript', 'fontFamily', 'fontSize', '|', 'color', 'emoticons', 'inlineStyle', 'paragraphStyle', '|', 'paragraphFormat', 'align', 'formatOL', 'formatUL', 'outdent', 'indent', '-', 'insertLink', 'insertImage', 'insertVideo', 'insertFile', 'insertTable', '|', 'quote', 'insertHR', 'undo', 'redo', 'clearFormatting', 'selectAll', 'html']
+        toolbarButtons: ['fullscreen', 'bold', 'italic', 'underline', 'strikeThrough', 'subscript', 'superscript', 'fontFamily', 'fontSize', '|', 'color', 'emoticons', 'inlineStyle', 'paragraphStyle', '|', 'paragraphFormat', 'align', 'formatOL', 'formatUL', 'outdent', 'indent', '-', 'insertLink', 'insertImage', 'insertVideo', 'insertFile', 'insertTable', '|', 'quote', 'insertHR', 'undo', 'redo', 'clearFormatting', 'selectAll', 'html'],
+        height: 300,
+        imageUploadURL: '{{url('admin/blog/article/article-store')}}',
+        imageManagerLoadURL: '{{url('admin/blog/article/article-load')}}',
+        imageManagerDeleteURL: '{{url('admin/blog/article/article-destroy')}}',
+        imageUploadParams: {
+            froala: 'true',// This allows us to distinguish between Froala or a regular file upload.
+            _token: "{{ csrf_token() }}"// This passes the laravel token with the ajax request.
+        },
+        imageManagerDeleteParams: {
+          _method: "DELETE",
+            _token: "{{ csrf_token() }}"// This passes the laravel token with the ajax request.
+        }
       })
     });
   </script>

@@ -35,17 +35,31 @@
 	        </div>
         </div>
         <!-- /.box -->
-       	<a href="{{url('/admin/careers')}}" class="btn btn-info">Back</a>
+       	<a href="{{url('/admin/careers')}}" class="btn btn-primary">Back</a>
 	</div>
 @endsection
 
+@section('css')
+    <link rel="stylesheet" type="text/css" href="{{asset('froala/css/froala_editor.pkgd.css ')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('froala/css/froala_editor.min.css')}}">
+@endsection
+
 @section('js')
-	<script>
+	<script type="text/javascript" src="{{asset('froala/js/froala_editor.pkgd.min.js')}}"></script>
+    <script>
+      $(function() {
+        $('textarea#detail').froalaEditor({
+          // toolbarBottom: true,
+          toolbarButtons: ['fullscreen', 'bold', 'italic', 'underline', 'strikeThrough', 'subscript', 'superscript', 'fontFamily', 'fontSize', '|', 'color', 'emoticons', 'inlineStyle', 'paragraphStyle', '|', 'paragraphFormat', 'align', 'formatOL', 'formatUL', 'outdent', 'indent', '-', 'insertLink', 'insertImage', 'insertVideo', 'insertFile', 'insertTable', '|', 'quote', 'insertHR', 'undo', 'redo', 'clearFormatting', 'selectAll', 'html']
+        })
+      });
+    </script>
+<!-- 	<script>
 	  tinymce.init({
 	    selector: '#detail',
 	    readonly : 1,
 	    plugins: ["lists", "advlist"],
       	toolbar: "numlist bullist"
 	  });
-	</script>
+	</script> -->
 @endsection

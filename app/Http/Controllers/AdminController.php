@@ -65,7 +65,7 @@ class AdminController extends Controller
                 if(count($findArticle) == 0){
                     $saveArticle            = new Article;
                     $saveArticle->title     = strtolower($request->title);
-                    $saveArticle->intro   = $request->intro;
+                    $saveArticle->intro     = $request->intro;
                     $saveArticle->content   = $request->content;
                     $saveArticle->slug      = strtolower(str_replace(array(' ', '&', '.'), array('-', '', ''), $request->title));
 

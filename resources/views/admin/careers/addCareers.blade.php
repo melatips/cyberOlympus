@@ -26,7 +26,7 @@
                 </div>
                 <div class="form-group">
                   <label>Requirements</label>
-                  <textarea id="mytextarea" name="requirements"></textarea>
+                  <textarea id="addCareers" name="requirements"></textarea>
                 </div>
               </div>
               <!-- /.box-body -->
@@ -42,12 +42,26 @@
 	</div>
 @endsection
 
+@section('css')
+    <link rel="stylesheet" type="text/css" href="{{asset('froala/css/froala_editor.pkgd.css ')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('froala/css/froala_editor.min.css')}}">
+@endsection
+
 @section('js')
-	<script>
+    <script type="text/javascript" src="{{asset('froala/js/froala_editor.pkgd.min.js')}}"></script>
+    <script>
+      $(function() {
+        $('textarea#addCareers').froalaEditor({
+          // toolbarBottom: true,
+          toolbarButtons: ['fullscreen', 'bold', 'italic', 'underline', 'strikeThrough', 'subscript', 'superscript', 'fontFamily', 'fontSize', '|', 'color', 'emoticons', 'inlineStyle', 'paragraphStyle', '|', 'paragraphFormat', 'align', 'formatOL', 'formatUL', 'outdent', 'indent', '-', 'insertLink', 'insertImage', 'insertVideo', 'insertFile', 'insertTable', '|', 'quote', 'insertHR', 'undo', 'redo', 'clearFormatting', 'selectAll', 'html']
+        })
+      });
+    </script>
+<!-- 	<script>
 	  tinymce.init({
 	    selector: '#mytextarea',
       plugins: ["lists", "advlist"],
       toolbar: "numlist bullist"
 	  });
-	</script>
+	</script> -->
 @endsection
