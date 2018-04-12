@@ -17,6 +17,11 @@
 @section('showcase')
 	<section id="hero-sc" style="background: url('{{asset('images/showcase/new-leader/bg-hero.jpg')}}') no-repeat; background-size: cover; background-position: center; position: relative;">
 		<!-- <img src="{{asset('images/showcase/adhibuana/ab-logo.png')}}" class="img-responsive ab-logo"> -->
+		<div class="col-md-6 col-md-offset-6 col-sm-6 col-sm-offset-6 col-xs-6 col-xs-offset-6 new-leader-det">
+			<h3>{{$detail->title1_h3}}</h3>
+			<h2>{{$detail->title1_h2}}</h2>
+			<p>{{$detail->desc1}}</p>
+		</div>
 	</section>
 
 	<section id="new-leader">
@@ -26,7 +31,7 @@
 			</div>
 		</div>
 
-		<div class="col-md-6 col-sm-6 col-xs-12 new-leader-det">
+		<div class="col-md-6 col-sm-12 col-xs-12 new-leader-det2">
 			<h3>{{$detail->title2_h3}}</h3>
 			<h2>{{$detail->title2_h2}}</h2>
 			<p>{{$detail->desc2}}</p>

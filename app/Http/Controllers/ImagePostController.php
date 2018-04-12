@@ -21,18 +21,18 @@ class ImagePostController extends Controller
     public function index(ImagePost $dataTable)
     //ini bisa diganti gini kan?
     {
-        if (Request::Header('referer') == url('admin/blog/add')) {
+        if (Request::Header('referer') == url('admin/blog/article/article-load')) {
         	//referer sama post.create harus diganti apa?
             $response = [];
             $gambar   = ImagePost::all();
             foreach ($gambar as $row) {
                 $item = [
                 	//ini url sama thumb itu berarti kudu bikin routes dulu?
-                    'url'   => url('storage/img/' . $row->hash),
-                    'thumb' => url('storage/img/' . $row->hash),
+                    'url'   => asset('images/article/'. $row->hash)
+                    'thumb' => asset('images/article/'. $row->hash),
                     //ini nama kolomnya di tabel imagepost kan?
-                    'tag'   => $row->nama,
-                    'id'    => $row->id,
+                    'tag'   => $row->tag,
+                    'id'    => $row->id_image,
                 ];
                 array_push($response, $item);
             }
@@ -66,20 +66,27 @@ class ImagePostController extends Controller
 
         } else {
             $image = $request::file('file');
-
+            
             $imagepost = new ImagePost();
 
-            $imagepost->name     = $image->getClientOriginalName();
-            $imagepost->hash     = $image->hashName();
-            $imagepost->mimeType = str_replace('image/', '', $image->getMimeType());
-            $imagepost->size     = $image->getSize();
-            $imagepost->user_id  = Auth::User()->id;
+            $imagepost->hash 	= $image->hashName();
+            $imagepost->path 	= 'public/images/article/', $image->hashName();
+            $imagepost->id_user = Auth::User()->id;
+            $imagepost->thumb 	= 'public/images/article/thumbnail', $image->hashName();
+            $imagepost->tag 	= $request->tag;
+            $imagepost->status 	= "active";
+
+            // $imagepost->name     = $image->getClientOriginalName();
+            // $imagepost->hash     = $image->hashName();
+            // $imagepost->mimeType = str_replace('image/', '', $image->getMimeType());
+            // $imagepost->size     = $image->getSize();
+            // $imagepost->user_id  = Auth::User()->id;
 
             $imagepost->save();
 
-            $image->storeAs('public/img', $image->hashName());
+            $image->storeAs('public/images/article', $image->hashName());
 
-            return response()->json(['link' => url('storage/img/' . $image->hashName())]);
+            return response()->json(['link' => asset('images/article/' . $image->hashName())]);
         }
     }
 
