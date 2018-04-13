@@ -26,4 +26,8 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function getUpload(){
+        return $this->hasMany('App\ImagePost', 'id');
+    }
 }

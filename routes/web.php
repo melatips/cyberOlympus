@@ -57,17 +57,19 @@ Route::get('/admin/blog', 'AdminController@articleList');
 	Route::get('/admin/blog/add', 'AdminController@articleAdd');
 		Route::post('/admin/blog/save', 'AdminController@articleSave');
 	// Route::get('/admin/blog/{title}', 'AdminController@articleDetail');
-		Route::get('/admin/blog/article/{id}', 'AdminController@articleDetail');
+		
 	Route::get('/admin/blog/article/edit/{id}', 'AdminController@articleEdit');
 		Route::post('/admin/blog/article/update/{id}', 'AdminController@articleUpdate');
 	Route::get('admin/blog/article/delete/{id}', 'AdminController@articleDelete');
 
-//ROUTE UNTUK ARTICLE GALLERY
+// //ROUTE UNTUK ARTICLE GALLERY
 	Route::get('admin/blog/article/article_gallery', 'AdminController@article_gallery');
 
 	Route::post('admin/blog/article/article-store', 'ImagePostController@store');
 	Route::get('admin/blog/article/article-load', 'ImagePostController@index');
 	Route::delete('admin/blog/article/article-destroy/{id}', 'ImagePostController@destroy');
+
+	Route::get('/admin/blog/article/{id}', 'AdminController@articleDetail');
 
 Route::get('/admin/blog/category', 'AdminController@blogCat');
 	Route::post('admin/blog/category/save', 'AdminController@saveBlogCat');

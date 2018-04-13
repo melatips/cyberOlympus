@@ -6,9 +6,9 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\ImagePost;
 use Auth;
-use Request;
 use Validator;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class ImagePostController extends Controller
 {
@@ -18,19 +18,17 @@ class ImagePostController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(ImagePost $dataTable)
+    public function index(ImagePost $dataTable, Request $request){
     //ini bisa diganti gini kan?
-    {
-        if (Request::Header('referer') == url('admin/blog/article/article-load')) {
+    // dd(Request::class);
+        if ($request->Header('referer') == url('admin/blog/add')) {
         	//referer sama post.create harus diganti apa?
             $response = [];
             $gambar   = ImagePost::all();
             foreach ($gambar as $row) {
                 $item = [
-                	//ini url sama thumb itu berarti kudu bikin routes dulu?
-                    'url'   => asset('images/article/'. $row->hash)
+                    'url'   => asset('images/article/'. $row->hash),
                     'thumb' => asset('images/article/'. $row->hash),
-                    //ini nama kolomnya di tabel imagepost kan?
                     'tag'   => $row->tag,
                     'id'    => $row->id_image,
                 ];
@@ -58,33 +56,26 @@ class ImagePostController extends Controller
      */
     public function store(Request $request)
     {
-        $validator = Validator::make($request::all(), [
+        $validator = Validator::make($request->all(), [
             'file' => 'required|image',
         ]);
 
         if ($validator->fails()) {
 
         } else {
-            $image = $request::file('file');
+            $image = $request->file('file');
             
             $imagepost = new ImagePost();
 
             $imagepost->hash 	= $image->hashName();
-            $imagepost->path 	= 'public/images/article/', $image->hashName();
+            $imagepost->path 	= asset('images/article/'. $image->hashName());
             $imagepost->id_user = Auth::User()->id;
-            $imagepost->thumb 	= 'public/images/article/thumbnail', $image->hashName();
-            $imagepost->tag 	= $request->tag;
+            $imagepost->thumb 	= asset('images/article/thumbnail'. $image->hashName());
+            // $imagepost->tag 	= $request->tag;
             $imagepost->status 	= "active";
 
-            // $imagepost->name     = $image->getClientOriginalName();
-            // $imagepost->hash     = $image->hashName();
-            // $imagepost->mimeType = str_replace('image/', '', $image->getMimeType());
-            // $imagepost->size     = $image->getSize();
-            // $imagepost->user_id  = Auth::User()->id;
-
             $imagepost->save();
-
-            $image->storeAs('public/images/article', $image->hashName());
+			Storage::disk('uploads')->put('', $image);
 
             return response()->json(['link' => asset('images/article/' . $image->hashName())]);
         }

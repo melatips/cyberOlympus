@@ -90,7 +90,7 @@
             <div class="alert alert-danger" id="image-alert" style="display: none;">Opps, Gambar Masih Kosong</div>
 
             <div class="image-editor-3">
-                <input type="file" class="cropit-image-input" id="featured-image">
+                <input type="file" multiple class="cropit-image-input" id="featured-image" name="featured_image[]">
                 <label>* Best size min 960px with 2:3 ratio</label>
                 <!-- <div class="cropit-image-article"></div>
                 <div class="image-size-label">

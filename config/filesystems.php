@@ -45,7 +45,7 @@ return [
 
         'local' => [
             'driver' => 'local',
-            'root' => storage_path('app'),
+            'root' => storage_path(''),
         ],
 
         'public' => [
@@ -63,6 +63,11 @@ return [
             'bucket' => env('AWS_BUCKET'),
             'url' => env('AWS_URL'),
         ],
+
+        'uploads' => [
+            'driver' => 'local',
+            'root'   => public_path('/images/article'),
+        ]
 
     ],
 

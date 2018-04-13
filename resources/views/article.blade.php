@@ -13,8 +13,7 @@
 		<div class="container">
 			<div class="col-md-9 article">
 				<p class="article-date">{{date('D, F d, Y', strtotime($findArticle->created_at))}} | by : Cyber Olympus Team</p>
-				<p class="article-content"><span class="first-char">L</span> orem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-				<p class="article-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+				<p class="article-content"><span class="first-char">{{substr($findArticle->intro, 0,1)}}</span> {{substr($findArticle->intro, 1)}}</p>
 			</div>
 			<div class="col-md-3 related-article">
 				<p class="related"><strong>RELATED ARTICLE</strong></p>
@@ -30,6 +29,12 @@
 		<div class="container">
 			<div class="col-md-9 featured-img">
 				<img src="{{asset('images/blog/img1.jpg')}}" class="img-responsive">
+				@php($imgExp = explode(',',$findArticle->featured_image))
+				@if(count($imgExp)!=0)
+				@foreach($imgExp as $img)
+					<img src="{{asset('images/article/'.$img)}}">
+				@endforeach
+				@endif
 			</div>
 
 			<div class="col-md-3 featured-img">
@@ -42,7 +47,7 @@
 		<div class="container">
 			<div class="col-md-12 main-article">
 				<h3 class="article-quote">Lorem ipsum dolor sit amet, consectetur adipiscing elit</h3>
-				<p class="article-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+				<p class="article-content">{!!$findArticle->content!!}</p>
 			</div>
 
 			<div class="col-md-12 article-img2-box">

@@ -61,14 +61,19 @@ class AdminController extends Controller
             public function articleSave(Request $request){
                 $findArticle = Article::where('title', $request->title)
                                 ->get();
-                // return $findArticle;
                 if(count($findArticle) == 0){
                     $saveArticle            = new Article;
                     $saveArticle->title     = strtolower($request->title);
                     $saveArticle->intro     = $request->intro;
                     $saveArticle->content   = $request->content;
                     $saveArticle->slug      = strtolower(str_replace(array(' ', '&', '.'), array('-', '', ''), $request->title));
-
+                    $featured_image=[];
+                    if(count($request->featured_image)!=0){
+                        foreach ($request->featured_image as $value) {
+                            $featured_image[]=\Storage::disk('uploads')->put('',$value);
+                        }
+                    }
+                    $saveArticle->featured_image = implode(',',$featured_image);
                     $saveArticle->save();
 
                     $saveArticle->getCategoryArt()->attach($request->article_cat);
@@ -478,33 +483,4 @@ class AdminController extends Controller
                 return redirect('admin/basic-info')
                         ->with('status', 'Basic info updated successfully');
             }
-
-    //TAMBAHAN DARI AJAX-ACTION.PHP
-
-    public function article_gallery(){
-        $image_data = Showcase::all();
-
-        $i=0 ;
-
-        foreach($image_data as $image){
-
-            $html ="
-              <div class='col-md-4'>
-                <div class='post-image' style='max-height:140px; margin-top:5px; margin-bottom:5px; overflow:hidden'>
-                    <div class='media'> <img class='media__image img-responsive' src='".asset('images/showcase/bg/'.strtolower($image->file_name).'.jpg')."' />
-                      <div class='media__body no-padding' style='margin-top:-40px;'>
-                      <br>
-                      <a href='#' class='btn btn-green btn-xs add-image-to-text' id='link".$i."' data-value='".asset('images/showcase/bg/'.strtolower($image->file_name).'.jpg')."' data-url='".asset('images/showcase/bg/'.strtolower($image->file_name).'.jpg')."'";
-            $html .="><span class='fa fa-upload'></span> Add</a>
-                      <a href='#' class='btn btn-red btn-xs delete-image-ajax' id='del".$i."' data-url='".asset('images/showcase/bg/'.strtolower($image->file_name).'.jpg')."'";
-            $html .="><span class='fa fa-close'></span> Del</a>
-                      </div>
-                    </div>
-                </div>
-              </div>";
-
-            echo $html;
-            $i++;
-        }
-    }
 }
