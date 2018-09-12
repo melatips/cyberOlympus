@@ -10,7 +10,7 @@
 
 @section('content')
 <!-- modal add image -->
-  <div class="modal fade" id="add-image" tabindex="-1" role="dialog" aria-hidden="true">
+<!--   <div class="modal fade" id="add-image" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
       <div class="modal-content">
         <div class="modal-body">
@@ -41,8 +41,14 @@
       </div>
       </div>
     </div>
-  </div>
-
+  </div> -->
+    <style>
+      .class1 {
+        display: block;
+        max-width: 100%;
+        height: auto;
+      }
+    </style>
   <div class="col-md-12">
         <!-- general form elements -->
         <div class="box box-primary">
@@ -77,7 +83,7 @@
                   <label>Content</label>
                   <div id="editor-wysiwyg">
                     <div id="wysiwyg-panel">
-                      <button type="button" class="btn btn-success" data-toggle="modal" data-target="#add-image" style="margin-bottom: 15px; margin-top: 15px;">Add Image</button>
+                      <!-- <button type="button" class="btn btn-success" data-toggle="modal" data-target="#add-image" style="margin-bottom: 15px; margin-top: 15px;">Add Image</button> -->
 
                       <textarea id="froalaid" name="content"></textarea>
                     </div>
@@ -120,6 +126,7 @@
 @section('css')
     <link rel="stylesheet" type="text/css" href="{{asset('froala/css/froala_editor.pkgd.css ')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('froala/css/froala_editor.min.css')}}">
+    
 @endsection
 
 @section('js')
@@ -138,8 +145,11 @@
   <script>
     $(function() {
       $('textarea#froalaid').froalaEditor({
-        toolbarButtons: ['fullscreen', 'bold', 'italic', 'underline', 'strikeThrough', 'subscript', 'superscript', 'fontFamily', 'fontSize', '|', 'color', 'emoticons', 'inlineStyle', 'paragraphStyle', '|', 'paragraphFormat', 'align', 'formatOL', 'formatUL', 'outdent', 'indent', '-', 'insertLink', 'insertImage', 'insertVideo', 'insertFile', 'insertTable', '|', 'quote', 'insertHR', 'undo', 'redo', 'clearFormatting', 'selectAll', 'html'],
+        toolbarButtons: ['fullscreen', 'bold', 'italic', 'underline', 'strikeThrough', 'subscript', 'superscript', 'fontFamily', 'fontSize', '|', 'color', 'emoticons', 'inlineStyle', 'paragraphStyle', '|', 'paragraphFormat', 'align', 'formatOL', 'formatUL', 'outdent', 'indent', '-', 'insertLink', 'insertImage', 'insertVideo', 'insertTable', '|', 'quote', 'insertHR', 'undo', 'redo', 'clearFormatting', 'selectAll', 'html'],
         height: 300,
+        imageStyles: {
+          class1: 'Class 1'
+        },
         imageUploadURL: '{{url('admin/blog/article/article-store')}}',
         imageManagerLoadURL: '{{url('admin/blog/article/article-load')}}',
         imageManagerDeleteURL: '{{url('admin/blog/article/article-destroy')}}',
@@ -147,6 +157,7 @@
             froala: 'true',// This allows us to distinguish between Froala or a regular file upload.
             _token: "{{ csrf_token() }}"// This passes the laravel token with the ajax request.
         },
+        
         imageManagerDeleteParams: {
           _method: "DELETE",
             _token: "{{ csrf_token() }}"// This passes the laravel token with the ajax request.

@@ -24,7 +24,7 @@
 	            </div>
 	            <div class="form-group">
 	              <label>Icon</label>
-	              <img src="{{asset($detailCareers->icon)}}" style="display: block">
+	              <img src="{{asset($detailCareers->icon)}}" class="img-responsive" style="display: block">
 	            </div>
 	            <div class="form-group">
 	              <label>Requirements</label>
@@ -51,15 +51,8 @@
         $('textarea#detail').froalaEditor({
           // toolbarBottom: true,
           toolbarButtons: ['fullscreen', 'bold', 'italic', 'underline', 'strikeThrough', 'subscript', 'superscript', 'fontFamily', 'fontSize', '|', 'color', 'emoticons', 'inlineStyle', 'paragraphStyle', '|', 'paragraphFormat', 'align', 'formatOL', 'formatUL', 'outdent', 'indent', '-', 'insertLink', 'insertImage', 'insertVideo', 'insertFile', 'insertTable', '|', 'quote', 'insertHR', 'undo', 'redo', 'clearFormatting', 'selectAll', 'html']
-        })
+        }),
+        $('textarea#detail').froalaEditor('edit.off')
       });
     </script>
-<!-- 	<script>
-	  tinymce.init({
-	    selector: '#detail',
-	    readonly : 1,
-	    plugins: ["lists", "advlist"],
-      	toolbar: "numlist bullist"
-	  });
-	</script> -->
 @endsection

@@ -35,17 +35,7 @@
 		</div>
 	</section>
 
-	<section id="pouch-logo">
-		<div class="col-md-8 col-sm-8 col-xs-8 noe-logoc-bg">
-			<img src="{{asset('images/showcase/noe/color-logo.png')}}" class="img-responsive noe-logoc">
-		</div>
-		<div class="col-md-4 col-sm-4 col-xs-4 noe-logo-white">
-			<div class="col-md-12 col-sm-12 col-xs-12 noe-logo1-bg">
-				<img src="{{asset('images/showcase/noe/white-logo.png')}}" class="img-responsive noe-logo1">
-			</div>
-			<div class="col-md-12 col-sm-12 col-xs-12 noe-logo2-bg">
-				<img src="{{asset('images/showcase/noe/white-logo.png')}}" class="img-responsive noe-logo2">
-			</div>
-		</div>
+	<section id="big-menu">
+		<img src="{{asset('images/showcase/bg/p-pouch.jpg')}}" class="img-responsive big-menu">
 	</section>
 @endsection

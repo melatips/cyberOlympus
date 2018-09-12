@@ -39,6 +39,17 @@
                     @endforeach
                   </div>
                 </div>
+
+                <label>Intro</label>
+                <div class="form-group">
+                  <textarea name="intro" required="">{{$articleEdit->intro}}</textarea>
+                </div>
+
+                <div class="form-group">
+                  <label>Featured Image</label>
+                  <img src="{{asset('images/article/'.$articleEdit->featured_image)}}" class="img-responsive" style="display: block">
+                  <input type="file" name="featured_image[]">
+                </div>
                 
                 <div class="form-group">
                   <label>Content</label>

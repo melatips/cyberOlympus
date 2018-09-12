@@ -10,12 +10,12 @@
 @section('showcase')
 	@foreach($findSearch as $showcaseList)
 	<section class="showcase-list-id">
-		<img src="{{asset('images/showcase/bg/'.$showcaseList->file_name.'.jpg')}}" class="img-responsive all-showcase">
+		<img src="{{asset('images/showcase/bg/'.strtolower($showcaseList->file_name).'.jpg')}}" class="img-responsive all-showcase">
 
 		<div class="clearfix"></div>
 
 		<div class="list-view">
-			<a href="{{url('showcase/detail/'.$showcaseList->showcase_list_id)}}" class="view">View Detail <i class="fa fa-angle-right"></i><i class="fa fa-angle-right"></i></a>
+			<a href="{{url('showcase/detail/'.strtolower($showcaseList->file_name))}}" class="view">View Detail <i class="fa fa-angle-right"></i><i class="fa fa-angle-right"></i></a>
 		</div>
 	</section>
 	@endforeach

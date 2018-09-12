@@ -102,6 +102,11 @@
                   <label>Category Name</label>
                   <input type="text" class="form-control" name="category_name" required="" id="categoryInput">
                 </div>
+
+                <div class="form-group">
+                  <label>Icon</label>
+                  <input type="file" name="category_icon" required="">
+                </div>
               </div>
               <!-- /.box-body -->
           </div>
@@ -133,8 +138,12 @@
               <div class="box-body">
                 <div class="form-group">
                   <label>Category Name</label>
-                  <label class="namaKat"></label>
+                  <!-- <label class="namaKat"></label> -->
                   <input type="text" class="form-control blogCatName" name="category_name" required="">
+                </div>
+                <div class="form-group">
+                  <label>Icon</label>
+                  <input type="file" name="category_icon">
                 </div>
               </div>
               <!-- /.box-body -->

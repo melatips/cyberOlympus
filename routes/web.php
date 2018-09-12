@@ -45,8 +45,8 @@ Route::get('/coba', 'CyberController@careers');
 //SHOWCASE
 Route::get('/showcase/category', 'ShowcaseController@categoryList');
 Route::get('/showcase/all', 'ShowcaseController@allShowcase');
-Route::get('/showcase/list/{id}', 'ShowcaseController@showcaseList');
-Route::get('/showcase/detail/{id}', 'ShowcaseController@showcaseDetail');
+Route::get('/showcase/list/{name}', 'ShowcaseController@showcaseList');
+Route::get('/showcase/detail/{name}', 'ShowcaseController@showcaseDetail');
 
 //ADMIN
 Route::get('/admin', 'AdminController@contactUs');
@@ -100,6 +100,14 @@ Route::get('/admin/careers', 'AdminController@careers');
 	Route::get('/admin/careers/edit/{id}', 'AdminController@careersEdit');
 		Route::post('/admin/careers/update/{id}', 'AdminController@careersUpdate');
 	Route::get('/admin/careers/delete/{id}', 'AdminController@careersDelete');
+
+Route::get('/admin/about-us', 'AdminController@aboutUs');
+	Route::get('/admin/about-us/add', 'AdminController@aboutAdd');
+		Route::post('/admin/about-us/save', 'AdminController@aboutSave');
+	Route::get('/admin/about-us/detail/{year}', 'AdminController@aboutDetail');
+	Route::get('/admin/about-us/edit/{year}', 'AdminController@aboutEdit');
+		Route::post('/admin/about-us/update/{year}', 'AdminController@aboutUpdate');
+	Route::get('/admin/about-us/delete/{year}', 'AdminController@aboutDelete');
 
 Route::get('/admin/basic-info', 'AdminController@basicInfo');
 	Route::get('/admin/basic-info/edit', 'AdminController@basicEdit');

@@ -28,6 +28,11 @@
                   <label>Category</label>
                   <input type="" class="form-control" placeholder="@if (count($catArtName) != 0) @foreach ($catArtName as $key => $value) @if(count($catArtName) == 1 || $key==count($catArtName)-1) {{ucwords($value->category)}} @else {{ucwords($value->category)}}, @endif @endforeach @endif" name="" disabled>
                 </div>
+
+                <div class="form-group">
+                  <label>Featured Image</label>
+                  <img src="{{asset('images/article/'.$articleDet->featured_image)}}" class="img-responsive" style="display: block">
+                </div>
                 
                 <div class="form-group">
                   <label>Content</label>
@@ -76,7 +81,8 @@
       $('textarea#articleContent').froalaEditor({
         // toolbarBottom: true,
         toolbarButtons: ['fullscreen', 'bold', 'italic', 'underline', 'strikeThrough', 'subscript', 'superscript', 'fontFamily', 'fontSize', '|', 'color', 'emoticons', 'inlineStyle', 'paragraphStyle', '|', 'paragraphFormat', 'align', 'formatOL', 'formatUL', 'outdent', 'indent', '-', 'insertLink', 'insertImage', 'insertVideo', 'insertFile', 'insertTable', '|', 'quote', 'insertHR', 'undo', 'redo', 'clearFormatting', 'selectAll', 'html']
-      })
+      }),
+      $('textarea#articleContent').froalaEditor('edit.off');
     });
   </script>
 @endsection

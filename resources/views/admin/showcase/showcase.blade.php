@@ -73,9 +73,10 @@
                 @endif
               </td>
               <td>
-              	<a href="{{url('/showcase/detail/'.$showcaseList->showcase_list_id)}}" class="btn btn-primary" data-toggle="tooltip" title="Detail"><i class="fa fa-eye"></i></a>
+              	<a href="{{url('/showcase/detail/'.strtolower($showcaseList->file_name))}}" class="btn btn-primary" data-toggle="tooltip" title="Detail"><i class="fa fa-eye"></i></a>
               	<a href="{{url('/admin/showcase/edit/'.$showcaseList->showcase_list_id)}}" class="btn btn-success" data-toggle="tooltip" title="Edit"><i class="fa fa-pencil"></i></a>
-                <a href="{{url('/admin/showcase/delete/'.$showcaseList->showcase_list_id)}}" class="btn btn-danger" data-toggle="tooltip" title="Delete"><i class="fa fa-trash"></i></a>
+                <!-- <a href="{{url('/admin/showcase/delete/'.$showcaseList->showcase_list_id)}}" class="btn btn-danger" data-toggle="tooltip" title="Delete"><i class="fa fa-trash"></i></a> -->
+                <button type="button" data-toggle="modal" data-target="#deleteShowcase" data-target-id="{{$showcaseList->showcase_list_id}}" data-nama="{{$showcaseList->showcase_name}}" data-hapus="{{url('/admin/showcase/delete/'.$showcaseList->showcase_list_id)}}" class="btn btn-danger"><i class="fa fa-trash"></i></button>
               </td>
             </tr>
             @php
@@ -88,6 +89,38 @@
       <!-- /.box-body -->
     </div>
     <!-- /.box -->
+
+    <div class="modal fade" id="deleteShowcase" tabindex="-1" role="dialog" aria-labelledby="editCategory" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-sm" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title delShow" style="text-align: center;"></h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <!-- </.modal-header> -->
+          <div class="modal-body">
+            <form action="#" method="get" enctype="multipart/form-data">
+                {{ csrf_field() }}
+                <div class="box-body">
+                  <div class="form-group">
+                    <label style="text-align: center;">Are you sure you want to delete this showcase?</label>
+                  </div>
+                </div>
+                <!-- /.box-body -->
+            </div>
+            
+          <div class="modal-footer">
+            <input type="hidden" value="{{ csrf_token() }}" name="_token" />
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+            <button type="submit" class="btn btn-danger">Delete</button>
+          </div>
+          </form>
+        </div>
+        <!-- </.modal-content> -->
+      </div>
+    </div>
   </div>
 @endsection
 
@@ -102,5 +135,15 @@ $(document).ready( function () {
 $(document).ready(function(){
     $('[data-toggle="tooltip"]').tooltip();   
 });
+</script>
+
+<script type="text/javascript">
+  $(document).ready(function() {
+      $("#deleteShowcase").on("show.bs.modal", function(e) {
+        var id = $(e.relatedTarget).data('target-id');
+        $(this).find('form').attr('action',$(e.relatedTarget).data('hapus'));
+        $('.delShow').text("Showcase : " + $(e.relatedTarget).data('nama'));
+      });
+    });
 </script>
 @endsection

@@ -173,6 +173,12 @@
         </li>
 
         <li class="">
+          <a href="{{url('/admin/about-us')}}">
+            <i class="fa fa-home"></i> <span>About Us</span>
+          </a>
+        </li>
+
+        <li class="">
           <a href="{{url('/admin/basic-info')}}">
             <i class="fa fa-edit"></i> <span>Basic Info</span>
           </a>

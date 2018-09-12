@@ -35,6 +35,11 @@
 
     <div class="box">
       <div class="box-body">
+
+        <div class="form-group">
+          <label>Icon</label>
+          <img src="{{asset($categoryDetail->category_icon)}}" class="img-responsive" style="display: block; background-color: black;">
+        </div>
       	
         <table id="showCat" class="table table-bordered table-hover">
           <thead>

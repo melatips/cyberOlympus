@@ -31,66 +31,41 @@
         {{ $error }}
     </div>
     @endforeach
-      <!-- <div class="col-md-3">
-          <div class="box box-solid">
-            <div class="box-header with-border">
-              <h3 class="box-title">Folders</h3>
-
-              <div class="box-tools">
-                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-                </button>
-              </div>
-            </div>
-            <div class="box-body no-padding">
-              <ul class="nav nav-pills nav-stacked">
-                <li class="active"><a href="{{url('/admin/')}}"><i class="fa fa-inbox"></i> Inbox
-                  <span class="label label-primary pull-right">12</span></a></li>
-                <li><a href="#"><i class="fa fa-filter"></i> Junk <span class="label label-warning pull-right">65</span></a>
-                </li>
-                <li><a href="#"><i class="fa fa-trash-o"></i> Trash</a></li>
-              </ul>
-            </div>
-            
-          </div>
-          
-        </div> -->
-
         <div class="col-md-12">
           <div class="box box-primary">
             <div class="box-header with-border">
               <h3 class="box-title">Inbox</h3>
 
-              <div class="box-tools pull-right">
+              <!-- <div class="box-tools pull-right">
                 <div class="has-feedback">
                   <input type="text" class="form-control input-sm" placeholder="Search Mail">
                   <span class="glyphicon glyphicon-search form-control-feedback"></span>
                 </div>
-              </div>
+              </div> -->
               <!-- /.box-tools -->
             </div>
             <!-- /.box-header -->
             <div class="box-body no-padding">
-              <div class="mailbox-controls">
+              <!-- <div class="mailbox-controls"> -->
                 <!-- Check all button -->
-                <button type="button" class="btn btn-default btn-sm checkbox-toggle"><i class="fa fa-square-o"></i>
-                </button>
-                <div class="btn-group">
-                  <button type="button" class="btn btn-default btn-sm"><i class="fa fa-trash-o"></i></button>
+                <!-- <button type="button" class="btn btn-default btn-sm checkbox-toggle"><i class="fa fa-square-o"></i></button> -->
+                <!-- <div class="btn-group"> -->
+                  <!-- <button type="button" class="btn btn-default btn-sm"><i class="fa fa-trash-o"></i></button> -->
                   <!-- <button type="button" class="btn btn-default btn-sm"><i class="fa fa-reply"></i></button>
                   <button type="button" class="btn btn-default btn-sm"><i class="fa fa-share"></i></button> -->
-                </div>
+                <!-- </div> -->
                 <!-- /.btn-group -->
-                <a type="button" class="btn btn-default btn-sm" href="{{url('admin/')}}"><i class="fa fa-refresh"></i></a>
+                <!-- <a type="button" class="btn btn-default btn-sm" href="{{url('admin/')}}"><i class="fa fa-refresh"></i></a>
                 <div class="pull-right">
                   1 - {{count($contact)}} / {{count($contact)}}
                   <div class="btn-group">
                     <button type="button" class="btn btn-default btn-sm"><i class="fa fa-chevron-left"></i></button>
                     <button type="button" class="btn btn-default btn-sm"><i class="fa fa-chevron-right"></i></button>
-                  </div>
+                  </div> -->
                   <!-- /.btn-group -->
-                </div>
+                <!-- </div> -->
                 <!-- /.pull-right -->
-              </div>
+              <!-- </div> -->
               <div class="table-responsive mailbox-messages">
                 <table class="table table-hover table-striped">
                   <tbody>

@@ -27,31 +27,22 @@
 
 	<section id="featured-img">
 		<div class="container">
-			<div class="col-md-9 featured-img">
-				<img src="{{asset('images/blog/img1.jpg')}}" class="img-responsive">
+			<div class="col-md-12 featured-img">
 				@php($imgExp = explode(',',$findArticle->featured_image))
 				@if(count($imgExp)!=0)
 				@foreach($imgExp as $img)
-					<img src="{{asset('images/article/'.$img)}}">
+					<img src="{{asset('images/article/'.$img)}}"  class="img-responsive">
 				@endforeach
 				@endif
-			</div>
-
-			<div class="col-md-3 featured-img">
-				<img src="{{asset('images/blog/img2.jpg')}}" class="img-responsive">
 			</div>
 		</div>
 	</section>
 
 	<section id="main-article">
 		<div class="container">
-			<div class="col-md-12 main-article">
-				<h3 class="article-quote">Lorem ipsum dolor sit amet, consectetur adipiscing elit</h3>
-				<p class="article-content">{!!$findArticle->content!!}</p>
-			</div>
-
-			<div class="col-md-12 article-img2-box">
-				<img src="{{asset('images/blog/video.jpg')}}" class="img-responsive article-img2">
+			<div class="col-md-12 main-article showcase-font">
+				<!-- <h3 class="article-quote">Lorem ipsum dolor sit amet, consectetur adipiscing elit</h3> -->
+				{!!$findArticle->content!!}
 			</div>
 		</div>
 	</section>

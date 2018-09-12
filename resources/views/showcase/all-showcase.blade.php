@@ -15,7 +15,7 @@
 		<div class="clearfix"></div>
 
 		<div class="list-view">
-			<a href="{{url('showcase/detail/'.$showcase->showcase_list_id)}}" class="view">View Detail <i class="fa fa-angle-right"></i><i class="fa fa-angle-right"></i></a>
+			<a href="{{url('showcase/detail/'.strtolower($showcase->file_name))}}" class="view">View Detail <i class="fa fa-angle-right"></i><i class="fa fa-angle-right"></i></a>
 		</div>
 	</section>
 	@endforeach

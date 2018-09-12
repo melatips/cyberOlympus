@@ -12,6 +12,7 @@ use App\Careers;
 use App\Article;
 use App\ArtCat;
 use App\CategoryArt;
+use App\AboutUs;
 use App\Mail\SendMail;
 use Mail;
 
@@ -61,11 +62,16 @@ class CyberController extends Controller
     //FOOTER
 
     public function aboutUs(){
-        return view('coming-soon');
+        $aboutList = AboutUs::get();
+        return view('about-us')
+                ->with('aboutList', $aboutList);
     }
 
     public function blog(){
-        return view('coming-soon');
+        $allArticle = Article::get();
+        // return $allArticle;
+        return view('blog')
+                ->with('allArticle', $allArticle);
     }
 
         public function articleDetail($articleIDdet){

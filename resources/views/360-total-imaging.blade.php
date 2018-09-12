@@ -173,7 +173,6 @@
 				<button>SEND</button>
 			</div>
 		</div>
-		
 	</section>
 	<script type="text/javascript">
 		function myFunction() {

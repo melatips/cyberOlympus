@@ -13,6 +13,7 @@ use App\Careers;
 use App\Article;
 use App\CategoryArt;
 use App\ArtCat;
+use App\AboutUs;
 use File;
 use Image;
 use Carbon\Carbon;
@@ -115,8 +116,18 @@ class AdminController extends Controller
                 // return $articleUpdate->getBlogCat;
                 //                 return $request->article_cat;
                 $articleUpdate->title   = strtolower($request->title);
+                $articleUpdate->intro   = $request->intro;
                 $articleUpdate->slug    = strtolower(str_replace(array(' ', '&', '.'), array('-', '', ''), $request->title));
+                // $articleUpdate->featured_image = $request->featured_image;
                 $articleUpdate->content = $request->content;
+
+                $featured_image=[];
+                if(count($request->featured_image)!=0){
+                    foreach ($request->featured_image as $value) {
+                        $featured_image[]=\Storage::disk('uploads')->put('',$value);
+                    }
+                }
+                $articleUpdate->featured_image = implode(',',$featured_image);
 
                 $articleUpdate->save();
 
@@ -213,7 +224,21 @@ class AdminController extends Controller
             if(count($findCategory) == 0){
                 $saveCategory = new Category;
                 $saveCategory->category_name = $request->category_name;
-                $saveCategory->category_description = $request->category_description;
+                $saveCategory->slug = strtolower(str_replace(array(' ', '&', '.'), array('-', '', ''), $request->category_name));
+                
+                if($request->file('category_icon') != '')
+                {
+                    $file       = Input::file('category_icon');
+                    $name       = $file->getClientOriginalName();
+                    $filename   = strtolower(str_replace(array(' ', '&', '.'), array('-', '', ''), $request->category_name)). '.' . strtolower($file->getClientOriginalExtension());
+                    
+                    $path = 'images/showcase/all-categories';
+                    if(!File::exists($path)) {
+                        File::makeDirectory('images/showcase/all-categories/');
+                    }
+                    $file->move($path, $filename);
+                    $saveCategory->category_icon = $path.'/'. $filename;
+                }
 
                 $saveCategory->save();
                 return redirect('/admin/category')
@@ -236,7 +261,21 @@ class AdminController extends Controller
             public function updateCategory(Request $request){
                 $categoryUpdate = Category::find($request->id);
                 $categoryUpdate->category_name = $request->category_name;
-                $categoryUpdate->category_description = $request->category_description;
+                $categoryUpdate->slug = strtolower(str_replace(array(' ', '&', '.'), array('-', '', ''), $request->category_name));
+
+                if($request->file('category_icon') != '')
+                {
+                    $file       = Input::file('category_icon');
+                    $name       = $file->getClientOriginalName();
+                    $filename   = strtolower(str_replace(array(' ', '&', '.'), array('-', '', ''), $request->category_name)). '.' . strtolower($file->getClientOriginalExtension());
+                    
+                    $path = 'images/showcase/all-categories';
+                    if(!File::exists($path)) {
+                        File::makeDirectory('images/showcase/all-categories/');
+                    }
+                    $file->move($path, $filename);
+                    $categoryUpdate->category_icon = $path.'/'. $filename;
+                }
 
                 $categoryUpdate->save();
                 return redirect('admin/category')
@@ -455,6 +494,68 @@ class AdminController extends Controller
 
             return redirect('admin/careers')
                     ->with('status', 'Position deleted successfully');
+        }
+
+    public function aboutUs(){
+        $aboutList = AboutUs::get();
+        return view('admin.about.about-us')
+                ->with('aboutList', $aboutList);
+    }
+
+        public function aboutAdd(){
+            $year = Carbon::now()->format('Y');
+            // return $year;
+            return view('admin.about.addYear')
+                    ->with('year', $year);
+        }
+
+            public function aboutSave(Request $request){
+                $findYear = AboutUs::where('year', $request->year)
+                            ->get();
+                if(count($findYear) == 0){
+                    $saveAbout = new AboutUs;
+                    $saveAbout->year        = $request->year;
+                    $saveAbout->description = $request->description;
+
+                    $saveAbout->save();
+                }
+                return redirect('/admin/about-us')
+                        ->with('status', 'Year successfully added!');
+            }
+
+        public function aboutDetail($yearDet){
+            $detailAbout = AboutUs::where('year', $yearDet)
+                        ->first();
+            return view('admin.about.detailYear')
+                    ->with('detailAbout', $detailAbout);
+        }
+
+        public function aboutEdit($yearEdit){
+            $editAbout = AboutUs::where('year', $yearEdit)
+                        ->first();
+            $year = Carbon::now()->format('Y');
+            return view('admin.about.editYear')
+                    ->with('editAbout', $editAbout)
+                    ->with('year', $year);
+        }
+
+            public function aboutUpdate(Request $request){
+                $updateAbout = AboutUs::where('year', $request->year)
+                                ->first();
+                $updateAbout->description = $request->description;
+
+                $updateAbout->save();
+                return redirect('admin/about-us')
+                        ->with('status', 'Year updated successfully!');
+            }
+
+        public function aboutDelete($year){
+            $findYearDel = AboutUs::where('year', $year)
+                            ->first();
+            $findYearDel->delete();
+
+            return redirect('admin/about-us')
+                    ->with('status', 'Year deleted successfully');
         }
 
     public function basicInfo(){

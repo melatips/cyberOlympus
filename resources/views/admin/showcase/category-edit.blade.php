@@ -25,8 +25,8 @@
                   <input type="text" class="form-control" name="category_name" value="{{$categoryEdit->category_name}}">
                 </div>
                 <div class="form-group">
-                  <label for="exampleInputPassword1">Description</label>
-                  <input type="text" class="form-control" name="category_description" value="{{$categoryEdit->category_description}}">
+                  <label>Icon</label>
+                  <input type="file" name="category_icon">
                 </div>
               </div>
               <!-- /.box-body -->

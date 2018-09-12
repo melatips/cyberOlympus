@@ -1,7 +1,7 @@
 @extends('template.AdminTemplate')
 
 @section('aside-title')
-	Article Category : {{$catDetail->category}}
+	Article Category : {{ucwords($catDetail->category)}}
 @endsection
 
 @section('aside-subtitle')

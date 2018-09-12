@@ -16,7 +16,7 @@
 /*====================================================================================================================
 													  NAVBAR
 ====================================================================================================================*/
-@media screen and (min-width: 1366px){
+/*@media screen and (min-width: 1366px){
 	#header-landing{
 		background: rgba(0, 0, 0, 0.7);
 		width: 100%;
@@ -88,11 +88,6 @@
 		border-color: white;
 		transition: all .5s;
 	}
-
-	/*.search-icon{
-		color: white;
-		margin: auto 5px;
-	}*/
 }
 
 @media screen and (max-width: 1366px){
@@ -142,7 +137,7 @@
 	}
 
 	.search-box-index{
-	float: right;
+		float: right;
 	}
 
 	.search-input{
@@ -165,11 +160,6 @@
 		border-color: white;
 		transition: all .5s;
 	}
-
-	/*.search-icon{
-		color: white;
-		margin: auto 5px;
-	}*/
 }
 
 @media screen and (max-width: 992px){
@@ -214,15 +204,6 @@
 	    text-align: center;
 	    font-size: 14px;
 	}
-
-	/*.search-input{
-		background-color: transparent;
-		border-style: solid;
-		border-width: thin;
-		border-color: white;
-		border-radius: 3px;
-		width: 150px;
-	}*/
 }
 
 @media screen and (max-width: 768px){
@@ -250,7 +231,7 @@
 	}
 
 	.navbar-landing ul{
-		width: 30%;
+		width: 50%;
 		padding: 0;
 	}
 
@@ -266,7 +247,7 @@
 	    text-align: left;
 	    font-size: 14px;
 	}
-}
+}*/
 
 /*====================================================================================================================
 													LANDING PAGE
@@ -278,6 +259,24 @@
 
 #step, #showcase, #contact, #footer{
 	transition-delay: .3s;
+}
+
+.chev, .show-chev{
+	font-size: 3em;
+	transition: .3s;
+}
+
+.chev:hover, .show-chev:hover{
+	color: #d8d5d5;
+	transition: .3s;
+}
+
+.chev{
+	color: black;
+}
+
+.show-chev{
+	color: white;
 }
 
 @media screen and (min-width: 1366px){
@@ -1791,7 +1790,7 @@
 	}
 
 	.contact-title{
-		display: none;
+		font-size: 1.7em;
 	}
 
 	.title-hidden{
@@ -2000,7 +1999,76 @@
 /*====================================================================================================================
 										DR. THERESSIA, DRG. ANDHIKA, DR. TISYA
 ====================================================================================================================*/
-@media screen and (min-width: 1366px){}
+@media screen and (min-width: 1366px){
+
+	#hero-sc{
+		height: 650px;
+		background-repeat: no-repeat;
+		background-size: contain cover;
+	}
+
+	#profile{
+		height: 650px;
+		background-repeat: no-repeat;
+		background-size: contain cover;
+		}
+
+		#profile h2{
+			font-size: 50px;
+			font-family: 'quicksandregular';
+			margin-top: 150px;
+			margin-bottom: 30px;
+		}
+
+		#profile p{
+			font-size: 16px;
+			font-family: 'sf_ui__textregular';
+			text-align: justify;
+	}
+
+	#business-card{
+		background-color: #dcdadc;
+		height: 650px;
+		padding: 50px;
+		}
+
+		.img1{
+			position: absolute;
+			margin-left: 200px;
+			width: 35%;
+		}
+
+		.img2{
+			position: absolute;
+			margin: 200px 50px 200px 500px;
+			width: 35%;
+		}
+
+		.bc-hidden{
+			display: none;
+	}
+
+	#big-bc{
+		height: 650px;
+		background-repeat: no-repeat;
+		background-size: cover;
+		background-position: center;
+		}
+
+		.bc1-andhika, .bc2-andhika{
+			width: 70%;
+			height: auto;
+			margin-top: 25px;
+		}
+
+		.bc1-andhika{
+			margin-left: 180px;
+		}
+
+		.bc2-andhika{
+			left: 0;
+	}
+}
 
 @media screen and (max-width: 1366px){
 	#hero-sc{
@@ -2183,10 +2251,9 @@
 /*====================================================================================================================
 														SHOWCASE
 ====================================================================================================================*/
-@media screen and (min-width: 1366px){}
+@media screen and (min-width: 1366px){
 
-@media screen and (max-width: 1366px){
-	.butterfly h2, .book h2, .colour h2, .deer h2, .coffee h2, .colour-noe h2, .electricity h2, .crown h2, .colour-dg h2, #dwi-golden h2, .scaffolding h2, .bcp-hero h2, .bcp-main h2, .blue-dolphin-hero h2, .children h2, .enggal-jaya h2, .fox-hero h2, .fox-logo h2, .intec-hero h2, .intec-main h2, .irkon-hero h2, .irkon-main h2, .boss-katsu h2, .chuar-detail h2, .home-grab-hero h2, .home-grab-detail h2, .icompete-hero h2, .icompete-main h2, .icompete-tagline h2, .multi-profile h2, .multi-product h2, .sehati-hero h2, .sehati-main h2, .sehati-colour-text h2, .tick-main h2, .tick-travel h2, .kaiser-detail h2, .kaiser-detail-2 h2, .latoya-main h2, .luisa-main h2, .luisa-main-2 h2, .luisa-product h2, .pakelan-main-text h2, .pakelan-main-2 h2, .finder-main-text h2, .finder-main-2text h2, .new-leader-det h2, .new-leader-det2 h2{
+	.butterfly h2, .book h2, .colour h2, .deer h2, .coffee h2, .colour-noe h2, .electricity h2, .crown h2, .colour-dg h2, #dwi-golden h2, .scaffolding h2, .bcp-hero h2, .bcp-main h2, .blue-dolphin-hero h2, .children h2, .enggal-jaya h2, .fox-hero h2, .fox-logo h2, .intec-hero h2, .intec-main h2, .irkon-hero h2, .irkon-main h2, .boss-katsu h2, .chuar-detail h2, .home-grab-hero h2, .home-grab-detail h2, .icompete-hero h2, .icompete-main h2, .icompete-tagline h2, .multi-profile h2, .multi-product h2, .sehati-hero h2, .sehati-main h2, .sehati-colour-text h2, .tick-main h2, .tick-travel h2, .kaiser-detail h2, .kaiser-detail-2 h2, .latoya-main h2, .luisa-main h2, .luisa-main-2 h2, .luisa-product h2, .pakelan-main-text h2, .pakelan-main-2 h2, .finder-main-text h2, .finder-main-2text h2, .new-leader-det h2, .new-leader-det2 h2, .showcase-font h2{
 		font-family: 'quicksandregular';
 		font-size: 50px;
 		margin-bottom: 30px;
@@ -2194,13 +2261,47 @@
 		text-transform: uppercase;
 	}
 
-	.butterfly h3, .colour h3, .deer h3, .colour-noe h3, .electricity h3, .colour-dg h3, .bcp-hero h3, .bcp-main h3, .blue-dolphin-hero h3, .fox-hero h3, .fox-logo h3, .intec-hero h3, .intec-main h3, .irkon-hero h3, .irkon-main h3, .chuar-detail h3, .home-grab-hero h3, .home-grab-detail h3, .icompete-hero h3, .icompete-main h3, .icompete-tagline h3, .multi-profile h3, .multi-product h3, .sehati-hero h3, .sehati-main h3, .sehati-colour-text h3, .tick-main h3, .tick-travel h3, .kaiser-detail h3, .kaiser-detail-2 h3, .latoya-main h3, .luisa-main h3, .luisa-main-2 h3, .luisa-product h3, .pakelan-main-text h3, .pakelan-main-2 h3, .finder-main-text h3, .finder-main-2text h3, .new-leader-det h3, .new-leader-det2 h3{
+	.butterfly h3, .colour h3, .deer h3, .colour-noe h3, .electricity h3, .colour-dg h3, .bcp-hero h3, .bcp-main h3, .blue-dolphin-hero h3, .fox-hero h3, .fox-logo h3, .intec-hero h3, .intec-main h3, .irkon-hero h3, .irkon-main h3, .chuar-detail h3, .home-grab-hero h3, .home-grab-detail h3, .icompete-hero h3, .icompete-main h3, .icompete-tagline h3, .multi-profile h3, .multi-product h3, .sehati-hero h3, .sehati-main h3, .sehati-colour-text h3, .tick-main h3, .tick-travel h3, .kaiser-detail h3, .kaiser-detail-2 h3, .latoya-main h3, .luisa-main h3, .luisa-main-2 h3, .luisa-product h3, .pakelan-main-text h3, .pakelan-main-2 h3, .finder-main-text h3, .finder-main-2text h3, .new-leader-det h3, .new-leader-det2 h3, .showcase-font h3{
 		font-family: 'quicksandlight';
 		font-size: 35px;
 		margin-bottom: 0;
 	}
 
-	.butterfly p, .book p, .colour p, .deer p, .coffee p, .colour-noe p, .crown p, .colour-dg p, .electricity p, #dwi-golden p, .scaffolding p, .bcp-hero p, .bcp-main p, .blue-dolphin-hero p, .children p, .enggal-jaya p, .fox-hero p, .fox-logo p, .intec-hero p, .intec-main p, .irkon-hero p, .irkon-main p, .boss-katsu p, .chuar-detail p, .home-grab-hero p, .home-grab-detail p, .icompete-hero p, .icompete-main p, .multi-profile p, .multi-product p, .sehati-hero p, .sehati-main p, .sehati-colour-text p, .tick-main p, .tick-travel p, .kaiser-detail p, .kaiser-detail-2 p, .latoya-main p, .luisa-main p, .luisa-main-2 p, .luisa-product p, .pakelan-main-text p, .pakelan-main-2 p, .finder-main-text p, .finder-main-2text p, .new-leader-det p, .new-leader-det2 p{
+	.butterfly p, .book p, .colour p, .deer p, .coffee p, .colour-noe p, .crown p, .colour-dg p, .electricity p, #dwi-golden p, .scaffolding p, .bcp-hero p, .bcp-main p, .blue-dolphin-hero p, .children p, .enggal-jaya p, .fox-hero p, .fox-logo p, .intec-hero p, .intec-main p, .irkon-hero p, .irkon-main p, .boss-katsu p, .chuar-detail p, .home-grab-hero p, .home-grab-detail p, .icompete-hero p, .icompete-main p, .multi-profile p, .multi-product p, .sehati-hero p, .sehati-main p, .sehati-colour-text p, .tick-main p, .tick-travel p, .kaiser-detail p, .kaiser-detail-2 p, .latoya-main p, .luisa-main p, .luisa-main-2 p, .luisa-product p, .pakelan-main-text p, .pakelan-main-2 p, .finder-main-text p, .finder-main-2text p, .new-leader-det p, .new-leader-det2 p, .showcase-font p{
+		font-family: 'sf_ui__textregular';
+		font-size: 16px;
+	}
+
+	.circle1, .circle2, .circle1-noe, .circle2-noe, .circle1-dg, .circle2-dg, .circle1-sehati, .circle2-sehati, .circle3-sehati{
+		width: 50px;
+		height: 50px;
+		border-radius: 50%;
+		border-color: white;
+		border-style: solid;
+		border-width: thin;
+		float: left;
+		margin: auto;
+		margin-right: 25px;
+		margin-top: 20vh;
+	}
+}
+
+@media screen and (max-width: 1366px){
+	.butterfly h2, .book h2, .colour h2, .deer h2, .coffee h2, .colour-noe h2, .electricity h2, .crown h2, .colour-dg h2, #dwi-golden h2, .scaffolding h2, .bcp-hero h2, .bcp-main h2, .blue-dolphin-hero h2, .children h2, .enggal-jaya h2, .fox-hero h2, .fox-logo h2, .intec-hero h2, .intec-main h2, .irkon-hero h2, .irkon-main h2, .boss-katsu h2, .chuar-detail h2, .home-grab-hero h2, .home-grab-detail h2, .icompete-hero h2, .icompete-main h2, .icompete-tagline h2, .multi-profile h2, .multi-product h2, .sehati-hero h2, .sehati-main h2, .sehati-colour-text h2, .tick-main h2, .tick-travel h2, .kaiser-detail h2, .kaiser-detail-2 h2, .latoya-main h2, .luisa-main h2, .luisa-main-2 h2, .luisa-product h2, .pakelan-main-text h2, .pakelan-main-2 h2, .finder-main-text h2, .finder-main-2text h2, .new-leader-det h2, .new-leader-det2 h2, .showcase-font h2{
+		font-family: 'quicksandregular';
+		font-size: 50px;
+		margin-bottom: 30px;
+		margin-top: 0;
+		text-transform: uppercase;
+	}
+
+	.butterfly h3, .colour h3, .deer h3, .colour-noe h3, .electricity h3, .colour-dg h3, .bcp-hero h3, .bcp-main h3, .blue-dolphin-hero h3, .fox-hero h3, .fox-logo h3, .intec-hero h3, .intec-main h3, .irkon-hero h3, .irkon-main h3, .chuar-detail h3, .home-grab-hero h3, .home-grab-detail h3, .icompete-hero h3, .icompete-main h3, .icompete-tagline h3, .multi-profile h3, .multi-product h3, .sehati-hero h3, .sehati-main h3, .sehati-colour-text h3, .tick-main h3, .tick-travel h3, .kaiser-detail h3, .kaiser-detail-2 h3, .latoya-main h3, .luisa-main h3, .luisa-main-2 h3, .luisa-product h3, .pakelan-main-text h3, .pakelan-main-2 h3, .finder-main-text h3, .finder-main-2text h3, .new-leader-det h3, .new-leader-det2 h3, .showcase-font h3{
+		font-family: 'quicksandlight';
+		font-size: 35px;
+		margin-bottom: 0;
+	}
+
+	.butterfly p, .book p, .colour p, .deer p, .coffee p, .colour-noe p, .crown p, .colour-dg p, .electricity p, #dwi-golden p, .scaffolding p, .bcp-hero p, .bcp-main p, .blue-dolphin-hero p, .children p, .enggal-jaya p, .fox-hero p, .fox-logo p, .intec-hero p, .intec-main p, .irkon-hero p, .irkon-main p, .boss-katsu p, .chuar-detail p, .home-grab-hero p, .home-grab-detail p, .icompete-hero p, .icompete-main p, .multi-profile p, .multi-product p, .sehati-hero p, .sehati-main p, .sehati-colour-text p, .tick-main p, .tick-travel p, .kaiser-detail p, .kaiser-detail-2 p, .latoya-main p, .luisa-main p, .luisa-main-2 p, .luisa-product p, .pakelan-main-text p, .pakelan-main-2 p, .finder-main-text p, .finder-main-2text p, .new-leader-det p, .new-leader-det2 p, .showcase-font p{
 		font-family: 'sf_ui__textregular';
 		font-size: 16px;
 	}
@@ -2220,16 +2321,16 @@
 }
 
 @media screen and (min-width: 768px) and (max-width: 992px){
-	.butterfly h2, .book h2, .colour h2, .deer h2, .coffee h2, .colour-noe h2, .electricity h2, .crown h2, .colour-dg h2, #dwi-golden h2, .scaffolding h2, .bcp-hero h2, .blue-dolphin-hero h2, .children h2, .enggal-jaya h2, .fox-hero h2, .fox-logo h2, .intec-hero h2, .intec-main h2, .irkon-hero h2, .irkon-main h2, .boss-katsu h2, .chuar-detail h2, .home-grab-hero h2, .home-grab-detail h2, .icompete-hero h2, .icompete-main h2, .icompete-tagline h2, .multi-profile h2, .multi-product h2, .sehati-hero h2, .sehati-main h2, .sehati-colour-text h2, .tick-main h2, .tick-travel h2, .kaiser-detail h2, .kaiser-detail-2 h2, .latoya-main h2, .luisa-main h2, .luisa-main-2 h2, .luisa-product h2, .pakelan-main-text h2, .pakelan-main-2 h2, .finder-main-text h2, .finder-main-2text h2, .new-leader-det h2, .new-leader-det2 h2{
+	.butterfly h2, .book h2, .colour h2, .deer h2, .coffee h2, .colour-noe h2, .electricity h2, .crown h2, .colour-dg h2, #dwi-golden h2, .scaffolding h2, .bcp-hero h2, .blue-dolphin-hero h2, .children h2, .enggal-jaya h2, .fox-hero h2, .fox-logo h2, .intec-hero h2, .intec-main h2, .irkon-hero h2, .irkon-main h2, .boss-katsu h2, .chuar-detail h2, .home-grab-hero h2, .home-grab-detail h2, .icompete-hero h2, .icompete-main h2, .icompete-tagline h2, .multi-profile h2, .multi-product h2, .sehati-hero h2, .sehati-main h2, .sehati-colour-text h2, .tick-main h2, .tick-travel h2, .kaiser-detail h2, .kaiser-detail-2 h2, .latoya-main h2, .luisa-main h2, .luisa-main-2 h2, .luisa-product h2, .pakelan-main-text h2, .pakelan-main-2 h2, .finder-main-text h2, .finder-main-2text h2, .new-leader-det h2, .new-leader-det2 h2, .showcase-font h2{
 		font-size: 40px;
 		margin-bottom: 25px;
 	}
 
-	.butterfly h3, .colour h3, .deer h3, .colour-noe h3, .electricity h3, .colour-dg h3, #dwi-golden h3, .bcp-hero h3, .blue-dolphin-hero h3, .fox-hero h3, .fox-logo h3, .intec-hero h3, .intec-main h3, .irkon-hero h3, .irkon-main h3, .chuar-detail h3, .home-grab-hero h3, .home-grab-detail h3, .icompete-hero h3, .icompete-main h3, .icompete-tagline h3, .multi-profile h3, .multi-product h3, .sehati-hero h3, .sehati-main h3, .sehati-colour-text h3, .tick-main h3, .tick-travel h3, .kaiser-detail h3, .kaiser-detail-2 h3, .latoya-main h3, .luisa-main h3, .luisa-main-2 h3, .luisa-product h3, .pakelan-main-text h3, .pakelan-main-2 h3, .finder-main-text h3, .finder-main-2text h3, .new-leader-det h3, .new-leader-det2 h3{
+	.butterfly h3, .colour h3, .deer h3, .colour-noe h3, .electricity h3, .colour-dg h3, #dwi-golden h3, .bcp-hero h3, .blue-dolphin-hero h3, .fox-hero h3, .fox-logo h3, .intec-hero h3, .intec-main h3, .irkon-hero h3, .irkon-main h3, .chuar-detail h3, .home-grab-hero h3, .home-grab-detail h3, .icompete-hero h3, .icompete-main h3, .icompete-tagline h3, .multi-profile h3, .multi-product h3, .sehati-hero h3, .sehati-main h3, .sehati-colour-text h3, .tick-main h3, .tick-travel h3, .kaiser-detail h3, .kaiser-detail-2 h3, .latoya-main h3, .luisa-main h3, .luisa-main-2 h3, .luisa-product h3, .pakelan-main-text h3, .pakelan-main-2 h3, .finder-main-text h3, .finder-main-2text h3, .new-leader-det h3, .new-leader-det2 h3, .showcase-font h3{
 		font-size: 30px;
 	}
 
-	.butterfly p, .book p, .colour p, .deer p, .coffee p, .colour-noe p, .crown p, .colour-dg p, .electricity p, #dwi-golden p, .scaffolding p, .bcp-hero p, .blue-dolphin-hero p, .children p, .enggal-jaya p, .fox-hero p, .fox-logo p, .intec-hero p, .intec-main p, .irkon-hero p, .irkon-main p, .boss-katsu p, .chuar-detail p, .home-grab-hero p, .home-grab-detail p, .icompete-hero p, .icompete-main p, .multi-profile p, .multi-product p, .sehati-hero p, .sehati-main p, .sehati-colour-text p, .tick-main p, .tick-travel p, .kaiser-detail p, .kaiser-detail-2 p, .latoya-main p, .luisa-main p, .luisa-main-2 p, .luisa-product p, .pakelan-main-text p, .pakelan-main-2 p, .finder-main-text p, .finder-main-2text p, .new-leader-det p, .new-leader-det2 p{
+	.butterfly p, .book p, .colour p, .deer p, .coffee p, .colour-noe p, .crown p, .colour-dg p, .electricity p, #dwi-golden p, .scaffolding p, .bcp-hero p, .blue-dolphin-hero p, .children p, .enggal-jaya p, .fox-hero p, .fox-logo p, .intec-hero p, .intec-main p, .irkon-hero p, .irkon-main p, .boss-katsu p, .chuar-detail p, .home-grab-hero p, .home-grab-detail p, .icompete-hero p, .icompete-main p, .multi-profile p, .multi-product p, .sehati-hero p, .sehati-main p, .sehati-colour-text p, .tick-main p, .tick-travel p, .kaiser-detail p, .kaiser-detail-2 p, .latoya-main p, .luisa-main p, .luisa-main-2 p, .luisa-product p, .pakelan-main-text p, .pakelan-main-2 p, .finder-main-text p, .finder-main-2text p, .new-leader-det p, .new-leader-det2 p, .showcase-font p{
 		font-size: 14px;
 	}
 
@@ -2240,16 +2341,16 @@
 }
 
 @media screen and (min-width: 500px) and (max-width: 768px){
-	.butterfly h2, .book h2, .colour h2, .deer h2, .coffee h2, .colour-noe h2, .electricity h2, .crown h2, .colour-dg h2, #dwi-golden h2, .scaffolding h2, .bcp-hero h2, .bcp-main h2, .blue-dolphin-hero h2, .children h2, .enggal-jaya h2, .fox-hero h2, .fox-logo h2, .intec-hero h2, .intec-main h2, .irkon-hero h2, .irkon-main h2, .boss-katsu h2, .chuar-detail h2, .home-grab-hero h2, .home-grab-detail h2, .icompete-hero h2, .icompete-main h2, .icompete-tagline h2, .multi-profile h2, .multi-product h2, .sehati-hero h2, .sehati-main h2, .sehati-colour-text h2, .tick-main h2, .tick-travel h2, .kaiser-detail h2, .kaiser-detail-2 h2, .latoya-main h2, .luisa-main h2, .luisa-main-2 h2, .luisa-product h2, .pakelan-main-text h2, .pakelan-main-2 h2, .finder-main-text h2, .finder-main-2text h2, .new-leader-det h2, .new-leader-det2 h2{
+	.butterfly h2, .book h2, .colour h2, .deer h2, .coffee h2, .colour-noe h2, .electricity h2, .crown h2, .colour-dg h2, #dwi-golden h2, .scaffolding h2, .bcp-hero h2, .bcp-main h2, .blue-dolphin-hero h2, .children h2, .enggal-jaya h2, .fox-hero h2, .fox-logo h2, .intec-hero h2, .intec-main h2, .irkon-hero h2, .irkon-main h2, .boss-katsu h2, .chuar-detail h2, .home-grab-hero h2, .home-grab-detail h2, .icompete-hero h2, .icompete-main h2, .icompete-tagline h2, .multi-profile h2, .multi-product h2, .sehati-hero h2, .sehati-main h2, .sehati-colour-text h2, .tick-main h2, .tick-travel h2, .kaiser-detail h2, .kaiser-detail-2 h2, .latoya-main h2, .luisa-main h2, .luisa-main-2 h2, .luisa-product h2, .pakelan-main-text h2, .pakelan-main-2 h2, .finder-main-text h2, .finder-main-2text h2, .new-leader-det h2, .new-leader-det2 h2, .showcase-font h2{
 		font-size: 35px;
 		margin-bottom: 20px;
 	}
 
-	.butterfly h3, .colour h3, .deer h3, .colour-noe h3, .electricity h3, .colour-dg h3, #dwi-golden h3, .bcp-hero h3, .bcp-main h3, .blue-dolphin-hero h3, .fox-hero h3, .fox-logo h3, .intec-hero h3, .irkon-hero h3, .irkon-main h3, .chuar-detail h3, .home-grab-hero h3, .home-grab-detail h3, .icompete-hero h3, .icompete-main h3, .icompete-tagline h3, .multi-profile h3, .multi-product h3, .sehati-hero h3, .sehati-main h3, .sehati-colour-text h3, .tick-main h3, .tick-travel h3, .kaiser-detail h3, .kaiser-detail-2 h3, .latoya-main h3, .luisa-main h3, .luisa-main-2 h3, .luisa-product h3, .pakelan-main-text h3, .pakelan-main-2 h3, .finder-main-text h3, .finder-main-2text h3, .new-leader-det h3, .new-leader-det2 h3{
+	.butterfly h3, .colour h3, .deer h3, .colour-noe h3, .electricity h3, .colour-dg h3, #dwi-golden h3, .bcp-hero h3, .bcp-main h3, .blue-dolphin-hero h3, .fox-hero h3, .fox-logo h3, .intec-hero h3, .irkon-hero h3, .irkon-main h3, .chuar-detail h3, .home-grab-hero h3, .home-grab-detail h3, .icompete-hero h3, .icompete-main h3, .icompete-tagline h3, .multi-profile h3, .multi-product h3, .sehati-hero h3, .sehati-main h3, .sehati-colour-text h3, .tick-main h3, .tick-travel h3, .kaiser-detail h3, .kaiser-detail-2 h3, .latoya-main h3, .luisa-main h3, .luisa-main-2 h3, .luisa-product h3, .pakelan-main-text h3, .pakelan-main-2 h3, .finder-main-text h3, .finder-main-2text h3, .new-leader-det h3, .new-leader-det2 h3, .showcase-font h3{
 		font-size: 25px;
 	}
 
-	.butterfly p, .book p, .colour p, .deer p, .coffee p, .colour-noe p, .crown p, .colour-dg p, .electricity p, #dwi-golden p, .scaffolding p, .bcp-hero p, .bcp-main p, .blue-dolphin-hero p, .children p, .enggal-jaya p, .fox-hero p, .fox-logo p, .intec-hero p, .intec-main p, .irkon-hero p, .irkon-main p, .boss-katsu p, .chuar-detail p, .home-grab-hero p, .home-grab-detail p, .icompete-hero p, .icompete-main p, .multi-profile p, .multi-product p, .sehati-hero p, .sehati-main p, .sehati-colour-text p, .tick-main p, .tick-travel p, .kaiser-detail p, .kaiser-detail-2 p, .latoya-main p, .luisa-main p, .luisa-main-2 p, .luisa-product p, .pakelan-main-text p, .pakelan-main-2 p, .finder-main-text p, .finder-main-2text p, .new-leader-det p, .new-leader-det2 p{
+	.butterfly p, .book p, .colour p, .deer p, .coffee p, .colour-noe p, .crown p, .colour-dg p, .electricity p, #dwi-golden p, .scaffolding p, .bcp-hero p, .bcp-main p, .blue-dolphin-hero p, .children p, .enggal-jaya p, .fox-hero p, .fox-logo p, .intec-hero p, .intec-main p, .irkon-hero p, .irkon-main p, .boss-katsu p, .chuar-detail p, .home-grab-hero p, .home-grab-detail p, .icompete-hero p, .icompete-main p, .multi-profile p, .multi-product p, .sehati-hero p, .sehati-main p, .sehati-colour-text p, .tick-main p, .tick-travel p, .kaiser-detail p, .kaiser-detail-2 p, .latoya-main p, .luisa-main p, .luisa-main-2 p, .luisa-product p, .pakelan-main-text p, .pakelan-main-2 p, .finder-main-text p, .finder-main-2text p, .new-leader-det p, .new-leader-det2 p, .showcase-font p{
 		font-size: 12px;
 	}
 
@@ -2262,7 +2363,90 @@
 /*====================================================================================================================
 														PETRACO
 ====================================================================================================================*/
-@media screen and (min-width: 1366px){}
+@media screen and (min-width: 1366px){
+	#danaus{
+		background: url(../images/showcase/petraco/bg-hero.jpg) no-repeat;
+		background-size: cover;
+		height: 650px;
+		padding-top: 200px;/*
+		background-attachment: fixed;*/
+	}
+
+	.logo-petraco{
+		width: 60%;
+		margin: 0 auto;
+	}
+
+	.butterfly{
+		text-align: right;
+	}
+
+	#book{
+		background: url(../images/showcase/petraco/bg-book.jpg) no-repeat;
+		background-size: cover;
+		height: 650px;
+		padding-top: 200px;
+		transform: scale(1);
+	}
+
+	#colour{
+		background-color: #e80536;
+		height: 650px;
+	}
+
+	.butterfly-bg{
+		width: 100%;
+		background: url(../images/showcase/petraco/logo-kupu.png) no-repeat;
+		background-size: contain;
+		height: 650px;
+		position: absolute;
+		padding-top: 150px;
+		transform: scale(1);
+	}
+
+	.circle1 {
+	  	background: #da48aa;
+	  	margin-left: 20vw;
+	}
+
+	.circle2{
+		background: #e80332;
+	}
+
+	.colour{
+		text-align: right;
+		color: white;
+	}
+
+	#petraco-logo{
+		height: 650px;
+		text-align: center;
+	}
+
+	.color-logo{
+		padding: 100px;
+	}
+
+	.color-logo-img{
+		margin: 0 auto;
+	}
+
+	.white-logo{
+		padding: 0;
+	}
+
+	.white-logo1, .white-logo2{
+		padding: 70px;
+	}
+
+	.white-logo1{
+		background-color: #d94baf;
+	}
+
+	.white-logo2{
+		background-color: #e80536;
+	}
+}
 
 @media screen and (max-width: 1366px){
 	#danaus{
@@ -5797,5 +5981,103 @@
 
 	.new-leader-click{
 		margin-left: 0;
+	}
+}
+
+/*====================================================================================================================
+												PARAMON
+====================================================================================================================*/
+@media screen and (max-width: 1366px){
+	#paramon1{
+		background: url('../images/showcase/paramon/bg-1.jpg') no-repeat center;
+		height: 650px;
+	}
+
+	.paramon1{
+		margin: 150px 0 0;
+		background-color: rgba(255,255,255,0.5);
+		padding: 5vh 3vw;
+	}
+
+	#paramon2{
+		background: url('../images/showcase/paramon/bg-2.jpg') no-repeat center;
+		height: 650px;
+	}
+
+	.paramon2{
+		margin-top: 150px;
+		text-align: right;
+		background-color: rgba(0,0,0,0.5);
+		padding: 5vh 3vw;
+		color: white;
+	}
+
+	#paramon-click{
+		background: url('../images/showcase/paramon/bg-click.jpg') no-repeat center;
+		height: 650px;
+	}
+
+	.paramon-click-box{
+		margin-top: 50vh;
+		text-align: center;
+	}
+
+	.paramon-click{
+		background-color: white;
+		border-radius: .8vw;
+		color: black;
+		text-decoration: none;
+		font-size: 4vh;
+		padding: 1vh 1vw;
+		border-color: #a84e02;
+		border-style: solid;
+		transition: .3s all;
+	}
+
+	.paramon-click:hover{
+		text-decoration: none;
+		color: black;
+		padding: 1vh 4vw;
+		transition: .3s all;
+	}
+}
+
+@media screen and (max-width: 992px){
+	#paramon1, #paramon2, #paramon-click{
+		height: 600px;
+	}
+
+	.paramon1, .paramon2{
+		margin: 30vh 0 0;
+		text-align: center;
+	}
+}
+
+@media screen and (max-width: 768px){
+	#paramon1, #paramon2, #paramon-click{
+		height: 550px;
+	}
+
+	.paramon1, .paramon2{
+		margin: 30vh 0 0;
+		text-align: center;
+	}
+}
+
+/*====================================================================================================================
+												PIN IT PINS
+====================================================================================================================*/
+@media screen and (max-width: 1366px){
+	#pin1{
+		height: 650px;
+	}
+
+	.pin1{
+		margin: 150px 0 0 100px;
+	}
+
+	.pin-icon1, .pin-icon2, .pin-icon3{
+		position: absolute;
+		width: 40%;
 	}
 }

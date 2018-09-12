@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\ImagePost;
 use Auth;
 use Validator;
+use Image;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -19,8 +20,6 @@ class ImagePostController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index(ImagePost $dataTable, Request $request){
-    //ini bisa diganti gini kan?
-    // dd(Request::class);
         if ($request->Header('referer') == url('admin/blog/add')) {
         	//referer sama post.create harus diganti apa?
             $response = [];
@@ -28,7 +27,7 @@ class ImagePostController extends Controller
             foreach ($gambar as $row) {
                 $item = [
                     'url'   => asset('images/article/'. $row->hash),
-                    'thumb' => asset('images/article/'. $row->hash),
+                    'thumb' => asset('images/article/thumbnail/thumb-'. $row->hash),
                     'tag'   => $row->tag,
                     'id'    => $row->id_image,
                 ];
@@ -64,6 +63,7 @@ class ImagePostController extends Controller
 
         } else {
             $image = $request->file('file');
+            $thumb = Image::make($image->getRealPath())->resize(320, 240)->save('images/article/thumbnail/thumb-'.$image->hashName());
             
             $imagepost = new ImagePost();
 
@@ -76,6 +76,7 @@ class ImagePostController extends Controller
 
             $imagepost->save();
 			Storage::disk('uploads')->put('', $image);
+			// Storage::disk('uploads')->put('thumb-'.$image->hashName(), $thumb);
 
             return response()->json(['link' => asset('images/article/' . $image->hashName())]);
         }

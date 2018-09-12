@@ -8,6 +8,7 @@ class Article extends Model
 {
     protected $table 		= 'article';
     protected $primaryKey 	= 'id_article';
+    protected $fillable = [];
 
     //1 article punya banyak category
     public function getCategoryArt(){

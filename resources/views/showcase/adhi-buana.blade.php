@@ -22,7 +22,7 @@
 	<section id="scaffolding">
 		<div class="container ">
 			<div class="col-md-6 col-sm-6 col-xs-6 scaffolding">
-				<h2>{{$detail->title1}}</h2>
+				<h2>{{$detail->title1_h2}}</h2>
 				<p>{{$detail->desc1}}</p>
 			</div>
 			<div class="col-md-6 col-sm-6 col-xs-6">
